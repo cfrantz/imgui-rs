@@ -358,6 +358,13 @@ impl<'ui> Ui<'ui> {
             unsafe { sys::igEndPopup() };
         }
     }
+
+    pub fn popup_context_item<'p>(&self, str_id: &'p ImStr) -> bool {
+        unsafe { sys::igBeginPopupContextItem(str_id.as_ptr(), 1) }
+    }
+    pub fn end_popup(&self) {
+            unsafe { sys::igEndPopup() };
+    }
     /// Create a modal pop-up.
     ///
     /// # Example
