@@ -1,0 +1,20 @@
+# How to update
+
+cd imgui-sys/src/third_party
+rm -rf imgui
+
+Check out cimgui and `git submodule update --init --recursive`
+Check out cimgui branch docking_inter
+ln -s cimgui/imgui imgui
+cd imgui
+checkout docking branch
+cd ..
+update-cimgui-output.sh ./cimgui
+
+cd ../../..
+cd imgui-sys-bindgen
+cargo run
+cd ..
+cargo build
+
+clean up until tests pass.  Mostly struct alignment stuff.
