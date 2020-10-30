@@ -82,7 +82,8 @@ pub fn dear_imgui_version() -> &'static str {
 
 #[test]
 fn test_version() {
-    assert_eq!(dear_imgui_version(), "1.78");
+    // FIXME(cfrantz): docking branch
+    assert_eq!(dear_imgui_version(), "1.79");
 }
 
 impl Context {
@@ -192,6 +193,28 @@ pub enum Id<'a> {
     Int(i32),
     Str(&'a str),
     Ptr(*const c_void),
+    ImGuiID(sys::ImGuiID),
+}
+
+// Convert 'Id' to ImGuiID for DockSpace functions.
+impl<'a> Id<'a> {
+    fn as_imgui_id(&self) -> sys::ImGuiID {
+        unsafe {
+            match self {
+                Id::Ptr(p) => sys::igGetIDPtr(*p),
+                Id::Str(s) => {
+                    let s1 = s.as_ptr() as *const std::os::raw::c_char;
+                    let s2 = s1.add(s.len());
+                    sys::igGetIDStrStr(s1, s2)
+                }
+                Id::Int(i) => {
+                    let p = *i as *const ::std::os::raw::c_void;
+                    sys::igGetIDPtr(p)
+                }
+                Id::ImGuiID(n) => *n,
+            }
+        }
+    }
 }
 
 impl From<i32> for Id<'static> {
@@ -341,6 +364,54 @@ impl<'ui> Ui<'ui> {
         self.tooltip(|| self.text(text));
     }
 }
+
+
+
+// TODO(cfrantz): Finish the docking API
+// Docking
+impl<'ui> Ui<'ui> {
+    pub fn dock_space(&self, id: Id, size: [f32; 2]) {
+        unsafe {
+            sys::igDockSpace(id.as_imgui_id(), size.into(), 0, std::ptr::null());
+        }
+    }
+
+//    pub fn dock_space_over_viewport() -> ImGuiID {
+//        pub fn igDockSpaceOverViewport(
+//            viewport: *mut ImGuiViewport,
+//            flags: ImGuiDockNodeFlags,
+//            window_class: *const ImGuiWindowClass,
+//        ) -> ImGuiID;
+//    }
+
+    pub fn set_next_window_dock_id(&self, id: Id, cond: Condition) {
+        unsafe {
+            sys::igSetNextWindowDockID(id.as_imgui_id(), cond as i32);
+        }
+    }
+
+//    pub fn set_next_window_class() {
+//        igSetNextWindowClass(window_class: *const ImGuiWindowClass);
+//    }
+
+    pub fn get_window_dock_id(&self) -> Id {
+        unsafe {
+            Id::ImGuiID(sys::igGetWindowDockID())
+        }
+    }
+    pub fn is_window_docked(&self) -> bool {
+        unsafe {
+            sys::igIsWindowDocked()
+        }
+    }
+}
+
+
+
+
+
+
+
 
 // Widgets: Popups
 impl<'ui> Ui<'ui> {

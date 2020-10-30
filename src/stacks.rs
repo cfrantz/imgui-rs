@@ -384,6 +384,7 @@ impl<'ui> Ui<'ui> {
         unsafe {
             match id {
                 Id::Int(i) => sys::igPushIDInt(i),
+                Id::ImGuiID(i) => sys::igPushIDInt(i as i32),
                 Id::Str(s) => {
                     let start = s.as_ptr() as *const c_char;
                     let end = start.add(s.len());

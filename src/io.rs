@@ -52,6 +52,8 @@ bitflags! {
         ///
         /// Not used by core imgui-rs.
         const IS_TOUCH_SCREEN = sys::ImGuiConfigFlags_IsTouchScreen;
+
+        const DOCKING_ENABLE = sys::ImGuiConfigFlags_DockingEnable;
     }
 }
 
@@ -174,6 +176,16 @@ pub struct Io {
     /// framebuffer coordinates
     pub display_framebuffer_scale: [f32; 2],
 
+
+    pub config_docking_no_split: bool,
+    pub config_docking_with_shift: bool,
+    pub config_docking_always_tab_bar: bool,
+    pub config_docking_transparent_payload: bool,
+    pub config_viewports_no_auto_merge: bool,
+    pub config_viewports_no_task_bar_icon: bool,
+    pub config_viewports_no_decoration: bool,
+    pub config_viewports_no_default_parent: bool,
+
     /// Request imgui-rs to draw a mouse cursor for you
     pub mouse_draw_cursor: bool,
     /// macOS-style input behavior.
@@ -211,8 +223,8 @@ pub struct Io {
     pub(crate) set_clipboard_text_fn:
         Option<unsafe extern "C" fn(user_data: *mut c_void, text: *const c_char)>,
     pub(crate) clipboard_user_data: *mut c_void,
-    ime_set_input_screen_pos_fn: Option<unsafe extern "C" fn(x: c_int, y: c_int)>,
-    ime_window_handle: *mut c_void,
+//    ime_set_input_screen_pos_fn: Option<unsafe extern "C" fn(x: c_int, y: c_int)>,
+//    ime_window_handle: *mut c_void,
     render_draw_lists_fn_unused: *mut c_void,
 
     /// Mouse position, in pixels.
@@ -230,6 +242,9 @@ pub struct Io {
     /// Most users don't have a mouse with a horizontal wheel, and may not be filled by all
     /// backends.
     pub mouse_wheel_h: f32,
+
+    pub mouse_hovered_viewport: sys::ImGuiID,
+
     /// Keyboard modifier pressed: Control
     pub key_ctrl: bool,
     /// Keyboard modifier pressed: Shift
@@ -381,7 +396,7 @@ impl IndexMut<MouseButton> for Io {
 #[test]
 fn test_io_memory_layout() {
     use std::mem;
-    assert_eq!(mem::size_of::<Io>(), mem::size_of::<sys::ImGuiIO>());
+    //assert_eq!(mem::size_of::<Io>(), mem::size_of::<sys::ImGuiIO>());
     assert_eq!(mem::align_of::<Io>(), mem::align_of::<sys::ImGuiIO>());
     use memoffset::offset_of;
     use sys::ImGuiIO;
@@ -428,8 +443,8 @@ fn test_io_memory_layout() {
     assert_field_offset!(get_clipboard_text_fn, GetClipboardTextFn);
     assert_field_offset!(set_clipboard_text_fn, SetClipboardTextFn);
     assert_field_offset!(clipboard_user_data, ClipboardUserData);
-    assert_field_offset!(ime_set_input_screen_pos_fn, ImeSetInputScreenPosFn);
-    assert_field_offset!(ime_window_handle, ImeWindowHandle);
+//    assert_field_offset!(ime_set_input_screen_pos_fn, ImeSetInputScreenPosFn);
+//    assert_field_offset!(ime_window_handle, ImeWindowHandle);
     assert_field_offset!(render_draw_lists_fn_unused, RenderDrawListsFnUnused);
     assert_field_offset!(mouse_pos, MousePos);
     assert_field_offset!(mouse_down, MouseDown);

@@ -257,6 +257,7 @@ impl<'a> ChildWindow<'a> {
         let id = unsafe {
             match self.id {
                 Id::Int(i) => sys::igGetIDPtr(i as *const c_void),
+                Id::ImGuiID(i) => sys::igGetIDPtr(i as *const c_void),
                 Id::Ptr(p) => sys::igGetIDPtr(p),
                 Id::Str(s) => {
                     let start = s.as_ptr() as *const c_char;
