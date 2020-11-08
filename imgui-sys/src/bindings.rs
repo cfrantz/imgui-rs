@@ -87,14 +87,374 @@ where
     }
 }
 pub type __uint64_t = ::std::os::raw::c_ulong;
+pub type __off_t = ::std::os::raw::c_long;
+pub type __off64_t = ::std::os::raw::c_long;
+pub type FILE = _IO_FILE;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct ImGuiContext {
+pub struct _IO_marker {
     _unused: [u8; 0],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct ImDrawListSharedData {
+pub struct _IO_codecvt {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _IO_wide_data {
+    _unused: [u8; 0],
+}
+pub type _IO_lock_t = ::std::os::raw::c_void;
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct _IO_FILE {
+    pub _flags: ::std::os::raw::c_int,
+    pub _IO_read_ptr: *mut ::std::os::raw::c_char,
+    pub _IO_read_end: *mut ::std::os::raw::c_char,
+    pub _IO_read_base: *mut ::std::os::raw::c_char,
+    pub _IO_write_base: *mut ::std::os::raw::c_char,
+    pub _IO_write_ptr: *mut ::std::os::raw::c_char,
+    pub _IO_write_end: *mut ::std::os::raw::c_char,
+    pub _IO_buf_base: *mut ::std::os::raw::c_char,
+    pub _IO_buf_end: *mut ::std::os::raw::c_char,
+    pub _IO_save_base: *mut ::std::os::raw::c_char,
+    pub _IO_backup_base: *mut ::std::os::raw::c_char,
+    pub _IO_save_end: *mut ::std::os::raw::c_char,
+    pub _markers: *mut _IO_marker,
+    pub _chain: *mut _IO_FILE,
+    pub _fileno: ::std::os::raw::c_int,
+    pub _flags2: ::std::os::raw::c_int,
+    pub _old_offset: __off_t,
+    pub _cur_column: ::std::os::raw::c_ushort,
+    pub _vtable_offset: ::std::os::raw::c_schar,
+    pub _shortbuf: [::std::os::raw::c_char; 1usize],
+    pub _lock: *mut _IO_lock_t,
+    pub _offset: __off64_t,
+    pub _codecvt: *mut _IO_codecvt,
+    pub _wide_data: *mut _IO_wide_data,
+    pub _freeres_list: *mut _IO_FILE,
+    pub _freeres_buf: *mut ::std::os::raw::c_void,
+    pub __pad5: usize,
+    pub _mode: ::std::os::raw::c_int,
+    pub _unused2: [::std::os::raw::c_char; 20usize],
+}
+#[test]
+fn bindgen_test_layout__IO_FILE() {
+    assert_eq!(
+        ::std::mem::size_of::<_IO_FILE>(),
+        216usize,
+        concat!("Size of: ", stringify!(_IO_FILE))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<_IO_FILE>(),
+        8usize,
+        concat!("Alignment of ", stringify!(_IO_FILE))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._flags as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_flags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._IO_read_ptr as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_read_ptr)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._IO_read_end as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_read_end)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._IO_read_base as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_read_base)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._IO_write_base as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_write_base)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._IO_write_ptr as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_write_ptr)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._IO_write_end as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_write_end)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._IO_buf_base as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_buf_base)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._IO_buf_end as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_buf_end)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._IO_save_base as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_save_base)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._IO_backup_base as *const _ as usize },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_backup_base)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._IO_save_end as *const _ as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_IO_save_end)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._markers as *const _ as usize },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_markers)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._chain as *const _ as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_chain)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._fileno as *const _ as usize },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_fileno)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._flags2 as *const _ as usize },
+        116usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_flags2)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._old_offset as *const _ as usize },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_old_offset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._cur_column as *const _ as usize },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_cur_column)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._vtable_offset as *const _ as usize },
+        130usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_vtable_offset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._shortbuf as *const _ as usize },
+        131usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_shortbuf)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._lock as *const _ as usize },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_lock)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._offset as *const _ as usize },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_offset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._codecvt as *const _ as usize },
+        152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_codecvt)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._wide_data as *const _ as usize },
+        160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_wide_data)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._freeres_list as *const _ as usize },
+        168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_freeres_list)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._freeres_buf as *const _ as usize },
+        176usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_freeres_buf)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>())).__pad5 as *const _ as usize },
+        184usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(__pad5)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._mode as *const _ as usize },
+        192usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_mode)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<_IO_FILE>()))._unused2 as *const _ as usize },
+        196usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(_IO_FILE),
+            "::",
+            stringify!(_unused2)
+        )
+    );
+}
+impl Default for _IO_FILE {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ImGuiDockNodeSettings {
+    _unused: [u8; 0],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ImGuiDockRequest {
     _unused: [u8; 0],
 }
 pub type ImGuiCol = ::std::os::raw::c_int;
@@ -102,6 +462,7 @@ pub type ImGuiCond = ::std::os::raw::c_int;
 pub type ImGuiDataType = ::std::os::raw::c_int;
 pub type ImGuiDir = ::std::os::raw::c_int;
 pub type ImGuiKey = ::std::os::raw::c_int;
+pub type ImGuiNavInput = ::std::os::raw::c_int;
 pub type ImGuiMouseButton = ::std::os::raw::c_int;
 pub type ImGuiMouseCursor = ::std::os::raw::c_int;
 pub type ImGuiStyleVar = ::std::os::raw::c_int;
@@ -136,13 +497,129 @@ pub type ImGuiSizeCallback =
     ::std::option::Option<unsafe extern "C" fn(data: *mut ImGuiSizeCallbackData)>;
 pub type ImWchar16 = ::std::os::raw::c_ushort;
 pub type ImWchar = ImWchar16;
+pub type ImS8 = ::std::os::raw::c_schar;
 pub type ImU8 = ::std::os::raw::c_uchar;
+pub type ImS16 = ::std::os::raw::c_short;
 pub type ImU32 = ::std::os::raw::c_uint;
 pub type ImU64 = u64;
 pub type ImDrawCallback = ::std::option::Option<
     unsafe extern "C" fn(parent_list: *const ImDrawList, cmd: *const ImDrawCmd),
 >;
 pub type ImDrawIdx = ::std::os::raw::c_ushort;
+pub type ImGuiDataAuthority = ::std::os::raw::c_int;
+pub type ImGuiLayoutType = ::std::os::raw::c_int;
+pub type ImGuiColumnsFlags = ::std::os::raw::c_int;
+pub type ImGuiItemFlags = ::std::os::raw::c_int;
+pub type ImGuiItemStatusFlags = ::std::os::raw::c_int;
+pub type ImGuiNavHighlightFlags = ::std::os::raw::c_int;
+pub type ImGuiNavDirSourceFlags = ::std::os::raw::c_int;
+pub type ImGuiNavMoveFlags = ::std::os::raw::c_int;
+pub type ImGuiNextItemDataFlags = ::std::os::raw::c_int;
+pub type ImGuiNextWindowDataFlags = ::std::os::raw::c_int;
+pub type ImGuiSeparatorFlags = ::std::os::raw::c_int;
+pub type ImGuiTextFlags = ::std::os::raw::c_int;
+pub type ImGuiTooltipFlags = ::std::os::raw::c_int;
+pub type ImFileHandle = *mut FILE;
+pub type ImPoolIdx = ::std::os::raw::c_int;
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiWindowSettings {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiWindowSettings,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiWindowSettings() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiWindowSettings>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiWindowSettings))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiWindowSettings>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiWindowSettings))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiWindowSettings>())).Size as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiWindowSettings),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiWindowSettings>())).Capacity as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiWindowSettings),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiWindowSettings>())).Data as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiWindowSettings),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiWindowSettings {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImChunkStream_ImGuiWindowSettings {
+    pub Buf: ImVector_ImGuiWindowSettings,
+}
+#[test]
+fn bindgen_test_layout_ImChunkStream_ImGuiWindowSettings() {
+    assert_eq!(
+        ::std::mem::size_of::<ImChunkStream_ImGuiWindowSettings>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImChunkStream_ImGuiWindowSettings))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImChunkStream_ImGuiWindowSettings>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(ImChunkStream_ImGuiWindowSettings)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImChunkStream_ImGuiWindowSettings>())).Buf as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImChunkStream_ImGuiWindowSettings),
+            "::",
+            stringify!(Buf)
+        )
+    );
+}
+impl Default for ImChunkStream_ImGuiWindowSettings {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ImVector_ImDrawChannel {
@@ -304,6 +781,61 @@ fn bindgen_test_layout_ImVector_ImDrawIdx() {
     );
 }
 impl Default for ImVector_ImDrawIdx {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImDrawListPtr {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut *mut ImDrawList,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImDrawListPtr() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImDrawListPtr>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImDrawListPtr))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImDrawListPtr>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImDrawListPtr))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImDrawListPtr>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImDrawListPtr),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImDrawListPtr>())).Capacity as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImDrawListPtr),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImDrawListPtr>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImDrawListPtr),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImDrawListPtr {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
@@ -591,6 +1123,460 @@ impl Default for ImVector_ImFontGlyph {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiColorMod {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiColorMod,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiColorMod() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiColorMod>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiColorMod))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiColorMod>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiColorMod))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiColorMod>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiColorMod),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiColorMod>())).Capacity as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiColorMod),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiColorMod>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiColorMod),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiColorMod {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiColumnData {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiColumnData,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiColumnData() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiColumnData>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiColumnData))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiColumnData>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiColumnData))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiColumnData>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiColumnData),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiColumnData>())).Capacity as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiColumnData),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiColumnData>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiColumnData),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiColumnData {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiColumns {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiColumns,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiColumns() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiColumns>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiColumns))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiColumns>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiColumns))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiColumns>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiColumns),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiColumns>())).Capacity as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiColumns),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiColumns>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiColumns),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiColumns {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiDockNodeSettings {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiDockNodeSettings,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiDockNodeSettings() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiDockNodeSettings>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiDockNodeSettings))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiDockNodeSettings>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiDockNodeSettings))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiDockNodeSettings>())).Size as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiDockNodeSettings),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiDockNodeSettings>())).Capacity as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiDockNodeSettings),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiDockNodeSettings>())).Data as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiDockNodeSettings),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiDockNodeSettings {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiDockRequest {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiDockRequest,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiDockRequest() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiDockRequest>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiDockRequest))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiDockRequest>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiDockRequest))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiDockRequest>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiDockRequest),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiDockRequest>())).Capacity as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiDockRequest),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiDockRequest>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiDockRequest),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiDockRequest {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiGroupData {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiGroupData,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiGroupData() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiGroupData>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiGroupData))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiGroupData>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiGroupData))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiGroupData>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiGroupData),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiGroupData>())).Capacity as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiGroupData),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiGroupData>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiGroupData),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiGroupData {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiID {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiID,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiID() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiID>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiID))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiID>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiID))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiID>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiID),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiID>())).Capacity as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiID),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiID>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiID),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiID {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiItemFlags {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiItemFlags,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiItemFlags() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiItemFlags>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiItemFlags))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiItemFlags>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiItemFlags))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiItemFlags>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiItemFlags),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiItemFlags>())).Capacity as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiItemFlags),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiItemFlags>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiItemFlags),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiItemFlags {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ImVector_ImGuiPlatformMonitor {
     pub Size: ::std::os::raw::c_int,
     pub Capacity: ::std::os::raw::c_int,
@@ -652,6 +1638,242 @@ impl Default for ImVector_ImGuiPlatformMonitor {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiPopupData {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiPopupData,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiPopupData() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiPopupData>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiPopupData))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiPopupData>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiPopupData))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiPopupData>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiPopupData),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiPopupData>())).Capacity as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiPopupData),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiPopupData>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiPopupData),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiPopupData {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiPtrOrIndex {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiPtrOrIndex,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiPtrOrIndex() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiPtrOrIndex>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiPtrOrIndex))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiPtrOrIndex>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiPtrOrIndex))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiPtrOrIndex>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiPtrOrIndex),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiPtrOrIndex>())).Capacity as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiPtrOrIndex),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiPtrOrIndex>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiPtrOrIndex),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiPtrOrIndex {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiSettingsHandler {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiSettingsHandler,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiSettingsHandler() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiSettingsHandler>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiSettingsHandler))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiSettingsHandler>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiSettingsHandler))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiSettingsHandler>())).Size as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiSettingsHandler),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiSettingsHandler>())).Capacity as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiSettingsHandler),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiSettingsHandler>())).Data as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiSettingsHandler),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiSettingsHandler {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiShrinkWidthItem {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiShrinkWidthItem,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiShrinkWidthItem() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiShrinkWidthItem>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiShrinkWidthItem))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiShrinkWidthItem>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiShrinkWidthItem))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiShrinkWidthItem>())).Size as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiShrinkWidthItem),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiShrinkWidthItem>())).Capacity as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiShrinkWidthItem),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiShrinkWidthItem>())).Data as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiShrinkWidthItem),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiShrinkWidthItem {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ImVector_ImGuiStoragePair {
     pub Size: ::std::os::raw::c_int,
     pub Capacity: ::std::os::raw::c_int,
@@ -703,6 +1925,116 @@ fn bindgen_test_layout_ImVector_ImGuiStoragePair() {
     );
 }
 impl Default for ImVector_ImGuiStoragePair {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiStyleMod {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiStyleMod,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiStyleMod() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiStyleMod>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiStyleMod))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiStyleMod>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiStyleMod))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiStyleMod>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiStyleMod),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiStyleMod>())).Capacity as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiStyleMod),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiStyleMod>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiStyleMod),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiStyleMod {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiTabItem {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiTabItem,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiTabItem() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiTabItem>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiTabItem))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiTabItem>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiTabItem))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiTabItem>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiTabItem),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiTabItem>())).Capacity as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiTabItem),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiTabItem>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiTabItem),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiTabItem {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
@@ -817,6 +2149,120 @@ fn bindgen_test_layout_ImVector_ImGuiViewportPtr() {
     );
 }
 impl Default for ImVector_ImGuiViewportPtr {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiViewportPPtr {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut *mut ImGuiViewportP,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiViewportPPtr() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiViewportPPtr>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiViewportPPtr))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiViewportPPtr>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiViewportPPtr))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiViewportPPtr>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiViewportPPtr),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiViewportPPtr>())).Capacity as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiViewportPPtr),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiViewportPPtr>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiViewportPPtr),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiViewportPPtr {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiWindowPtr {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut *mut ImGuiWindow,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiWindowPtr() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiWindowPtr>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiWindowPtr))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiWindowPtr>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiWindowPtr))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiWindowPtr>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiWindowPtr),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImVector_ImGuiWindowPtr>())).Capacity as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiWindowPtr),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiWindowPtr>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiWindowPtr),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiWindowPtr {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
@@ -1153,6 +2599,61 @@ impl Default for ImVector_char {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_const_charPtr {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut *const ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_ImVector_const_charPtr() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_const_charPtr>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_const_charPtr))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_const_charPtr>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_const_charPtr))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_const_charPtr>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_const_charPtr),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_const_charPtr>())).Capacity as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_const_charPtr),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_const_charPtr>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_const_charPtr),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_const_charPtr {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub struct ImVector_float {
     pub Size: ::std::os::raw::c_int,
     pub Capacity: ::std::os::raw::c_int,
@@ -1202,6 +2703,61 @@ fn bindgen_test_layout_ImVector_float() {
     );
 }
 impl Default for ImVector_float {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_unsigned_char {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ::std::os::raw::c_uchar,
+}
+#[test]
+fn bindgen_test_layout_ImVector_unsigned_char() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_unsigned_char>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_unsigned_char))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_unsigned_char>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_unsigned_char))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_unsigned_char>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_unsigned_char),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_unsigned_char>())).Capacity as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_unsigned_char),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_unsigned_char>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_unsigned_char),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_unsigned_char {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
@@ -3966,6 +5522,116 @@ impl Default for ImGuiStorage {
     }
 }
 #[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVector_ImGuiTabBar {
+    pub Size: ::std::os::raw::c_int,
+    pub Capacity: ::std::os::raw::c_int,
+    pub Data: *mut ImGuiTabBar,
+}
+#[test]
+fn bindgen_test_layout_ImVector_ImGuiTabBar() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVector_ImGuiTabBar>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImVector_ImGuiTabBar))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVector_ImGuiTabBar>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImVector_ImGuiTabBar))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiTabBar>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiTabBar),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiTabBar>())).Capacity as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiTabBar),
+            "::",
+            stringify!(Capacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVector_ImGuiTabBar>())).Data as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVector_ImGuiTabBar),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+impl Default for ImVector_ImGuiTabBar {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImPool_ImGuiTabBar {
+    pub Buf: ImVector_ImGuiTabBar,
+    pub Map: ImGuiStorage,
+    pub FreeIdx: ImPoolIdx,
+}
+#[test]
+fn bindgen_test_layout_ImPool_ImGuiTabBar() {
+    assert_eq!(
+        ::std::mem::size_of::<ImPool_ImGuiTabBar>(),
+        40usize,
+        concat!("Size of: ", stringify!(ImPool_ImGuiTabBar))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImPool_ImGuiTabBar>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImPool_ImGuiTabBar))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImPool_ImGuiTabBar>())).Buf as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImPool_ImGuiTabBar),
+            "::",
+            stringify!(Buf)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImPool_ImGuiTabBar>())).Map as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImPool_ImGuiTabBar),
+            "::",
+            stringify!(Map)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImPool_ImGuiTabBar>())).FreeIdx as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImPool_ImGuiTabBar),
+            "::",
+            stringify!(FreeIdx)
+        )
+    );
+}
+impl Default for ImPool_ImGuiTabBar {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Debug, Default, Copy, Clone, PartialEq)]
 pub struct ImGuiListClipper {
     pub DisplayStart: ::std::os::raw::c_int,
@@ -6299,6 +7965,8253 @@ impl Default for ImGuiViewport {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct StbUndoRecord {
+    pub where_: ::std::os::raw::c_int,
+    pub insert_length: ::std::os::raw::c_int,
+    pub delete_length: ::std::os::raw::c_int,
+    pub char_storage: ::std::os::raw::c_int,
+}
+#[test]
+fn bindgen_test_layout_StbUndoRecord() {
+    assert_eq!(
+        ::std::mem::size_of::<StbUndoRecord>(),
+        16usize,
+        concat!("Size of: ", stringify!(StbUndoRecord))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<StbUndoRecord>(),
+        4usize,
+        concat!("Alignment of ", stringify!(StbUndoRecord))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbUndoRecord>())).where_ as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbUndoRecord),
+            "::",
+            stringify!(where_)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbUndoRecord>())).insert_length as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbUndoRecord),
+            "::",
+            stringify!(insert_length)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbUndoRecord>())).delete_length as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbUndoRecord),
+            "::",
+            stringify!(delete_length)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbUndoRecord>())).char_storage as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbUndoRecord),
+            "::",
+            stringify!(char_storage)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct StbUndoState {
+    pub undo_rec: [StbUndoRecord; 99usize],
+    pub undo_char: [ImWchar; 999usize],
+    pub undo_point: ::std::os::raw::c_short,
+    pub redo_point: ::std::os::raw::c_short,
+    pub undo_char_point: ::std::os::raw::c_int,
+    pub redo_char_point: ::std::os::raw::c_int,
+}
+#[test]
+fn bindgen_test_layout_StbUndoState() {
+    assert_eq!(
+        ::std::mem::size_of::<StbUndoState>(),
+        3596usize,
+        concat!("Size of: ", stringify!(StbUndoState))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<StbUndoState>(),
+        4usize,
+        concat!("Alignment of ", stringify!(StbUndoState))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbUndoState>())).undo_rec as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbUndoState),
+            "::",
+            stringify!(undo_rec)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbUndoState>())).undo_char as *const _ as usize },
+        1584usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbUndoState),
+            "::",
+            stringify!(undo_char)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbUndoState>())).undo_point as *const _ as usize },
+        3582usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbUndoState),
+            "::",
+            stringify!(undo_point)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbUndoState>())).redo_point as *const _ as usize },
+        3584usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbUndoState),
+            "::",
+            stringify!(redo_point)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbUndoState>())).undo_char_point as *const _ as usize },
+        3588usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbUndoState),
+            "::",
+            stringify!(undo_char_point)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbUndoState>())).redo_char_point as *const _ as usize },
+        3592usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbUndoState),
+            "::",
+            stringify!(redo_char_point)
+        )
+    );
+}
+impl Default for StbUndoState {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for StbUndoState {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write ! (f , "StbUndoState {{ undo_rec: [{}], undo_char: [{}], undo_point: {:?}, redo_point: {:?}, undo_char_point: {:?}, redo_char_point: {:?} }}" , self . undo_rec . iter () . enumerate () . map (| (i , v) | format ! ("{}{:?}" , if i > 0 { ", " } else { "" } , v)) . collect :: < String > () , self . undo_char . iter () . enumerate () . map (| (i , v) | format ! ("{}{:?}" , if i > 0 { ", " } else { "" } , v)) . collect :: < String > () , self . undo_point , self . redo_point , self . undo_char_point , self . redo_char_point)
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct STB_TexteditState {
+    pub cursor: ::std::os::raw::c_int,
+    pub select_start: ::std::os::raw::c_int,
+    pub select_end: ::std::os::raw::c_int,
+    pub insert_mode: ::std::os::raw::c_uchar,
+    pub row_count_per_page: ::std::os::raw::c_int,
+    pub cursor_at_end_of_line: ::std::os::raw::c_uchar,
+    pub initialized: ::std::os::raw::c_uchar,
+    pub has_preferred_x: ::std::os::raw::c_uchar,
+    pub single_line: ::std::os::raw::c_uchar,
+    pub padding1: ::std::os::raw::c_uchar,
+    pub padding2: ::std::os::raw::c_uchar,
+    pub padding3: ::std::os::raw::c_uchar,
+    pub preferred_x: f32,
+    pub undostate: StbUndoState,
+}
+#[test]
+fn bindgen_test_layout_STB_TexteditState() {
+    assert_eq!(
+        ::std::mem::size_of::<STB_TexteditState>(),
+        3628usize,
+        concat!("Size of: ", stringify!(STB_TexteditState))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<STB_TexteditState>(),
+        4usize,
+        concat!("Alignment of ", stringify!(STB_TexteditState))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<STB_TexteditState>())).cursor as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(STB_TexteditState),
+            "::",
+            stringify!(cursor)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<STB_TexteditState>())).select_start as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(STB_TexteditState),
+            "::",
+            stringify!(select_start)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<STB_TexteditState>())).select_end as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(STB_TexteditState),
+            "::",
+            stringify!(select_end)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<STB_TexteditState>())).insert_mode as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(STB_TexteditState),
+            "::",
+            stringify!(insert_mode)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<STB_TexteditState>())).row_count_per_page as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(STB_TexteditState),
+            "::",
+            stringify!(row_count_per_page)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<STB_TexteditState>())).cursor_at_end_of_line as *const _ as usize
+        },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(STB_TexteditState),
+            "::",
+            stringify!(cursor_at_end_of_line)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<STB_TexteditState>())).initialized as *const _ as usize },
+        21usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(STB_TexteditState),
+            "::",
+            stringify!(initialized)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<STB_TexteditState>())).has_preferred_x as *const _ as usize
+        },
+        22usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(STB_TexteditState),
+            "::",
+            stringify!(has_preferred_x)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<STB_TexteditState>())).single_line as *const _ as usize },
+        23usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(STB_TexteditState),
+            "::",
+            stringify!(single_line)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<STB_TexteditState>())).padding1 as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(STB_TexteditState),
+            "::",
+            stringify!(padding1)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<STB_TexteditState>())).padding2 as *const _ as usize },
+        25usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(STB_TexteditState),
+            "::",
+            stringify!(padding2)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<STB_TexteditState>())).padding3 as *const _ as usize },
+        26usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(STB_TexteditState),
+            "::",
+            stringify!(padding3)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<STB_TexteditState>())).preferred_x as *const _ as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(STB_TexteditState),
+            "::",
+            stringify!(preferred_x)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<STB_TexteditState>())).undostate as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(STB_TexteditState),
+            "::",
+            stringify!(undostate)
+        )
+    );
+}
+impl Default for STB_TexteditState {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for STB_TexteditState {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write ! (f , "STB_TexteditState {{ cursor: {:?}, select_start: {:?}, select_end: {:?}, insert_mode: {:?}, row_count_per_page: {:?}, cursor_at_end_of_line: {:?}, initialized: {:?}, has_preferred_x: {:?}, single_line: {:?}, padding1: {:?}, padding2: {:?}, padding3: {:?}, preferred_x: {:?}, undostate: {:?} }}" , self . cursor , self . select_start , self . select_end , self . insert_mode , self . row_count_per_page , self . cursor_at_end_of_line , self . initialized , self . has_preferred_x , self . single_line , self . padding1 , self . padding2 , self . padding3 , self . preferred_x , self . undostate)
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialEq)]
+pub struct StbTexteditRow {
+    pub x0: f32,
+    pub x1: f32,
+    pub baseline_y_delta: f32,
+    pub ymin: f32,
+    pub ymax: f32,
+    pub num_chars: ::std::os::raw::c_int,
+}
+#[test]
+fn bindgen_test_layout_StbTexteditRow() {
+    assert_eq!(
+        ::std::mem::size_of::<StbTexteditRow>(),
+        24usize,
+        concat!("Size of: ", stringify!(StbTexteditRow))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<StbTexteditRow>(),
+        4usize,
+        concat!("Alignment of ", stringify!(StbTexteditRow))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbTexteditRow>())).x0 as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbTexteditRow),
+            "::",
+            stringify!(x0)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbTexteditRow>())).x1 as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbTexteditRow),
+            "::",
+            stringify!(x1)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbTexteditRow>())).baseline_y_delta as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbTexteditRow),
+            "::",
+            stringify!(baseline_y_delta)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbTexteditRow>())).ymin as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbTexteditRow),
+            "::",
+            stringify!(ymin)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbTexteditRow>())).ymax as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbTexteditRow),
+            "::",
+            stringify!(ymax)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<StbTexteditRow>())).num_chars as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(StbTexteditRow),
+            "::",
+            stringify!(num_chars)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialEq)]
+pub struct ImVec1 {
+    pub x: f32,
+}
+#[test]
+fn bindgen_test_layout_ImVec1() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVec1>(),
+        4usize,
+        concat!("Size of: ", stringify!(ImVec1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVec1>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ImVec1))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVec1>())).x as *const _ as usize },
+        0usize,
+        concat!("Offset of field: ", stringify!(ImVec1), "::", stringify!(x))
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImVec2ih {
+    pub x: ::std::os::raw::c_short,
+    pub y: ::std::os::raw::c_short,
+}
+#[test]
+fn bindgen_test_layout_ImVec2ih() {
+    assert_eq!(
+        ::std::mem::size_of::<ImVec2ih>(),
+        4usize,
+        concat!("Size of: ", stringify!(ImVec2ih))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImVec2ih>(),
+        2usize,
+        concat!("Alignment of ", stringify!(ImVec2ih))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVec2ih>())).x as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVec2ih),
+            "::",
+            stringify!(x)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImVec2ih>())).y as *const _ as usize },
+        2usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImVec2ih),
+            "::",
+            stringify!(y)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialEq)]
+pub struct ImRect {
+    pub Min: ImVec2,
+    pub Max: ImVec2,
+}
+#[test]
+fn bindgen_test_layout_ImRect() {
+    assert_eq!(
+        ::std::mem::size_of::<ImRect>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImRect))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImRect>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ImRect))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImRect>())).Min as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImRect),
+            "::",
+            stringify!(Min)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImRect>())).Max as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImRect),
+            "::",
+            stringify!(Max)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImBitVector {
+    pub Storage: ImVector_ImU32,
+}
+#[test]
+fn bindgen_test_layout_ImBitVector() {
+    assert_eq!(
+        ::std::mem::size_of::<ImBitVector>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImBitVector))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImBitVector>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImBitVector))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImBitVector>())).Storage as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImBitVector),
+            "::",
+            stringify!(Storage)
+        )
+    );
+}
+impl Default for ImBitVector {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct ImDrawListSharedData {
+    pub TexUvWhitePixel: ImVec2,
+    pub Font: *mut ImFont,
+    pub FontSize: f32,
+    pub CurveTessellationTol: f32,
+    pub CircleSegmentMaxError: f32,
+    pub ClipRectFullscreen: ImVec4,
+    pub InitialFlags: ImDrawListFlags,
+    pub ArcFastVtx: [ImVec2; 12usize],
+    pub CircleSegmentCounts: [ImU8; 64usize],
+    pub TexUvLines: *const ImVec4,
+}
+#[test]
+fn bindgen_test_layout_ImDrawListSharedData() {
+    assert_eq!(
+        ::std::mem::size_of::<ImDrawListSharedData>(),
+        216usize,
+        concat!("Size of: ", stringify!(ImDrawListSharedData))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImDrawListSharedData>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImDrawListSharedData))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImDrawListSharedData>())).TexUvWhitePixel as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImDrawListSharedData),
+            "::",
+            stringify!(TexUvWhitePixel)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImDrawListSharedData>())).Font as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImDrawListSharedData),
+            "::",
+            stringify!(Font)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImDrawListSharedData>())).FontSize as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImDrawListSharedData),
+            "::",
+            stringify!(FontSize)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImDrawListSharedData>())).CurveTessellationTol as *const _
+                as usize
+        },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImDrawListSharedData),
+            "::",
+            stringify!(CurveTessellationTol)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImDrawListSharedData>())).CircleSegmentMaxError as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImDrawListSharedData),
+            "::",
+            stringify!(CircleSegmentMaxError)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImDrawListSharedData>())).ClipRectFullscreen as *const _ as usize
+        },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImDrawListSharedData),
+            "::",
+            stringify!(ClipRectFullscreen)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImDrawListSharedData>())).InitialFlags as *const _ as usize
+        },
+        44usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImDrawListSharedData),
+            "::",
+            stringify!(InitialFlags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImDrawListSharedData>())).ArcFastVtx as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImDrawListSharedData),
+            "::",
+            stringify!(ArcFastVtx)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImDrawListSharedData>())).CircleSegmentCounts as *const _
+                as usize
+        },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImDrawListSharedData),
+            "::",
+            stringify!(CircleSegmentCounts)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImDrawListSharedData>())).TexUvLines as *const _ as usize },
+        208usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImDrawListSharedData),
+            "::",
+            stringify!(TexUvLines)
+        )
+    );
+}
+impl Default for ImDrawListSharedData {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for ImDrawListSharedData {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write ! (f , "ImDrawListSharedData {{ TexUvWhitePixel: {:?}, Font: {:?}, FontSize: {:?}, CurveTessellationTol: {:?}, CircleSegmentMaxError: {:?}, ClipRectFullscreen: {:?}, InitialFlags: {:?}, ArcFastVtx: {:?}, CircleSegmentCounts: [{}], TexUvLines: {:?} }}" , self . TexUvWhitePixel , self . Font , self . FontSize , self . CurveTessellationTol , self . CircleSegmentMaxError , self . ClipRectFullscreen , self . InitialFlags , self . ArcFastVtx , self . CircleSegmentCounts . iter () . enumerate () . map (| (i , v) | format ! ("{}{:?}" , if i > 0 { ", " } else { "" } , v)) . collect :: < String > () , self . TexUvLines)
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImDrawDataBuilder {
+    pub Layers: [ImVector_ImDrawListPtr; 2usize],
+}
+#[test]
+fn bindgen_test_layout_ImDrawDataBuilder() {
+    assert_eq!(
+        ::std::mem::size_of::<ImDrawDataBuilder>(),
+        32usize,
+        concat!("Size of: ", stringify!(ImDrawDataBuilder))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImDrawDataBuilder>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImDrawDataBuilder))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImDrawDataBuilder>())).Layers as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImDrawDataBuilder),
+            "::",
+            stringify!(Layers)
+        )
+    );
+}
+impl Default for ImDrawDataBuilder {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+pub const ImGuiItemFlags_None: ImGuiItemFlags_ = 0;
+pub const ImGuiItemFlags_NoTabStop: ImGuiItemFlags_ = 1;
+pub const ImGuiItemFlags_ButtonRepeat: ImGuiItemFlags_ = 2;
+pub const ImGuiItemFlags_Disabled: ImGuiItemFlags_ = 4;
+pub const ImGuiItemFlags_NoNav: ImGuiItemFlags_ = 8;
+pub const ImGuiItemFlags_NoNavDefaultFocus: ImGuiItemFlags_ = 16;
+pub const ImGuiItemFlags_SelectableDontClosePopup: ImGuiItemFlags_ = 32;
+pub const ImGuiItemFlags_MixedValue: ImGuiItemFlags_ = 64;
+pub const ImGuiItemFlags_ReadOnly: ImGuiItemFlags_ = 128;
+pub const ImGuiItemFlags_Default_: ImGuiItemFlags_ = 0;
+pub type ImGuiItemFlags_ = ::std::os::raw::c_uint;
+pub const ImGuiItemStatusFlags_None: ImGuiItemStatusFlags_ = 0;
+pub const ImGuiItemStatusFlags_HoveredRect: ImGuiItemStatusFlags_ = 1;
+pub const ImGuiItemStatusFlags_HasDisplayRect: ImGuiItemStatusFlags_ = 2;
+pub const ImGuiItemStatusFlags_Edited: ImGuiItemStatusFlags_ = 4;
+pub const ImGuiItemStatusFlags_ToggledSelection: ImGuiItemStatusFlags_ = 8;
+pub const ImGuiItemStatusFlags_ToggledOpen: ImGuiItemStatusFlags_ = 16;
+pub const ImGuiItemStatusFlags_HasDeactivated: ImGuiItemStatusFlags_ = 32;
+pub const ImGuiItemStatusFlags_Deactivated: ImGuiItemStatusFlags_ = 64;
+pub type ImGuiItemStatusFlags_ = ::std::os::raw::c_uint;
+pub const ImGuiButtonFlags_PressedOnClick: ImGuiButtonFlagsPrivate_ = 16;
+pub const ImGuiButtonFlags_PressedOnClickRelease: ImGuiButtonFlagsPrivate_ = 32;
+pub const ImGuiButtonFlags_PressedOnClickReleaseAnywhere: ImGuiButtonFlagsPrivate_ = 64;
+pub const ImGuiButtonFlags_PressedOnRelease: ImGuiButtonFlagsPrivate_ = 128;
+pub const ImGuiButtonFlags_PressedOnDoubleClick: ImGuiButtonFlagsPrivate_ = 256;
+pub const ImGuiButtonFlags_PressedOnDragDropHold: ImGuiButtonFlagsPrivate_ = 512;
+pub const ImGuiButtonFlags_Repeat: ImGuiButtonFlagsPrivate_ = 1024;
+pub const ImGuiButtonFlags_FlattenChildren: ImGuiButtonFlagsPrivate_ = 2048;
+pub const ImGuiButtonFlags_AllowItemOverlap: ImGuiButtonFlagsPrivate_ = 4096;
+pub const ImGuiButtonFlags_DontClosePopups: ImGuiButtonFlagsPrivate_ = 8192;
+pub const ImGuiButtonFlags_Disabled: ImGuiButtonFlagsPrivate_ = 16384;
+pub const ImGuiButtonFlags_AlignTextBaseLine: ImGuiButtonFlagsPrivate_ = 32768;
+pub const ImGuiButtonFlags_NoKeyModifiers: ImGuiButtonFlagsPrivate_ = 65536;
+pub const ImGuiButtonFlags_NoHoldingActiveId: ImGuiButtonFlagsPrivate_ = 131072;
+pub const ImGuiButtonFlags_NoNavFocus: ImGuiButtonFlagsPrivate_ = 262144;
+pub const ImGuiButtonFlags_NoHoveredOnFocus: ImGuiButtonFlagsPrivate_ = 524288;
+pub const ImGuiButtonFlags_PressedOnMask_: ImGuiButtonFlagsPrivate_ = 1008;
+pub const ImGuiButtonFlags_PressedOnDefault_: ImGuiButtonFlagsPrivate_ = 32;
+pub type ImGuiButtonFlagsPrivate_ = ::std::os::raw::c_uint;
+pub const ImGuiSliderFlags_Vertical: ImGuiSliderFlagsPrivate_ = 1048576;
+pub const ImGuiSliderFlags_ReadOnly: ImGuiSliderFlagsPrivate_ = 2097152;
+pub type ImGuiSliderFlagsPrivate_ = ::std::os::raw::c_uint;
+pub const ImGuiSelectableFlags_NoHoldingActiveID: ImGuiSelectableFlagsPrivate_ = 1048576;
+pub const ImGuiSelectableFlags_SelectOnClick: ImGuiSelectableFlagsPrivate_ = 2097152;
+pub const ImGuiSelectableFlags_SelectOnRelease: ImGuiSelectableFlagsPrivate_ = 4194304;
+pub const ImGuiSelectableFlags_SpanAvailWidth: ImGuiSelectableFlagsPrivate_ = 8388608;
+pub const ImGuiSelectableFlags_DrawHoveredWhenHeld: ImGuiSelectableFlagsPrivate_ = 16777216;
+pub const ImGuiSelectableFlags_SetNavIdOnHover: ImGuiSelectableFlagsPrivate_ = 33554432;
+pub const ImGuiSelectableFlags_NoPadWithHalfSpacing: ImGuiSelectableFlagsPrivate_ = 67108864;
+pub type ImGuiSelectableFlagsPrivate_ = ::std::os::raw::c_uint;
+pub const ImGuiTreeNodeFlags_ClipLabelForTrailingButton: ImGuiTreeNodeFlagsPrivate_ = 1048576;
+pub type ImGuiTreeNodeFlagsPrivate_ = ::std::os::raw::c_uint;
+pub const ImGuiSeparatorFlags_None: ImGuiSeparatorFlags_ = 0;
+pub const ImGuiSeparatorFlags_Horizontal: ImGuiSeparatorFlags_ = 1;
+pub const ImGuiSeparatorFlags_Vertical: ImGuiSeparatorFlags_ = 2;
+pub const ImGuiSeparatorFlags_SpanAllColumns: ImGuiSeparatorFlags_ = 4;
+pub type ImGuiSeparatorFlags_ = ::std::os::raw::c_uint;
+pub const ImGuiTextFlags_None: ImGuiTextFlags_ = 0;
+pub const ImGuiTextFlags_NoWidthForLargeClippedText: ImGuiTextFlags_ = 1;
+pub type ImGuiTextFlags_ = ::std::os::raw::c_uint;
+pub const ImGuiTooltipFlags_None: ImGuiTooltipFlags_ = 0;
+pub const ImGuiTooltipFlags_OverridePreviousTooltip: ImGuiTooltipFlags_ = 1;
+pub type ImGuiTooltipFlags_ = ::std::os::raw::c_uint;
+pub const ImGuiLayoutType_Horizontal: ImGuiLayoutType_ = 0;
+pub const ImGuiLayoutType_Vertical: ImGuiLayoutType_ = 1;
+pub type ImGuiLayoutType_ = ::std::os::raw::c_uint;
+pub const ImGuiLogType_None: ImGuiLogType = 0;
+pub const ImGuiLogType_TTY: ImGuiLogType = 1;
+pub const ImGuiLogType_File: ImGuiLogType = 2;
+pub const ImGuiLogType_Buffer: ImGuiLogType = 3;
+pub const ImGuiLogType_Clipboard: ImGuiLogType = 4;
+pub type ImGuiLogType = ::std::os::raw::c_uint;
+pub const ImGuiAxis_None: ImGuiAxis = -1;
+pub const ImGuiAxis_X: ImGuiAxis = 0;
+pub const ImGuiAxis_Y: ImGuiAxis = 1;
+pub type ImGuiAxis = ::std::os::raw::c_int;
+pub const ImGuiPlotType_Lines: ImGuiPlotType = 0;
+pub const ImGuiPlotType_Histogram: ImGuiPlotType = 1;
+pub type ImGuiPlotType = ::std::os::raw::c_uint;
+pub const ImGuiInputSource_None: ImGuiInputSource = 0;
+pub const ImGuiInputSource_Mouse: ImGuiInputSource = 1;
+pub const ImGuiInputSource_Nav: ImGuiInputSource = 2;
+pub const ImGuiInputSource_NavKeyboard: ImGuiInputSource = 3;
+pub const ImGuiInputSource_NavGamepad: ImGuiInputSource = 4;
+pub const ImGuiInputSource_COUNT: ImGuiInputSource = 5;
+pub type ImGuiInputSource = ::std::os::raw::c_uint;
+pub const ImGuiInputReadMode_Down: ImGuiInputReadMode = 0;
+pub const ImGuiInputReadMode_Pressed: ImGuiInputReadMode = 1;
+pub const ImGuiInputReadMode_Released: ImGuiInputReadMode = 2;
+pub const ImGuiInputReadMode_Repeat: ImGuiInputReadMode = 3;
+pub const ImGuiInputReadMode_RepeatSlow: ImGuiInputReadMode = 4;
+pub const ImGuiInputReadMode_RepeatFast: ImGuiInputReadMode = 5;
+pub type ImGuiInputReadMode = ::std::os::raw::c_uint;
+pub const ImGuiNavHighlightFlags_None: ImGuiNavHighlightFlags_ = 0;
+pub const ImGuiNavHighlightFlags_TypeDefault: ImGuiNavHighlightFlags_ = 1;
+pub const ImGuiNavHighlightFlags_TypeThin: ImGuiNavHighlightFlags_ = 2;
+pub const ImGuiNavHighlightFlags_AlwaysDraw: ImGuiNavHighlightFlags_ = 4;
+pub const ImGuiNavHighlightFlags_NoRounding: ImGuiNavHighlightFlags_ = 8;
+pub type ImGuiNavHighlightFlags_ = ::std::os::raw::c_uint;
+pub const ImGuiNavDirSourceFlags_None: ImGuiNavDirSourceFlags_ = 0;
+pub const ImGuiNavDirSourceFlags_Keyboard: ImGuiNavDirSourceFlags_ = 1;
+pub const ImGuiNavDirSourceFlags_PadDPad: ImGuiNavDirSourceFlags_ = 2;
+pub const ImGuiNavDirSourceFlags_PadLStick: ImGuiNavDirSourceFlags_ = 4;
+pub type ImGuiNavDirSourceFlags_ = ::std::os::raw::c_uint;
+pub const ImGuiNavMoveFlags_None: ImGuiNavMoveFlags_ = 0;
+pub const ImGuiNavMoveFlags_LoopX: ImGuiNavMoveFlags_ = 1;
+pub const ImGuiNavMoveFlags_LoopY: ImGuiNavMoveFlags_ = 2;
+pub const ImGuiNavMoveFlags_WrapX: ImGuiNavMoveFlags_ = 4;
+pub const ImGuiNavMoveFlags_WrapY: ImGuiNavMoveFlags_ = 8;
+pub const ImGuiNavMoveFlags_AllowCurrentNavId: ImGuiNavMoveFlags_ = 16;
+pub const ImGuiNavMoveFlags_AlsoScoreVisibleSet: ImGuiNavMoveFlags_ = 32;
+pub const ImGuiNavMoveFlags_ScrollToEdge: ImGuiNavMoveFlags_ = 64;
+pub type ImGuiNavMoveFlags_ = ::std::os::raw::c_uint;
+pub const ImGuiNavForward_None: ImGuiNavForward = 0;
+pub const ImGuiNavForward_ForwardQueued: ImGuiNavForward = 1;
+pub const ImGuiNavForward_ForwardActive: ImGuiNavForward = 2;
+pub type ImGuiNavForward = ::std::os::raw::c_uint;
+pub const ImGuiNavLayer_Main: ImGuiNavLayer = 0;
+pub const ImGuiNavLayer_Menu: ImGuiNavLayer = 1;
+pub const ImGuiNavLayer_COUNT: ImGuiNavLayer = 2;
+pub type ImGuiNavLayer = ::std::os::raw::c_uint;
+pub const ImGuiPopupPositionPolicy_Default: ImGuiPopupPositionPolicy = 0;
+pub const ImGuiPopupPositionPolicy_ComboBox: ImGuiPopupPositionPolicy = 1;
+pub const ImGuiPopupPositionPolicy_Tooltip: ImGuiPopupPositionPolicy = 2;
+pub type ImGuiPopupPositionPolicy = ::std::os::raw::c_uint;
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImGuiDataTypeTempStorage {
+    pub Data: [ImU8; 8usize],
+}
+#[test]
+fn bindgen_test_layout_ImGuiDataTypeTempStorage() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiDataTypeTempStorage>(),
+        8usize,
+        concat!("Size of: ", stringify!(ImGuiDataTypeTempStorage))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiDataTypeTempStorage>(),
+        1usize,
+        concat!("Alignment of ", stringify!(ImGuiDataTypeTempStorage))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDataTypeTempStorage>())).Data as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDataTypeTempStorage),
+            "::",
+            stringify!(Data)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImGuiDataTypeInfo {
+    pub Size: usize,
+    pub Name: *const ::std::os::raw::c_char,
+    pub PrintFmt: *const ::std::os::raw::c_char,
+    pub ScanFmt: *const ::std::os::raw::c_char,
+}
+#[test]
+fn bindgen_test_layout_ImGuiDataTypeInfo() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiDataTypeInfo>(),
+        32usize,
+        concat!("Size of: ", stringify!(ImGuiDataTypeInfo))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiDataTypeInfo>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiDataTypeInfo))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDataTypeInfo>())).Size as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDataTypeInfo),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDataTypeInfo>())).Name as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDataTypeInfo),
+            "::",
+            stringify!(Name)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDataTypeInfo>())).PrintFmt as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDataTypeInfo),
+            "::",
+            stringify!(PrintFmt)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDataTypeInfo>())).ScanFmt as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDataTypeInfo),
+            "::",
+            stringify!(ScanFmt)
+        )
+    );
+}
+impl Default for ImGuiDataTypeInfo {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+pub const ImGuiDataType_String: ImGuiDataTypePrivate_ = 11;
+pub const ImGuiDataType_Pointer: ImGuiDataTypePrivate_ = 12;
+pub const ImGuiDataType_ID: ImGuiDataTypePrivate_ = 13;
+pub type ImGuiDataTypePrivate_ = ::std::os::raw::c_uint;
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialEq)]
+pub struct ImGuiColorMod {
+    pub Col: ImGuiCol,
+    pub BackupValue: ImVec4,
+}
+#[test]
+fn bindgen_test_layout_ImGuiColorMod() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiColorMod>(),
+        20usize,
+        concat!("Size of: ", stringify!(ImGuiColorMod))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiColorMod>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ImGuiColorMod))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColorMod>())).Col as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColorMod),
+            "::",
+            stringify!(Col)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColorMod>())).BackupValue as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColorMod),
+            "::",
+            stringify!(BackupValue)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct ImGuiStyleMod {
+    pub VarIdx: ImGuiStyleVar,
+    pub __bindgen_anon_1: ImGuiStyleMod__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union ImGuiStyleMod__bindgen_ty_1 {
+    pub BackupInt: [::std::os::raw::c_int; 2usize],
+    pub BackupFloat: [f32; 2usize],
+    _bindgen_union_align: [u32; 2usize],
+}
+#[test]
+fn bindgen_test_layout_ImGuiStyleMod__bindgen_ty_1() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiStyleMod__bindgen_ty_1>(),
+        8usize,
+        concat!("Size of: ", stringify!(ImGuiStyleMod__bindgen_ty_1))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiStyleMod__bindgen_ty_1>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ImGuiStyleMod__bindgen_ty_1))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiStyleMod__bindgen_ty_1>())).BackupInt as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiStyleMod__bindgen_ty_1),
+            "::",
+            stringify!(BackupInt)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiStyleMod__bindgen_ty_1>())).BackupFloat as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiStyleMod__bindgen_ty_1),
+            "::",
+            stringify!(BackupFloat)
+        )
+    );
+}
+impl Default for ImGuiStyleMod__bindgen_ty_1 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for ImGuiStyleMod__bindgen_ty_1 {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write!(f, "ImGuiStyleMod__bindgen_ty_1 {{ union }}")
+    }
+}
+#[test]
+fn bindgen_test_layout_ImGuiStyleMod() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiStyleMod>(),
+        12usize,
+        concat!("Size of: ", stringify!(ImGuiStyleMod))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiStyleMod>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ImGuiStyleMod))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiStyleMod>())).VarIdx as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiStyleMod),
+            "::",
+            stringify!(VarIdx)
+        )
+    );
+}
+impl Default for ImGuiStyleMod {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for ImGuiStyleMod {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write!(
+            f,
+            "ImGuiStyleMod {{ VarIdx: {:?}, __bindgen_anon_1: {:?} }}",
+            self.VarIdx, self.__bindgen_anon_1
+        )
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialEq)]
+pub struct ImGuiGroupData {
+    pub BackupCursorPos: ImVec2,
+    pub BackupCursorMaxPos: ImVec2,
+    pub BackupIndent: ImVec1,
+    pub BackupGroupOffset: ImVec1,
+    pub BackupCurrLineSize: ImVec2,
+    pub BackupCurrLineTextBaseOffset: f32,
+    pub BackupActiveIdIsAlive: ImGuiID,
+    pub BackupActiveIdPreviousFrameIsAlive: bool,
+    pub EmitItem: bool,
+}
+#[test]
+fn bindgen_test_layout_ImGuiGroupData() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiGroupData>(),
+        44usize,
+        concat!("Size of: ", stringify!(ImGuiGroupData))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiGroupData>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ImGuiGroupData))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiGroupData>())).BackupCursorPos as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiGroupData),
+            "::",
+            stringify!(BackupCursorPos)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiGroupData>())).BackupCursorMaxPos as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiGroupData),
+            "::",
+            stringify!(BackupCursorMaxPos)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiGroupData>())).BackupIndent as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiGroupData),
+            "::",
+            stringify!(BackupIndent)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiGroupData>())).BackupGroupOffset as *const _ as usize
+        },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiGroupData),
+            "::",
+            stringify!(BackupGroupOffset)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiGroupData>())).BackupCurrLineSize as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiGroupData),
+            "::",
+            stringify!(BackupCurrLineSize)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiGroupData>())).BackupCurrLineTextBaseOffset as *const _
+                as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiGroupData),
+            "::",
+            stringify!(BackupCurrLineTextBaseOffset)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiGroupData>())).BackupActiveIdIsAlive as *const _ as usize
+        },
+        36usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiGroupData),
+            "::",
+            stringify!(BackupActiveIdIsAlive)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiGroupData>())).BackupActiveIdPreviousFrameIsAlive
+                as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiGroupData),
+            "::",
+            stringify!(BackupActiveIdPreviousFrameIsAlive)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiGroupData>())).EmitItem as *const _ as usize },
+        41usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiGroupData),
+            "::",
+            stringify!(EmitItem)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialEq)]
+pub struct ImGuiMenuColumns {
+    pub Spacing: f32,
+    pub Width: f32,
+    pub NextWidth: f32,
+    pub Pos: [f32; 3usize],
+    pub NextWidths: [f32; 3usize],
+}
+#[test]
+fn bindgen_test_layout_ImGuiMenuColumns() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiMenuColumns>(),
+        36usize,
+        concat!("Size of: ", stringify!(ImGuiMenuColumns))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiMenuColumns>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ImGuiMenuColumns))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiMenuColumns>())).Spacing as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiMenuColumns),
+            "::",
+            stringify!(Spacing)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiMenuColumns>())).Width as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiMenuColumns),
+            "::",
+            stringify!(Width)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiMenuColumns>())).NextWidth as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiMenuColumns),
+            "::",
+            stringify!(NextWidth)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiMenuColumns>())).Pos as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiMenuColumns),
+            "::",
+            stringify!(Pos)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiMenuColumns>())).NextWidths as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiMenuColumns),
+            "::",
+            stringify!(NextWidths)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct ImGuiInputTextState {
+    pub ID: ImGuiID,
+    pub CurLenW: ::std::os::raw::c_int,
+    pub CurLenA: ::std::os::raw::c_int,
+    pub TextW: ImVector_ImWchar,
+    pub TextA: ImVector_char,
+    pub InitialTextA: ImVector_char,
+    pub TextAIsValid: bool,
+    pub BufCapacityA: ::std::os::raw::c_int,
+    pub ScrollX: f32,
+    pub Stb: STB_TexteditState,
+    pub CursorAnim: f32,
+    pub CursorFollow: bool,
+    pub SelectedAllMouseLock: bool,
+    pub Edited: bool,
+    pub UserFlags: ImGuiInputTextFlags,
+    pub UserCallback: ImGuiInputTextCallback,
+    pub UserCallbackData: *mut ::std::os::raw::c_void,
+}
+#[test]
+fn bindgen_test_layout_ImGuiInputTextState() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiInputTextState>(),
+        3736usize,
+        concat!("Size of: ", stringify!(ImGuiInputTextState))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiInputTextState>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiInputTextState))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiInputTextState>())).ID as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(ID)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiInputTextState>())).CurLenW as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(CurLenW)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiInputTextState>())).CurLenA as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(CurLenA)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiInputTextState>())).TextW as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(TextW)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiInputTextState>())).TextA as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(TextA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiInputTextState>())).InitialTextA as *const _ as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(InitialTextA)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiInputTextState>())).TextAIsValid as *const _ as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(TextAIsValid)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiInputTextState>())).BufCapacityA as *const _ as usize
+        },
+        68usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(BufCapacityA)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiInputTextState>())).ScrollX as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(ScrollX)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiInputTextState>())).Stb as *const _ as usize },
+        76usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(Stb)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiInputTextState>())).CursorAnim as *const _ as usize },
+        3704usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(CursorAnim)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiInputTextState>())).CursorFollow as *const _ as usize
+        },
+        3708usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(CursorFollow)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiInputTextState>())).SelectedAllMouseLock as *const _
+                as usize
+        },
+        3709usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(SelectedAllMouseLock)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiInputTextState>())).Edited as *const _ as usize },
+        3710usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(Edited)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiInputTextState>())).UserFlags as *const _ as usize },
+        3712usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(UserFlags)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiInputTextState>())).UserCallback as *const _ as usize
+        },
+        3720usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(UserCallback)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiInputTextState>())).UserCallbackData as *const _ as usize
+        },
+        3728usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiInputTextState),
+            "::",
+            stringify!(UserCallbackData)
+        )
+    );
+}
+impl Default for ImGuiInputTextState {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for ImGuiInputTextState {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write ! (f , "ImGuiInputTextState {{ ID: {:?}, CurLenW: {:?}, CurLenA: {:?}, TextW: {:?}, TextA: {:?}, InitialTextA: {:?}, TextAIsValid: {:?}, BufCapacityA: {:?}, ScrollX: {:?}, Stb: {:?}, CursorAnim: {:?}, CursorFollow: {:?}, SelectedAllMouseLock: {:?}, Edited: {:?}, UserFlags: {:?}, UserCallback: {:?}, UserCallbackData: {:?} }}" , self . ID , self . CurLenW , self . CurLenA , self . TextW , self . TextA , self . InitialTextA , self . TextAIsValid , self . BufCapacityA , self . ScrollX , self . Stb , self . CursorAnim , self . CursorFollow , self . SelectedAllMouseLock , self . Edited , self . UserFlags , self . UserCallback , self . UserCallbackData)
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct ImGuiPopupData {
+    pub PopupId: ImGuiID,
+    pub Window: *mut ImGuiWindow,
+    pub SourceWindow: *mut ImGuiWindow,
+    pub OpenFrameCount: ::std::os::raw::c_int,
+    pub OpenParentId: ImGuiID,
+    pub OpenPopupPos: ImVec2,
+    pub OpenMousePos: ImVec2,
+}
+#[test]
+fn bindgen_test_layout_ImGuiPopupData() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiPopupData>(),
+        48usize,
+        concat!("Size of: ", stringify!(ImGuiPopupData))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiPopupData>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiPopupData))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiPopupData>())).PopupId as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiPopupData),
+            "::",
+            stringify!(PopupId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiPopupData>())).Window as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiPopupData),
+            "::",
+            stringify!(Window)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiPopupData>())).SourceWindow as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiPopupData),
+            "::",
+            stringify!(SourceWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiPopupData>())).OpenFrameCount as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiPopupData),
+            "::",
+            stringify!(OpenFrameCount)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiPopupData>())).OpenParentId as *const _ as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiPopupData),
+            "::",
+            stringify!(OpenParentId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiPopupData>())).OpenPopupPos as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiPopupData),
+            "::",
+            stringify!(OpenPopupPos)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiPopupData>())).OpenMousePos as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiPopupData),
+            "::",
+            stringify!(OpenMousePos)
+        )
+    );
+}
+impl Default for ImGuiPopupData {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct ImGuiNavMoveResult {
+    pub Window: *mut ImGuiWindow,
+    pub ID: ImGuiID,
+    pub FocusScopeId: ImGuiID,
+    pub DistBox: f32,
+    pub DistCenter: f32,
+    pub DistAxial: f32,
+    pub RectRel: ImRect,
+}
+#[test]
+fn bindgen_test_layout_ImGuiNavMoveResult() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiNavMoveResult>(),
+        48usize,
+        concat!("Size of: ", stringify!(ImGuiNavMoveResult))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiNavMoveResult>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiNavMoveResult))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNavMoveResult>())).Window as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNavMoveResult),
+            "::",
+            stringify!(Window)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNavMoveResult>())).ID as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNavMoveResult),
+            "::",
+            stringify!(ID)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNavMoveResult>())).FocusScopeId as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNavMoveResult),
+            "::",
+            stringify!(FocusScopeId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNavMoveResult>())).DistBox as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNavMoveResult),
+            "::",
+            stringify!(DistBox)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNavMoveResult>())).DistCenter as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNavMoveResult),
+            "::",
+            stringify!(DistCenter)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNavMoveResult>())).DistAxial as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNavMoveResult),
+            "::",
+            stringify!(DistAxial)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNavMoveResult>())).RectRel as *const _ as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNavMoveResult),
+            "::",
+            stringify!(RectRel)
+        )
+    );
+}
+impl Default for ImGuiNavMoveResult {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+pub const ImGuiNextWindowDataFlags_None: ImGuiNextWindowDataFlags_ = 0;
+pub const ImGuiNextWindowDataFlags_HasPos: ImGuiNextWindowDataFlags_ = 1;
+pub const ImGuiNextWindowDataFlags_HasSize: ImGuiNextWindowDataFlags_ = 2;
+pub const ImGuiNextWindowDataFlags_HasContentSize: ImGuiNextWindowDataFlags_ = 4;
+pub const ImGuiNextWindowDataFlags_HasCollapsed: ImGuiNextWindowDataFlags_ = 8;
+pub const ImGuiNextWindowDataFlags_HasSizeConstraint: ImGuiNextWindowDataFlags_ = 16;
+pub const ImGuiNextWindowDataFlags_HasFocus: ImGuiNextWindowDataFlags_ = 32;
+pub const ImGuiNextWindowDataFlags_HasBgAlpha: ImGuiNextWindowDataFlags_ = 64;
+pub const ImGuiNextWindowDataFlags_HasScroll: ImGuiNextWindowDataFlags_ = 128;
+pub const ImGuiNextWindowDataFlags_HasViewport: ImGuiNextWindowDataFlags_ = 256;
+pub const ImGuiNextWindowDataFlags_HasDock: ImGuiNextWindowDataFlags_ = 512;
+pub const ImGuiNextWindowDataFlags_HasWindowClass: ImGuiNextWindowDataFlags_ = 1024;
+pub type ImGuiNextWindowDataFlags_ = ::std::os::raw::c_uint;
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct ImGuiNextWindowData {
+    pub Flags: ImGuiNextWindowDataFlags,
+    pub PosCond: ImGuiCond,
+    pub SizeCond: ImGuiCond,
+    pub CollapsedCond: ImGuiCond,
+    pub DockCond: ImGuiCond,
+    pub PosVal: ImVec2,
+    pub PosPivotVal: ImVec2,
+    pub SizeVal: ImVec2,
+    pub ContentSizeVal: ImVec2,
+    pub ScrollVal: ImVec2,
+    pub PosUndock: bool,
+    pub CollapsedVal: bool,
+    pub SizeConstraintRect: ImRect,
+    pub SizeCallback: ImGuiSizeCallback,
+    pub SizeCallbackUserData: *mut ::std::os::raw::c_void,
+    pub BgAlphaVal: f32,
+    pub ViewportId: ImGuiID,
+    pub DockId: ImGuiID,
+    pub WindowClass: ImGuiWindowClass,
+    pub MenuBarOffsetMinVal: ImVec2,
+}
+#[test]
+fn bindgen_test_layout_ImGuiNextWindowData() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiNextWindowData>(),
+        144usize,
+        concat!("Size of: ", stringify!(ImGuiNextWindowData))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiNextWindowData>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiNextWindowData))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextWindowData>())).Flags as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(Flags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextWindowData>())).PosCond as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(PosCond)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextWindowData>())).SizeCond as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(SizeCond)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiNextWindowData>())).CollapsedCond as *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(CollapsedCond)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextWindowData>())).DockCond as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(DockCond)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextWindowData>())).PosVal as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(PosVal)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextWindowData>())).PosPivotVal as *const _ as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(PosPivotVal)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextWindowData>())).SizeVal as *const _ as usize },
+        36usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(SizeVal)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiNextWindowData>())).ContentSizeVal as *const _ as usize
+        },
+        44usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(ContentSizeVal)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextWindowData>())).ScrollVal as *const _ as usize },
+        52usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(ScrollVal)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextWindowData>())).PosUndock as *const _ as usize },
+        60usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(PosUndock)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiNextWindowData>())).CollapsedVal as *const _ as usize
+        },
+        61usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(CollapsedVal)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiNextWindowData>())).SizeConstraintRect as *const _ as usize
+        },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(SizeConstraintRect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiNextWindowData>())).SizeCallback as *const _ as usize
+        },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(SizeCallback)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiNextWindowData>())).SizeCallbackUserData as *const _
+                as usize
+        },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(SizeCallbackUserData)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextWindowData>())).BgAlphaVal as *const _ as usize },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(BgAlphaVal)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextWindowData>())).ViewportId as *const _ as usize },
+        100usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(ViewportId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextWindowData>())).DockId as *const _ as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(DockId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextWindowData>())).WindowClass as *const _ as usize },
+        108usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(WindowClass)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiNextWindowData>())).MenuBarOffsetMinVal as *const _ as usize
+        },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextWindowData),
+            "::",
+            stringify!(MenuBarOffsetMinVal)
+        )
+    );
+}
+impl Default for ImGuiNextWindowData {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+pub const ImGuiNextItemDataFlags_None: ImGuiNextItemDataFlags_ = 0;
+pub const ImGuiNextItemDataFlags_HasWidth: ImGuiNextItemDataFlags_ = 1;
+pub const ImGuiNextItemDataFlags_HasOpen: ImGuiNextItemDataFlags_ = 2;
+pub type ImGuiNextItemDataFlags_ = ::std::os::raw::c_uint;
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialEq)]
+pub struct ImGuiNextItemData {
+    pub Flags: ImGuiNextItemDataFlags,
+    pub Width: f32,
+    pub FocusScopeId: ImGuiID,
+    pub OpenCond: ImGuiCond,
+    pub OpenVal: bool,
+}
+#[test]
+fn bindgen_test_layout_ImGuiNextItemData() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiNextItemData>(),
+        20usize,
+        concat!("Size of: ", stringify!(ImGuiNextItemData))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiNextItemData>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ImGuiNextItemData))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextItemData>())).Flags as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextItemData),
+            "::",
+            stringify!(Flags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextItemData>())).Width as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextItemData),
+            "::",
+            stringify!(Width)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextItemData>())).FocusScopeId as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextItemData),
+            "::",
+            stringify!(FocusScopeId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextItemData>())).OpenCond as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextItemData),
+            "::",
+            stringify!(OpenCond)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiNextItemData>())).OpenVal as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiNextItemData),
+            "::",
+            stringify!(OpenVal)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialEq)]
+pub struct ImGuiShrinkWidthItem {
+    pub Index: ::std::os::raw::c_int,
+    pub Width: f32,
+}
+#[test]
+fn bindgen_test_layout_ImGuiShrinkWidthItem() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiShrinkWidthItem>(),
+        8usize,
+        concat!("Size of: ", stringify!(ImGuiShrinkWidthItem))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiShrinkWidthItem>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ImGuiShrinkWidthItem))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiShrinkWidthItem>())).Index as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiShrinkWidthItem),
+            "::",
+            stringify!(Index)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiShrinkWidthItem>())).Width as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiShrinkWidthItem),
+            "::",
+            stringify!(Width)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImGuiPtrOrIndex {
+    pub Ptr: *mut ::std::os::raw::c_void,
+    pub Index: ::std::os::raw::c_int,
+}
+#[test]
+fn bindgen_test_layout_ImGuiPtrOrIndex() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiPtrOrIndex>(),
+        16usize,
+        concat!("Size of: ", stringify!(ImGuiPtrOrIndex))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiPtrOrIndex>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiPtrOrIndex))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiPtrOrIndex>())).Ptr as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiPtrOrIndex),
+            "::",
+            stringify!(Ptr)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiPtrOrIndex>())).Index as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiPtrOrIndex),
+            "::",
+            stringify!(Index)
+        )
+    );
+}
+impl Default for ImGuiPtrOrIndex {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+pub const ImGuiColumnsFlags_None: ImGuiColumnsFlags_ = 0;
+pub const ImGuiColumnsFlags_NoBorder: ImGuiColumnsFlags_ = 1;
+pub const ImGuiColumnsFlags_NoResize: ImGuiColumnsFlags_ = 2;
+pub const ImGuiColumnsFlags_NoPreserveWidths: ImGuiColumnsFlags_ = 4;
+pub const ImGuiColumnsFlags_NoForceWithinWindow: ImGuiColumnsFlags_ = 8;
+pub const ImGuiColumnsFlags_GrowParentContentsSize: ImGuiColumnsFlags_ = 16;
+pub type ImGuiColumnsFlags_ = ::std::os::raw::c_uint;
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialEq)]
+pub struct ImGuiColumnData {
+    pub OffsetNorm: f32,
+    pub OffsetNormBeforeResize: f32,
+    pub Flags: ImGuiColumnsFlags,
+    pub ClipRect: ImRect,
+}
+#[test]
+fn bindgen_test_layout_ImGuiColumnData() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiColumnData>(),
+        28usize,
+        concat!("Size of: ", stringify!(ImGuiColumnData))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiColumnData>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ImGuiColumnData))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumnData>())).OffsetNorm as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumnData),
+            "::",
+            stringify!(OffsetNorm)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiColumnData>())).OffsetNormBeforeResize as *const _ as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumnData),
+            "::",
+            stringify!(OffsetNormBeforeResize)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumnData>())).Flags as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumnData),
+            "::",
+            stringify!(Flags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumnData>())).ClipRect as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumnData),
+            "::",
+            stringify!(ClipRect)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct ImGuiColumns {
+    pub ID: ImGuiID,
+    pub Flags: ImGuiColumnsFlags,
+    pub IsFirstFrame: bool,
+    pub IsBeingResized: bool,
+    pub Current: ::std::os::raw::c_int,
+    pub Count: ::std::os::raw::c_int,
+    pub OffMinX: f32,
+    pub OffMaxX: f32,
+    pub LineMinY: f32,
+    pub LineMaxY: f32,
+    pub HostCursorPosY: f32,
+    pub HostCursorMaxPosX: f32,
+    pub HostInitialClipRect: ImRect,
+    pub HostBackupClipRect: ImRect,
+    pub HostBackupParentWorkRect: ImRect,
+    pub Columns: ImVector_ImGuiColumnData,
+    pub Splitter: ImDrawListSplitter,
+}
+#[test]
+fn bindgen_test_layout_ImGuiColumns() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiColumns>(),
+        136usize,
+        concat!("Size of: ", stringify!(ImGuiColumns))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiColumns>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiColumns))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumns>())).ID as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(ID)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumns>())).Flags as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(Flags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumns>())).IsFirstFrame as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(IsFirstFrame)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumns>())).IsBeingResized as *const _ as usize },
+        9usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(IsBeingResized)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumns>())).Current as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(Current)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumns>())).Count as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(Count)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumns>())).OffMinX as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(OffMinX)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumns>())).OffMaxX as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(OffMaxX)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumns>())).LineMinY as *const _ as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(LineMinY)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumns>())).LineMaxY as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(LineMaxY)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumns>())).HostCursorPosY as *const _ as usize },
+        36usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(HostCursorPosY)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumns>())).HostCursorMaxPosX as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(HostCursorMaxPosX)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiColumns>())).HostInitialClipRect as *const _ as usize
+        },
+        44usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(HostInitialClipRect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumns>())).HostBackupClipRect as *const _ as usize },
+        60usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(HostBackupClipRect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiColumns>())).HostBackupParentWorkRect as *const _ as usize
+        },
+        76usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(HostBackupParentWorkRect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumns>())).Columns as *const _ as usize },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(Columns)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiColumns>())).Splitter as *const _ as usize },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiColumns),
+            "::",
+            stringify!(Splitter)
+        )
+    );
+}
+impl Default for ImGuiColumns {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+pub const ImGuiDockNodeFlags_DockSpace: ImGuiDockNodeFlagsPrivate_ = 1024;
+pub const ImGuiDockNodeFlags_CentralNode: ImGuiDockNodeFlagsPrivate_ = 2048;
+pub const ImGuiDockNodeFlags_NoTabBar: ImGuiDockNodeFlagsPrivate_ = 4096;
+pub const ImGuiDockNodeFlags_HiddenTabBar: ImGuiDockNodeFlagsPrivate_ = 8192;
+pub const ImGuiDockNodeFlags_NoWindowMenuButton: ImGuiDockNodeFlagsPrivate_ = 16384;
+pub const ImGuiDockNodeFlags_NoCloseButton: ImGuiDockNodeFlagsPrivate_ = 32768;
+pub const ImGuiDockNodeFlags_NoDocking: ImGuiDockNodeFlagsPrivate_ = 65536;
+pub const ImGuiDockNodeFlags_NoDockingSplitMe: ImGuiDockNodeFlagsPrivate_ = 131072;
+pub const ImGuiDockNodeFlags_NoDockingSplitOther: ImGuiDockNodeFlagsPrivate_ = 262144;
+pub const ImGuiDockNodeFlags_NoDockingOverMe: ImGuiDockNodeFlagsPrivate_ = 524288;
+pub const ImGuiDockNodeFlags_NoDockingOverOther: ImGuiDockNodeFlagsPrivate_ = 1048576;
+pub const ImGuiDockNodeFlags_NoResizeX: ImGuiDockNodeFlagsPrivate_ = 2097152;
+pub const ImGuiDockNodeFlags_NoResizeY: ImGuiDockNodeFlagsPrivate_ = 4194304;
+pub const ImGuiDockNodeFlags_SharedFlagsInheritMask_: ImGuiDockNodeFlagsPrivate_ = -1;
+pub const ImGuiDockNodeFlags_NoResizeFlagsMask_: ImGuiDockNodeFlagsPrivate_ = 6291488;
+pub const ImGuiDockNodeFlags_LocalFlagsMask_: ImGuiDockNodeFlagsPrivate_ = 6421616;
+pub const ImGuiDockNodeFlags_LocalFlagsTransferMask_: ImGuiDockNodeFlagsPrivate_ = 6420592;
+pub const ImGuiDockNodeFlags_SavedFlagsMask_: ImGuiDockNodeFlagsPrivate_ = 6421536;
+pub type ImGuiDockNodeFlagsPrivate_ = ::std::os::raw::c_int;
+pub const ImGuiDataAuthority_Auto: ImGuiDataAuthority_ = 0;
+pub const ImGuiDataAuthority_DockNode: ImGuiDataAuthority_ = 1;
+pub const ImGuiDataAuthority_Window: ImGuiDataAuthority_ = 2;
+pub type ImGuiDataAuthority_ = ::std::os::raw::c_uint;
+pub const ImGuiDockNodeState_Unknown: ImGuiDockNodeState = 0;
+pub const ImGuiDockNodeState_HostWindowHiddenBecauseSingleWindow: ImGuiDockNodeState = 1;
+pub const ImGuiDockNodeState_HostWindowHiddenBecauseWindowsAreResizing: ImGuiDockNodeState = 2;
+pub const ImGuiDockNodeState_HostWindowVisible: ImGuiDockNodeState = 3;
+pub type ImGuiDockNodeState = ::std::os::raw::c_uint;
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct ImGuiDockNode {
+    pub ID: ImGuiID,
+    pub SharedFlags: ImGuiDockNodeFlags,
+    pub LocalFlags: ImGuiDockNodeFlags,
+    pub ParentNode: *mut ImGuiDockNode,
+    pub ChildNodes: [*mut ImGuiDockNode; 2usize],
+    pub Windows: ImVector_ImGuiWindowPtr,
+    pub TabBar: *mut ImGuiTabBar,
+    pub Pos: ImVec2,
+    pub Size: ImVec2,
+    pub SizeRef: ImVec2,
+    pub SplitAxis: ImGuiAxis,
+    pub WindowClass: ImGuiWindowClass,
+    pub State: ImGuiDockNodeState,
+    pub HostWindow: *mut ImGuiWindow,
+    pub VisibleWindow: *mut ImGuiWindow,
+    pub CentralNode: *mut ImGuiDockNode,
+    pub OnlyNodeWithWindows: *mut ImGuiDockNode,
+    pub LastFrameAlive: ::std::os::raw::c_int,
+    pub LastFrameActive: ::std::os::raw::c_int,
+    pub LastFrameFocused: ::std::os::raw::c_int,
+    pub LastFocusedNodeId: ImGuiID,
+    pub SelectedTabId: ImGuiID,
+    pub WantCloseTabId: ImGuiID,
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 3usize], u8>,
+    pub __bindgen_padding_0: [u8; 5usize],
+}
+#[test]
+fn bindgen_test_layout_ImGuiDockNode() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiDockNode>(),
+        192usize,
+        concat!("Size of: ", stringify!(ImGuiDockNode))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiDockNode>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiDockNode))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).ID as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(ID)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).SharedFlags as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(SharedFlags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).LocalFlags as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(LocalFlags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).ParentNode as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(ParentNode)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).ChildNodes as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(ChildNodes)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).Windows as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(Windows)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).TabBar as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(TabBar)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).Pos as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(Pos)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).Size as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).SizeRef as *const _ as usize },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(SizeRef)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).SplitAxis as *const _ as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(SplitAxis)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).WindowClass as *const _ as usize },
+        92usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(WindowClass)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).State as *const _ as usize },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(State)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).HostWindow as *const _ as usize },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(HostWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).VisibleWindow as *const _ as usize },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(VisibleWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).CentralNode as *const _ as usize },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(CentralNode)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiDockNode>())).OnlyNodeWithWindows as *const _ as usize
+        },
+        152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(OnlyNodeWithWindows)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).LastFrameAlive as *const _ as usize },
+        160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(LastFrameAlive)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).LastFrameActive as *const _ as usize },
+        164usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(LastFrameActive)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).LastFrameFocused as *const _ as usize },
+        168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(LastFrameFocused)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).LastFocusedNodeId as *const _ as usize },
+        172usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(LastFocusedNodeId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).SelectedTabId as *const _ as usize },
+        176usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(SelectedTabId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockNode>())).WantCloseTabId as *const _ as usize },
+        180usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockNode),
+            "::",
+            stringify!(WantCloseTabId)
+        )
+    );
+}
+impl Default for ImGuiDockNode {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ImGuiDockNode {
+    #[inline]
+    pub fn AuthorityForPos(&self) -> ImGuiDataAuthority {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 3u8) as u32) }
+    }
+    #[inline]
+    pub fn set_AuthorityForPos(&mut self, val: ImGuiDataAuthority) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 3u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn AuthorityForSize(&self) -> ImGuiDataAuthority {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(3usize, 3u8) as u32) }
+    }
+    #[inline]
+    pub fn set_AuthorityForSize(&mut self, val: ImGuiDataAuthority) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(3usize, 3u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn AuthorityForViewport(&self) -> ImGuiDataAuthority {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(6usize, 3u8) as u32) }
+    }
+    #[inline]
+    pub fn set_AuthorityForViewport(&mut self, val: ImGuiDataAuthority) {
+        unsafe {
+            let val: u32 = ::std::mem::transmute(val);
+            self._bitfield_1.set(6usize, 3u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn IsVisible(&self) -> bool {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(9usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_IsVisible(&mut self, val: bool) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(9usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn IsFocused(&self) -> bool {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(10usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_IsFocused(&mut self, val: bool) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(10usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn HasCloseButton(&self) -> bool {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(11usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_HasCloseButton(&mut self, val: bool) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(11usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn HasWindowMenuButton(&self) -> bool {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(12usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_HasWindowMenuButton(&mut self, val: bool) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(12usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn EnableCloseButton(&self) -> bool {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(13usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_EnableCloseButton(&mut self, val: bool) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(13usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn WantCloseAll(&self) -> bool {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(14usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_WantCloseAll(&mut self, val: bool) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(14usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn WantLockSizeOnce(&self) -> bool {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(15usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_WantLockSizeOnce(&mut self, val: bool) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(15usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn WantMouseMove(&self) -> bool {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(16usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_WantMouseMove(&mut self, val: bool) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(16usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn WantHiddenTabBarUpdate(&self) -> bool {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(17usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_WantHiddenTabBarUpdate(&mut self, val: bool) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(17usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn WantHiddenTabBarToggle(&self) -> bool {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(18usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_WantHiddenTabBarToggle(&mut self, val: bool) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(18usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn MarkedForPosSizeWrite(&self) -> bool {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(19usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_MarkedForPosSizeWrite(&mut self, val: bool) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(19usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        AuthorityForPos: ImGuiDataAuthority,
+        AuthorityForSize: ImGuiDataAuthority,
+        AuthorityForViewport: ImGuiDataAuthority,
+        IsVisible: bool,
+        IsFocused: bool,
+        HasCloseButton: bool,
+        HasWindowMenuButton: bool,
+        EnableCloseButton: bool,
+        WantCloseAll: bool,
+        WantLockSizeOnce: bool,
+        WantMouseMove: bool,
+        WantHiddenTabBarUpdate: bool,
+        WantHiddenTabBarToggle: bool,
+        MarkedForPosSizeWrite: bool,
+    ) -> __BindgenBitfieldUnit<[u8; 3usize], u8> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 3usize], u8> =
+            Default::default();
+        __bindgen_bitfield_unit.set(0usize, 3u8, {
+            let AuthorityForPos: u32 = unsafe { ::std::mem::transmute(AuthorityForPos) };
+            AuthorityForPos as u64
+        });
+        __bindgen_bitfield_unit.set(3usize, 3u8, {
+            let AuthorityForSize: u32 = unsafe { ::std::mem::transmute(AuthorityForSize) };
+            AuthorityForSize as u64
+        });
+        __bindgen_bitfield_unit.set(6usize, 3u8, {
+            let AuthorityForViewport: u32 = unsafe { ::std::mem::transmute(AuthorityForViewport) };
+            AuthorityForViewport as u64
+        });
+        __bindgen_bitfield_unit.set(9usize, 1u8, {
+            let IsVisible: u8 = unsafe { ::std::mem::transmute(IsVisible) };
+            IsVisible as u64
+        });
+        __bindgen_bitfield_unit.set(10usize, 1u8, {
+            let IsFocused: u8 = unsafe { ::std::mem::transmute(IsFocused) };
+            IsFocused as u64
+        });
+        __bindgen_bitfield_unit.set(11usize, 1u8, {
+            let HasCloseButton: u8 = unsafe { ::std::mem::transmute(HasCloseButton) };
+            HasCloseButton as u64
+        });
+        __bindgen_bitfield_unit.set(12usize, 1u8, {
+            let HasWindowMenuButton: u8 = unsafe { ::std::mem::transmute(HasWindowMenuButton) };
+            HasWindowMenuButton as u64
+        });
+        __bindgen_bitfield_unit.set(13usize, 1u8, {
+            let EnableCloseButton: u8 = unsafe { ::std::mem::transmute(EnableCloseButton) };
+            EnableCloseButton as u64
+        });
+        __bindgen_bitfield_unit.set(14usize, 1u8, {
+            let WantCloseAll: u8 = unsafe { ::std::mem::transmute(WantCloseAll) };
+            WantCloseAll as u64
+        });
+        __bindgen_bitfield_unit.set(15usize, 1u8, {
+            let WantLockSizeOnce: u8 = unsafe { ::std::mem::transmute(WantLockSizeOnce) };
+            WantLockSizeOnce as u64
+        });
+        __bindgen_bitfield_unit.set(16usize, 1u8, {
+            let WantMouseMove: u8 = unsafe { ::std::mem::transmute(WantMouseMove) };
+            WantMouseMove as u64
+        });
+        __bindgen_bitfield_unit.set(17usize, 1u8, {
+            let WantHiddenTabBarUpdate: u8 =
+                unsafe { ::std::mem::transmute(WantHiddenTabBarUpdate) };
+            WantHiddenTabBarUpdate as u64
+        });
+        __bindgen_bitfield_unit.set(18usize, 1u8, {
+            let WantHiddenTabBarToggle: u8 =
+                unsafe { ::std::mem::transmute(WantHiddenTabBarToggle) };
+            WantHiddenTabBarToggle as u64
+        });
+        __bindgen_bitfield_unit.set(19usize, 1u8, {
+            let MarkedForPosSizeWrite: u8 = unsafe { ::std::mem::transmute(MarkedForPosSizeWrite) };
+            MarkedForPosSizeWrite as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImGuiDockContext {
+    pub Nodes: ImGuiStorage,
+    pub Requests: ImVector_ImGuiDockRequest,
+    pub NodesSettings: ImVector_ImGuiDockNodeSettings,
+    pub WantFullRebuild: bool,
+}
+#[test]
+fn bindgen_test_layout_ImGuiDockContext() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiDockContext>(),
+        56usize,
+        concat!("Size of: ", stringify!(ImGuiDockContext))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiDockContext>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiDockContext))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockContext>())).Nodes as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockContext),
+            "::",
+            stringify!(Nodes)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockContext>())).Requests as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockContext),
+            "::",
+            stringify!(Requests)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiDockContext>())).NodesSettings as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockContext),
+            "::",
+            stringify!(NodesSettings)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiDockContext>())).WantFullRebuild as *const _ as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiDockContext),
+            "::",
+            stringify!(WantFullRebuild)
+        )
+    );
+}
+impl Default for ImGuiDockContext {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct ImGuiViewportP {
+    pub _ImGuiViewport: ImGuiViewport,
+    pub Idx: ::std::os::raw::c_int,
+    pub LastFrameActive: ::std::os::raw::c_int,
+    pub LastFrameDrawLists: [::std::os::raw::c_int; 2usize],
+    pub LastFrontMostStampCount: ::std::os::raw::c_int,
+    pub LastNameHash: ImGuiID,
+    pub LastPos: ImVec2,
+    pub Alpha: f32,
+    pub LastAlpha: f32,
+    pub PlatformMonitor: ::std::os::raw::c_short,
+    pub PlatformWindowCreated: bool,
+    pub Window: *mut ImGuiWindow,
+    pub DrawLists: [*mut ImDrawList; 2usize],
+    pub DrawDataP: ImDrawData,
+    pub DrawDataBuilder: ImDrawDataBuilder,
+    pub LastPlatformPos: ImVec2,
+    pub LastPlatformSize: ImVec2,
+    pub LastRendererSize: ImVec2,
+    pub CurrWorkOffsetMin: ImVec2,
+    pub CurrWorkOffsetMax: ImVec2,
+}
+#[test]
+fn bindgen_test_layout_ImGuiViewportP() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiViewportP>(),
+        312usize,
+        concat!("Size of: ", stringify!(ImGuiViewportP))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiViewportP>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiViewportP))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiViewportP>()))._ImGuiViewport as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(_ImGuiViewport)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiViewportP>())).Idx as *const _ as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(Idx)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiViewportP>())).LastFrameActive as *const _ as usize },
+        108usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(LastFrameActive)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiViewportP>())).LastFrameDrawLists as *const _ as usize
+        },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(LastFrameDrawLists)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiViewportP>())).LastFrontMostStampCount as *const _ as usize
+        },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(LastFrontMostStampCount)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiViewportP>())).LastNameHash as *const _ as usize },
+        124usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(LastNameHash)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiViewportP>())).LastPos as *const _ as usize },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(LastPos)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiViewportP>())).Alpha as *const _ as usize },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(Alpha)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiViewportP>())).LastAlpha as *const _ as usize },
+        140usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(LastAlpha)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiViewportP>())).PlatformMonitor as *const _ as usize },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(PlatformMonitor)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiViewportP>())).PlatformWindowCreated as *const _ as usize
+        },
+        146usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(PlatformWindowCreated)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiViewportP>())).Window as *const _ as usize },
+        152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(Window)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiViewportP>())).DrawLists as *const _ as usize },
+        160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(DrawLists)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiViewportP>())).DrawDataP as *const _ as usize },
+        176usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(DrawDataP)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiViewportP>())).DrawDataBuilder as *const _ as usize },
+        240usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(DrawDataBuilder)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiViewportP>())).LastPlatformPos as *const _ as usize },
+        272usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(LastPlatformPos)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiViewportP>())).LastPlatformSize as *const _ as usize },
+        280usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(LastPlatformSize)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiViewportP>())).LastRendererSize as *const _ as usize },
+        288usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(LastRendererSize)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiViewportP>())).CurrWorkOffsetMin as *const _ as usize
+        },
+        296usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(CurrWorkOffsetMin)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiViewportP>())).CurrWorkOffsetMax as *const _ as usize
+        },
+        304usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiViewportP),
+            "::",
+            stringify!(CurrWorkOffsetMax)
+        )
+    );
+}
+impl Default for ImGuiViewportP {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImGuiWindowSettings {
+    pub ID: ImGuiID,
+    pub Pos: ImVec2ih,
+    pub Size: ImVec2ih,
+    pub ViewportPos: ImVec2ih,
+    pub ViewportId: ImGuiID,
+    pub DockId: ImGuiID,
+    pub ClassId: ImGuiID,
+    pub DockOrder: ::std::os::raw::c_short,
+    pub Collapsed: bool,
+    pub WantApply: bool,
+}
+#[test]
+fn bindgen_test_layout_ImGuiWindowSettings() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiWindowSettings>(),
+        32usize,
+        concat!("Size of: ", stringify!(ImGuiWindowSettings))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiWindowSettings>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ImGuiWindowSettings))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowSettings>())).ID as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowSettings),
+            "::",
+            stringify!(ID)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowSettings>())).Pos as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowSettings),
+            "::",
+            stringify!(Pos)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowSettings>())).Size as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowSettings),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowSettings>())).ViewportPos as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowSettings),
+            "::",
+            stringify!(ViewportPos)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowSettings>())).ViewportId as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowSettings),
+            "::",
+            stringify!(ViewportId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowSettings>())).DockId as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowSettings),
+            "::",
+            stringify!(DockId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowSettings>())).ClassId as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowSettings),
+            "::",
+            stringify!(ClassId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowSettings>())).DockOrder as *const _ as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowSettings),
+            "::",
+            stringify!(DockOrder)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowSettings>())).Collapsed as *const _ as usize },
+        30usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowSettings),
+            "::",
+            stringify!(Collapsed)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowSettings>())).WantApply as *const _ as usize },
+        31usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowSettings),
+            "::",
+            stringify!(WantApply)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub struct ImGuiSettingsHandler {
+    pub TypeName: *const ::std::os::raw::c_char,
+    pub TypeHash: ImGuiID,
+    pub ClearAllFn: ::std::option::Option<
+        unsafe extern "C" fn(ctx: *mut ImGuiContext, handler: *mut ImGuiSettingsHandler),
+    >,
+    pub ReadInitFn: ::std::option::Option<
+        unsafe extern "C" fn(ctx: *mut ImGuiContext, handler: *mut ImGuiSettingsHandler),
+    >,
+    pub ReadOpenFn: ::std::option::Option<
+        unsafe extern "C" fn(
+            ctx: *mut ImGuiContext,
+            handler: *mut ImGuiSettingsHandler,
+            name: *const ::std::os::raw::c_char,
+        ) -> *mut ::std::os::raw::c_void,
+    >,
+    pub ReadLineFn: ::std::option::Option<
+        unsafe extern "C" fn(
+            ctx: *mut ImGuiContext,
+            handler: *mut ImGuiSettingsHandler,
+            entry: *mut ::std::os::raw::c_void,
+            line: *const ::std::os::raw::c_char,
+        ),
+    >,
+    pub ApplyAllFn: ::std::option::Option<
+        unsafe extern "C" fn(ctx: *mut ImGuiContext, handler: *mut ImGuiSettingsHandler),
+    >,
+    pub WriteAllFn: ::std::option::Option<
+        unsafe extern "C" fn(
+            ctx: *mut ImGuiContext,
+            handler: *mut ImGuiSettingsHandler,
+            out_buf: *mut ImGuiTextBuffer,
+        ),
+    >,
+    pub UserData: *mut ::std::os::raw::c_void,
+}
+#[test]
+fn bindgen_test_layout_ImGuiSettingsHandler() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiSettingsHandler>(),
+        72usize,
+        concat!("Size of: ", stringify!(ImGuiSettingsHandler))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiSettingsHandler>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiSettingsHandler))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiSettingsHandler>())).TypeName as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiSettingsHandler),
+            "::",
+            stringify!(TypeName)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiSettingsHandler>())).TypeHash as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiSettingsHandler),
+            "::",
+            stringify!(TypeHash)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiSettingsHandler>())).ClearAllFn as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiSettingsHandler),
+            "::",
+            stringify!(ClearAllFn)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiSettingsHandler>())).ReadInitFn as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiSettingsHandler),
+            "::",
+            stringify!(ReadInitFn)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiSettingsHandler>())).ReadOpenFn as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiSettingsHandler),
+            "::",
+            stringify!(ReadOpenFn)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiSettingsHandler>())).ReadLineFn as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiSettingsHandler),
+            "::",
+            stringify!(ReadLineFn)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiSettingsHandler>())).ApplyAllFn as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiSettingsHandler),
+            "::",
+            stringify!(ApplyAllFn)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiSettingsHandler>())).WriteAllFn as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiSettingsHandler),
+            "::",
+            stringify!(WriteAllFn)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiSettingsHandler>())).UserData as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiSettingsHandler),
+            "::",
+            stringify!(UserData)
+        )
+    );
+}
+impl Default for ImGuiSettingsHandler {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct ImGuiContext {
+    pub Initialized: bool,
+    pub FontAtlasOwnedByContext: bool,
+    pub IO: ImGuiIO,
+    pub PlatformIO: ImGuiPlatformIO,
+    pub Style: ImGuiStyle,
+    pub ConfigFlagsCurrFrame: ImGuiConfigFlags,
+    pub ConfigFlagsLastFrame: ImGuiConfigFlags,
+    pub Font: *mut ImFont,
+    pub FontSize: f32,
+    pub FontBaseSize: f32,
+    pub DrawListSharedData: ImDrawListSharedData,
+    pub Time: f64,
+    pub FrameCount: ::std::os::raw::c_int,
+    pub FrameCountEnded: ::std::os::raw::c_int,
+    pub FrameCountPlatformEnded: ::std::os::raw::c_int,
+    pub FrameCountRendered: ::std::os::raw::c_int,
+    pub WithinFrameScope: bool,
+    pub WithinFrameScopeWithImplicitWindow: bool,
+    pub WithinEndChild: bool,
+    pub TestEngineHookItems: bool,
+    pub TestEngineHookIdInfo: ImGuiID,
+    pub TestEngine: *mut ::std::os::raw::c_void,
+    pub Windows: ImVector_ImGuiWindowPtr,
+    pub WindowsFocusOrder: ImVector_ImGuiWindowPtr,
+    pub WindowsTempSortBuffer: ImVector_ImGuiWindowPtr,
+    pub CurrentWindowStack: ImVector_ImGuiWindowPtr,
+    pub WindowsById: ImGuiStorage,
+    pub WindowsActiveCount: ::std::os::raw::c_int,
+    pub CurrentWindow: *mut ImGuiWindow,
+    pub HoveredWindow: *mut ImGuiWindow,
+    pub HoveredRootWindow: *mut ImGuiWindow,
+    pub HoveredWindowUnderMovingWindow: *mut ImGuiWindow,
+    pub HoveredDockNode: *mut ImGuiDockNode,
+    pub MovingWindow: *mut ImGuiWindow,
+    pub WheelingWindow: *mut ImGuiWindow,
+    pub WheelingWindowRefMousePos: ImVec2,
+    pub WheelingWindowTimer: f32,
+    pub HoveredId: ImGuiID,
+    pub HoveredIdPreviousFrame: ImGuiID,
+    pub HoveredIdAllowOverlap: bool,
+    pub HoveredIdDisabled: bool,
+    pub HoveredIdTimer: f32,
+    pub HoveredIdNotActiveTimer: f32,
+    pub ActiveId: ImGuiID,
+    pub ActiveIdIsAlive: ImGuiID,
+    pub ActiveIdTimer: f32,
+    pub ActiveIdIsJustActivated: bool,
+    pub ActiveIdAllowOverlap: bool,
+    pub ActiveIdNoClearOnFocusLoss: bool,
+    pub ActiveIdHasBeenPressedBefore: bool,
+    pub ActiveIdHasBeenEditedBefore: bool,
+    pub ActiveIdHasBeenEditedThisFrame: bool,
+    pub ActiveIdUsingNavDirMask: ImU32,
+    pub ActiveIdUsingNavInputMask: ImU32,
+    pub ActiveIdUsingKeyInputMask: ImU64,
+    pub ActiveIdClickOffset: ImVec2,
+    pub ActiveIdWindow: *mut ImGuiWindow,
+    pub ActiveIdSource: ImGuiInputSource,
+    pub ActiveIdMouseButton: ::std::os::raw::c_int,
+    pub ActiveIdPreviousFrame: ImGuiID,
+    pub ActiveIdPreviousFrameIsAlive: bool,
+    pub ActiveIdPreviousFrameHasBeenEditedBefore: bool,
+    pub ActiveIdPreviousFrameWindow: *mut ImGuiWindow,
+    pub LastActiveId: ImGuiID,
+    pub LastActiveIdTimer: f32,
+    pub NextWindowData: ImGuiNextWindowData,
+    pub NextItemData: ImGuiNextItemData,
+    pub ColorModifiers: ImVector_ImGuiColorMod,
+    pub StyleModifiers: ImVector_ImGuiStyleMod,
+    pub FontStack: ImVector_ImFontPtr,
+    pub OpenPopupStack: ImVector_ImGuiPopupData,
+    pub BeginPopupStack: ImVector_ImGuiPopupData,
+    pub Viewports: ImVector_ImGuiViewportPPtr,
+    pub CurrentDpiScale: f32,
+    pub CurrentViewport: *mut ImGuiViewportP,
+    pub MouseViewport: *mut ImGuiViewportP,
+    pub MouseLastHoveredViewport: *mut ImGuiViewportP,
+    pub ViewportFrontMostStampCount: ::std::os::raw::c_int,
+    pub NavWindow: *mut ImGuiWindow,
+    pub NavId: ImGuiID,
+    pub NavFocusScopeId: ImGuiID,
+    pub NavActivateId: ImGuiID,
+    pub NavActivateDownId: ImGuiID,
+    pub NavActivatePressedId: ImGuiID,
+    pub NavInputId: ImGuiID,
+    pub NavJustTabbedId: ImGuiID,
+    pub NavJustMovedToId: ImGuiID,
+    pub NavJustMovedToFocusScopeId: ImGuiID,
+    pub NavJustMovedToKeyMods: ImGuiKeyModFlags,
+    pub NavNextActivateId: ImGuiID,
+    pub NavInputSource: ImGuiInputSource,
+    pub NavScoringRect: ImRect,
+    pub NavScoringCount: ::std::os::raw::c_int,
+    pub NavLayer: ImGuiNavLayer,
+    pub NavIdTabCounter: ::std::os::raw::c_int,
+    pub NavIdIsAlive: bool,
+    pub NavMousePosDirty: bool,
+    pub NavDisableHighlight: bool,
+    pub NavDisableMouseHover: bool,
+    pub NavAnyRequest: bool,
+    pub NavInitRequest: bool,
+    pub NavInitRequestFromMove: bool,
+    pub NavInitResultId: ImGuiID,
+    pub NavInitResultRectRel: ImRect,
+    pub NavMoveRequest: bool,
+    pub NavMoveRequestFlags: ImGuiNavMoveFlags,
+    pub NavMoveRequestForward: ImGuiNavForward,
+    pub NavMoveRequestKeyMods: ImGuiKeyModFlags,
+    pub NavMoveDir: ImGuiDir,
+    pub NavMoveDirLast: ImGuiDir,
+    pub NavMoveClipDir: ImGuiDir,
+    pub NavMoveResultLocal: ImGuiNavMoveResult,
+    pub NavMoveResultLocalVisibleSet: ImGuiNavMoveResult,
+    pub NavMoveResultOther: ImGuiNavMoveResult,
+    pub NavWrapRequestWindow: *mut ImGuiWindow,
+    pub NavWrapRequestFlags: ImGuiNavMoveFlags,
+    pub NavWindowingTarget: *mut ImGuiWindow,
+    pub NavWindowingTargetAnim: *mut ImGuiWindow,
+    pub NavWindowingListWindow: *mut ImGuiWindow,
+    pub NavWindowingTimer: f32,
+    pub NavWindowingHighlightAlpha: f32,
+    pub NavWindowingToggleLayer: bool,
+    pub FocusRequestCurrWindow: *mut ImGuiWindow,
+    pub FocusRequestNextWindow: *mut ImGuiWindow,
+    pub FocusRequestCurrCounterRegular: ::std::os::raw::c_int,
+    pub FocusRequestCurrCounterTabStop: ::std::os::raw::c_int,
+    pub FocusRequestNextCounterRegular: ::std::os::raw::c_int,
+    pub FocusRequestNextCounterTabStop: ::std::os::raw::c_int,
+    pub FocusTabPressed: bool,
+    pub DimBgRatio: f32,
+    pub MouseCursor: ImGuiMouseCursor,
+    pub DragDropActive: bool,
+    pub DragDropWithinSource: bool,
+    pub DragDropWithinTarget: bool,
+    pub DragDropSourceFlags: ImGuiDragDropFlags,
+    pub DragDropSourceFrameCount: ::std::os::raw::c_int,
+    pub DragDropMouseButton: ::std::os::raw::c_int,
+    pub DragDropPayload: ImGuiPayload,
+    pub DragDropTargetRect: ImRect,
+    pub DragDropTargetId: ImGuiID,
+    pub DragDropAcceptFlags: ImGuiDragDropFlags,
+    pub DragDropAcceptIdCurrRectSurface: f32,
+    pub DragDropAcceptIdCurr: ImGuiID,
+    pub DragDropAcceptIdPrev: ImGuiID,
+    pub DragDropAcceptFrameCount: ::std::os::raw::c_int,
+    pub DragDropHoldJustPressedId: ImGuiID,
+    pub DragDropPayloadBufHeap: ImVector_unsigned_char,
+    pub DragDropPayloadBufLocal: [::std::os::raw::c_uchar; 16usize],
+    pub CurrentTabBar: *mut ImGuiTabBar,
+    pub TabBars: ImPool_ImGuiTabBar,
+    pub CurrentTabBarStack: ImVector_ImGuiPtrOrIndex,
+    pub ShrinkWidthBuffer: ImVector_ImGuiShrinkWidthItem,
+    pub LastValidMousePos: ImVec2,
+    pub InputTextState: ImGuiInputTextState,
+    pub InputTextPasswordFont: ImFont,
+    pub TempInputId: ImGuiID,
+    pub ColorEditOptions: ImGuiColorEditFlags,
+    pub ColorEditLastHue: f32,
+    pub ColorEditLastSat: f32,
+    pub ColorEditLastColor: [f32; 3usize],
+    pub ColorPickerRef: ImVec4,
+    pub SliderCurrentAccum: f32,
+    pub SliderCurrentAccumDirty: bool,
+    pub DragCurrentAccumDirty: bool,
+    pub DragCurrentAccum: f32,
+    pub DragSpeedDefaultRatio: f32,
+    pub ScrollbarClickDeltaToGrabCenter: f32,
+    pub TooltipOverrideCount: ::std::os::raw::c_int,
+    pub ClipboardHandlerData: ImVector_char,
+    pub MenusIdSubmittedThisFrame: ImVector_ImGuiID,
+    pub PlatformImePos: ImVec2,
+    pub PlatformImeLastPos: ImVec2,
+    pub PlatformImePosViewport: *mut ImGuiViewportP,
+    pub PlatformLocaleDecimalPoint: ::std::os::raw::c_char,
+    pub DockContext: ImGuiDockContext,
+    pub SettingsLoaded: bool,
+    pub SettingsDirtyTimer: f32,
+    pub SettingsIniData: ImGuiTextBuffer,
+    pub SettingsHandlers: ImVector_ImGuiSettingsHandler,
+    pub SettingsWindows: ImChunkStream_ImGuiWindowSettings,
+    pub LogEnabled: bool,
+    pub LogType: ImGuiLogType,
+    pub LogFile: ImFileHandle,
+    pub LogBuffer: ImGuiTextBuffer,
+    pub LogLinePosY: f32,
+    pub LogLineFirstItem: bool,
+    pub LogDepthRef: ::std::os::raw::c_int,
+    pub LogDepthToExpand: ::std::os::raw::c_int,
+    pub LogDepthToExpandDefault: ::std::os::raw::c_int,
+    pub DebugItemPickerActive: bool,
+    pub DebugItemPickerBreakId: ImGuiID,
+    pub FramerateSecPerFrame: [f32; 120usize],
+    pub FramerateSecPerFrameIdx: ::std::os::raw::c_int,
+    pub FramerateSecPerFrameAccum: f32,
+    pub WantCaptureMouseNextFrame: ::std::os::raw::c_int,
+    pub WantCaptureKeyboardNextFrame: ::std::os::raw::c_int,
+    pub WantTextInputNextFrame: ::std::os::raw::c_int,
+    pub TempBuffer: [::std::os::raw::c_char; 3073usize],
+}
+#[test]
+fn bindgen_test_layout_ImGuiContext() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiContext>(),
+        15920usize,
+        concat!("Size of: ", stringify!(ImGuiContext))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiContext>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiContext))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).Initialized as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(Initialized)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).FontAtlasOwnedByContext as *const _ as usize
+        },
+        1usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FontAtlasOwnedByContext)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).IO as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(IO)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).PlatformIO as *const _ as usize },
+        5472usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(PlatformIO)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).Style as *const _ as usize },
+        5704usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(Style)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ConfigFlagsCurrFrame as *const _ as usize
+        },
+        6692usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ConfigFlagsCurrFrame)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ConfigFlagsLastFrame as *const _ as usize
+        },
+        6696usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ConfigFlagsLastFrame)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).Font as *const _ as usize },
+        6704usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(Font)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).FontSize as *const _ as usize },
+        6712usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FontSize)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).FontBaseSize as *const _ as usize },
+        6716usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FontBaseSize)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).DrawListSharedData as *const _ as usize },
+        6720usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DrawListSharedData)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).Time as *const _ as usize },
+        6936usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(Time)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).FrameCount as *const _ as usize },
+        6944usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FrameCount)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).FrameCountEnded as *const _ as usize },
+        6948usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FrameCountEnded)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).FrameCountPlatformEnded as *const _ as usize
+        },
+        6952usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FrameCountPlatformEnded)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).FrameCountRendered as *const _ as usize },
+        6956usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FrameCountRendered)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).WithinFrameScope as *const _ as usize },
+        6960usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(WithinFrameScope)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).WithinFrameScopeWithImplicitWindow as *const _
+                as usize
+        },
+        6961usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(WithinFrameScopeWithImplicitWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).WithinEndChild as *const _ as usize },
+        6962usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(WithinEndChild)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).TestEngineHookItems as *const _ as usize
+        },
+        6963usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(TestEngineHookItems)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).TestEngineHookIdInfo as *const _ as usize
+        },
+        6964usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(TestEngineHookIdInfo)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).TestEngine as *const _ as usize },
+        6968usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(TestEngine)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).Windows as *const _ as usize },
+        6976usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(Windows)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).WindowsFocusOrder as *const _ as usize },
+        6992usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(WindowsFocusOrder)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).WindowsTempSortBuffer as *const _ as usize
+        },
+        7008usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(WindowsTempSortBuffer)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).CurrentWindowStack as *const _ as usize },
+        7024usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(CurrentWindowStack)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).WindowsById as *const _ as usize },
+        7040usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(WindowsById)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).WindowsActiveCount as *const _ as usize },
+        7056usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(WindowsActiveCount)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).CurrentWindow as *const _ as usize },
+        7064usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(CurrentWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).HoveredWindow as *const _ as usize },
+        7072usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(HoveredWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).HoveredRootWindow as *const _ as usize },
+        7080usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(HoveredRootWindow)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).HoveredWindowUnderMovingWindow as *const _
+                as usize
+        },
+        7088usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(HoveredWindowUnderMovingWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).HoveredDockNode as *const _ as usize },
+        7096usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(HoveredDockNode)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).MovingWindow as *const _ as usize },
+        7104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(MovingWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).WheelingWindow as *const _ as usize },
+        7112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(WheelingWindow)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).WheelingWindowRefMousePos as *const _ as usize
+        },
+        7120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(WheelingWindowRefMousePos)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).WheelingWindowTimer as *const _ as usize
+        },
+        7128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(WheelingWindowTimer)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).HoveredId as *const _ as usize },
+        7132usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(HoveredId)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).HoveredIdPreviousFrame as *const _ as usize
+        },
+        7136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(HoveredIdPreviousFrame)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).HoveredIdAllowOverlap as *const _ as usize
+        },
+        7140usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(HoveredIdAllowOverlap)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).HoveredIdDisabled as *const _ as usize },
+        7141usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(HoveredIdDisabled)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).HoveredIdTimer as *const _ as usize },
+        7144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(HoveredIdTimer)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).HoveredIdNotActiveTimer as *const _ as usize
+        },
+        7148usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(HoveredIdNotActiveTimer)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).ActiveId as *const _ as usize },
+        7152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdIsAlive as *const _ as usize },
+        7156usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdIsAlive)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdTimer as *const _ as usize },
+        7160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdTimer)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdIsJustActivated as *const _ as usize
+        },
+        7164usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdIsJustActivated)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdAllowOverlap as *const _ as usize
+        },
+        7165usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdAllowOverlap)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdNoClearOnFocusLoss as *const _ as usize
+        },
+        7166usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdNoClearOnFocusLoss)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdHasBeenPressedBefore as *const _
+                as usize
+        },
+        7167usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdHasBeenPressedBefore)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdHasBeenEditedBefore as *const _
+                as usize
+        },
+        7168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdHasBeenEditedBefore)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdHasBeenEditedThisFrame as *const _
+                as usize
+        },
+        7169usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdHasBeenEditedThisFrame)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdUsingNavDirMask as *const _ as usize
+        },
+        7172usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdUsingNavDirMask)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdUsingNavInputMask as *const _ as usize
+        },
+        7176usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdUsingNavInputMask)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdUsingKeyInputMask as *const _ as usize
+        },
+        7184usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdUsingKeyInputMask)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdClickOffset as *const _ as usize
+        },
+        7192usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdClickOffset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdWindow as *const _ as usize },
+        7200usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdSource as *const _ as usize },
+        7208usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdSource)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdMouseButton as *const _ as usize
+        },
+        7212usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdMouseButton)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdPreviousFrame as *const _ as usize
+        },
+        7216usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdPreviousFrame)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdPreviousFrameIsAlive as *const _
+                as usize
+        },
+        7220usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdPreviousFrameIsAlive)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdPreviousFrameHasBeenEditedBefore
+                as *const _ as usize
+        },
+        7221usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdPreviousFrameHasBeenEditedBefore)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ActiveIdPreviousFrameWindow as *const _
+                as usize
+        },
+        7224usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ActiveIdPreviousFrameWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).LastActiveId as *const _ as usize },
+        7232usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(LastActiveId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).LastActiveIdTimer as *const _ as usize },
+        7236usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(LastActiveIdTimer)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NextWindowData as *const _ as usize },
+        7240usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NextWindowData)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NextItemData as *const _ as usize },
+        7384usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NextItemData)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).ColorModifiers as *const _ as usize },
+        7408usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ColorModifiers)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).StyleModifiers as *const _ as usize },
+        7424usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(StyleModifiers)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).FontStack as *const _ as usize },
+        7440usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FontStack)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).OpenPopupStack as *const _ as usize },
+        7456usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(OpenPopupStack)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).BeginPopupStack as *const _ as usize },
+        7472usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(BeginPopupStack)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).Viewports as *const _ as usize },
+        7488usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(Viewports)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).CurrentDpiScale as *const _ as usize },
+        7504usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(CurrentDpiScale)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).CurrentViewport as *const _ as usize },
+        7512usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(CurrentViewport)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).MouseViewport as *const _ as usize },
+        7520usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(MouseViewport)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).MouseLastHoveredViewport as *const _ as usize
+        },
+        7528usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(MouseLastHoveredViewport)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ViewportFrontMostStampCount as *const _
+                as usize
+        },
+        7536usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ViewportFrontMostStampCount)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavWindow as *const _ as usize },
+        7544usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavId as *const _ as usize },
+        7552usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavFocusScopeId as *const _ as usize },
+        7556usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavFocusScopeId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavActivateId as *const _ as usize },
+        7560usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavActivateId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavActivateDownId as *const _ as usize },
+        7564usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavActivateDownId)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavActivatePressedId as *const _ as usize
+        },
+        7568usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavActivatePressedId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavInputId as *const _ as usize },
+        7572usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavInputId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavJustTabbedId as *const _ as usize },
+        7576usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavJustTabbedId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavJustMovedToId as *const _ as usize },
+        7580usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavJustMovedToId)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavJustMovedToFocusScopeId as *const _ as usize
+        },
+        7584usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavJustMovedToFocusScopeId)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavJustMovedToKeyMods as *const _ as usize
+        },
+        7588usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavJustMovedToKeyMods)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavNextActivateId as *const _ as usize },
+        7592usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavNextActivateId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavInputSource as *const _ as usize },
+        7596usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavInputSource)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavScoringRect as *const _ as usize },
+        7600usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavScoringRect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavScoringCount as *const _ as usize },
+        7616usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavScoringCount)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavLayer as *const _ as usize },
+        7620usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavLayer)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavIdTabCounter as *const _ as usize },
+        7624usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavIdTabCounter)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavIdIsAlive as *const _ as usize },
+        7628usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavIdIsAlive)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavMousePosDirty as *const _ as usize },
+        7629usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavMousePosDirty)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavDisableHighlight as *const _ as usize
+        },
+        7630usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavDisableHighlight)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavDisableMouseHover as *const _ as usize
+        },
+        7631usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavDisableMouseHover)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavAnyRequest as *const _ as usize },
+        7632usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavAnyRequest)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavInitRequest as *const _ as usize },
+        7633usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavInitRequest)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavInitRequestFromMove as *const _ as usize
+        },
+        7634usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavInitRequestFromMove)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavInitResultId as *const _ as usize },
+        7636usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavInitResultId)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavInitResultRectRel as *const _ as usize
+        },
+        7640usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavInitResultRectRel)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavMoveRequest as *const _ as usize },
+        7656usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavMoveRequest)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavMoveRequestFlags as *const _ as usize
+        },
+        7660usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavMoveRequestFlags)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavMoveRequestForward as *const _ as usize
+        },
+        7664usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavMoveRequestForward)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavMoveRequestKeyMods as *const _ as usize
+        },
+        7668usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavMoveRequestKeyMods)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavMoveDir as *const _ as usize },
+        7672usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavMoveDir)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavMoveDirLast as *const _ as usize },
+        7676usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavMoveDirLast)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavMoveClipDir as *const _ as usize },
+        7680usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavMoveClipDir)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavMoveResultLocal as *const _ as usize },
+        7688usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavMoveResultLocal)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavMoveResultLocalVisibleSet as *const _
+                as usize
+        },
+        7736usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavMoveResultLocalVisibleSet)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavMoveResultOther as *const _ as usize },
+        7784usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavMoveResultOther)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavWrapRequestWindow as *const _ as usize
+        },
+        7832usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavWrapRequestWindow)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavWrapRequestFlags as *const _ as usize
+        },
+        7840usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavWrapRequestFlags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavWindowingTarget as *const _ as usize },
+        7848usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavWindowingTarget)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavWindowingTargetAnim as *const _ as usize
+        },
+        7856usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavWindowingTargetAnim)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavWindowingListWindow as *const _ as usize
+        },
+        7864usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavWindowingListWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).NavWindowingTimer as *const _ as usize },
+        7872usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavWindowingTimer)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavWindowingHighlightAlpha as *const _ as usize
+        },
+        7876usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavWindowingHighlightAlpha)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).NavWindowingToggleLayer as *const _ as usize
+        },
+        7880usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(NavWindowingToggleLayer)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).FocusRequestCurrWindow as *const _ as usize
+        },
+        7888usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FocusRequestCurrWindow)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).FocusRequestNextWindow as *const _ as usize
+        },
+        7896usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FocusRequestNextWindow)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).FocusRequestCurrCounterRegular as *const _
+                as usize
+        },
+        7904usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FocusRequestCurrCounterRegular)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).FocusRequestCurrCounterTabStop as *const _
+                as usize
+        },
+        7908usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FocusRequestCurrCounterTabStop)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).FocusRequestNextCounterRegular as *const _
+                as usize
+        },
+        7912usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FocusRequestNextCounterRegular)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).FocusRequestNextCounterTabStop as *const _
+                as usize
+        },
+        7916usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FocusRequestNextCounterTabStop)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).FocusTabPressed as *const _ as usize },
+        7920usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FocusTabPressed)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).DimBgRatio as *const _ as usize },
+        7924usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DimBgRatio)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).MouseCursor as *const _ as usize },
+        7928usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(MouseCursor)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).DragDropActive as *const _ as usize },
+        7932usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropActive)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DragDropWithinSource as *const _ as usize
+        },
+        7933usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropWithinSource)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DragDropWithinTarget as *const _ as usize
+        },
+        7934usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropWithinTarget)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DragDropSourceFlags as *const _ as usize
+        },
+        7936usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropSourceFlags)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DragDropSourceFrameCount as *const _ as usize
+        },
+        7940usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropSourceFrameCount)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DragDropMouseButton as *const _ as usize
+        },
+        7944usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropMouseButton)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).DragDropPayload as *const _ as usize },
+        7952usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropPayload)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).DragDropTargetRect as *const _ as usize },
+        8016usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropTargetRect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).DragDropTargetId as *const _ as usize },
+        8032usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropTargetId)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DragDropAcceptFlags as *const _ as usize
+        },
+        8036usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropAcceptFlags)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DragDropAcceptIdCurrRectSurface as *const _
+                as usize
+        },
+        8040usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropAcceptIdCurrRectSurface)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DragDropAcceptIdCurr as *const _ as usize
+        },
+        8044usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropAcceptIdCurr)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DragDropAcceptIdPrev as *const _ as usize
+        },
+        8048usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropAcceptIdPrev)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DragDropAcceptFrameCount as *const _ as usize
+        },
+        8052usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropAcceptFrameCount)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DragDropHoldJustPressedId as *const _ as usize
+        },
+        8056usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropHoldJustPressedId)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DragDropPayloadBufHeap as *const _ as usize
+        },
+        8064usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropPayloadBufHeap)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DragDropPayloadBufLocal as *const _ as usize
+        },
+        8080usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragDropPayloadBufLocal)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).CurrentTabBar as *const _ as usize },
+        8096usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(CurrentTabBar)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).TabBars as *const _ as usize },
+        8104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(TabBars)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).CurrentTabBarStack as *const _ as usize },
+        8144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(CurrentTabBarStack)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).ShrinkWidthBuffer as *const _ as usize },
+        8160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ShrinkWidthBuffer)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).LastValidMousePos as *const _ as usize },
+        8176usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(LastValidMousePos)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).InputTextState as *const _ as usize },
+        8184usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(InputTextState)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).InputTextPasswordFont as *const _ as usize
+        },
+        11920usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(InputTextPasswordFont)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).TempInputId as *const _ as usize },
+        12032usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(TempInputId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).ColorEditOptions as *const _ as usize },
+        12036usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ColorEditOptions)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).ColorEditLastHue as *const _ as usize },
+        12040usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ColorEditLastHue)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).ColorEditLastSat as *const _ as usize },
+        12044usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ColorEditLastSat)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).ColorEditLastColor as *const _ as usize },
+        12048usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ColorEditLastColor)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).ColorPickerRef as *const _ as usize },
+        12060usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ColorPickerRef)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).SliderCurrentAccum as *const _ as usize },
+        12076usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(SliderCurrentAccum)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).SliderCurrentAccumDirty as *const _ as usize
+        },
+        12080usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(SliderCurrentAccumDirty)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DragCurrentAccumDirty as *const _ as usize
+        },
+        12081usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragCurrentAccumDirty)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).DragCurrentAccum as *const _ as usize },
+        12084usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragCurrentAccum)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DragSpeedDefaultRatio as *const _ as usize
+        },
+        12088usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DragSpeedDefaultRatio)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ScrollbarClickDeltaToGrabCenter as *const _
+                as usize
+        },
+        12092usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ScrollbarClickDeltaToGrabCenter)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).TooltipOverrideCount as *const _ as usize
+        },
+        12096usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(TooltipOverrideCount)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).ClipboardHandlerData as *const _ as usize
+        },
+        12104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(ClipboardHandlerData)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).MenusIdSubmittedThisFrame as *const _ as usize
+        },
+        12120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(MenusIdSubmittedThisFrame)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).PlatformImePos as *const _ as usize },
+        12136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(PlatformImePos)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).PlatformImeLastPos as *const _ as usize },
+        12144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(PlatformImeLastPos)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).PlatformImePosViewport as *const _ as usize
+        },
+        12152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(PlatformImePosViewport)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).PlatformLocaleDecimalPoint as *const _ as usize
+        },
+        12160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(PlatformLocaleDecimalPoint)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).DockContext as *const _ as usize },
+        12168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DockContext)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).SettingsLoaded as *const _ as usize },
+        12224usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(SettingsLoaded)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).SettingsDirtyTimer as *const _ as usize },
+        12228usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(SettingsDirtyTimer)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).SettingsIniData as *const _ as usize },
+        12232usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(SettingsIniData)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).SettingsHandlers as *const _ as usize },
+        12248usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(SettingsHandlers)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).SettingsWindows as *const _ as usize },
+        12264usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(SettingsWindows)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).LogEnabled as *const _ as usize },
+        12280usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(LogEnabled)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).LogType as *const _ as usize },
+        12284usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(LogType)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).LogFile as *const _ as usize },
+        12288usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(LogFile)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).LogBuffer as *const _ as usize },
+        12296usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(LogBuffer)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).LogLinePosY as *const _ as usize },
+        12312usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(LogLinePosY)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).LogLineFirstItem as *const _ as usize },
+        12316usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(LogLineFirstItem)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).LogDepthRef as *const _ as usize },
+        12320usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(LogDepthRef)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).LogDepthToExpand as *const _ as usize },
+        12324usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(LogDepthToExpand)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).LogDepthToExpandDefault as *const _ as usize
+        },
+        12328usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(LogDepthToExpandDefault)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DebugItemPickerActive as *const _ as usize
+        },
+        12332usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DebugItemPickerActive)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).DebugItemPickerBreakId as *const _ as usize
+        },
+        12336usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(DebugItemPickerBreakId)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).FramerateSecPerFrame as *const _ as usize
+        },
+        12340usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FramerateSecPerFrame)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).FramerateSecPerFrameIdx as *const _ as usize
+        },
+        12820usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FramerateSecPerFrameIdx)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).FramerateSecPerFrameAccum as *const _ as usize
+        },
+        12824usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(FramerateSecPerFrameAccum)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).WantCaptureMouseNextFrame as *const _ as usize
+        },
+        12828usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(WantCaptureMouseNextFrame)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).WantCaptureKeyboardNextFrame as *const _
+                as usize
+        },
+        12832usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(WantCaptureKeyboardNextFrame)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiContext>())).WantTextInputNextFrame as *const _ as usize
+        },
+        12836usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(WantTextInputNextFrame)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiContext>())).TempBuffer as *const _ as usize },
+        12840usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiContext),
+            "::",
+            stringify!(TempBuffer)
+        )
+    );
+}
+impl Default for ImGuiContext {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ::std::fmt::Debug for ImGuiContext {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write ! (f , "ImGuiContext {{ Initialized: {:?}, FontAtlasOwnedByContext: {:?}, IO: {:?}, PlatformIO: {:?}, Style: {:?}, ConfigFlagsCurrFrame: {:?}, ConfigFlagsLastFrame: {:?}, Font: {:?}, FontSize: {:?}, FontBaseSize: {:?}, DrawListSharedData: {:?}, Time: {:?}, FrameCount: {:?}, FrameCountEnded: {:?}, FrameCountPlatformEnded: {:?}, FrameCountRendered: {:?}, WithinFrameScope: {:?}, WithinFrameScopeWithImplicitWindow: {:?}, WithinEndChild: {:?}, TestEngineHookItems: {:?}, TestEngineHookIdInfo: {:?}, TestEngine: {:?}, Windows: {:?}, WindowsFocusOrder: {:?}, WindowsTempSortBuffer: {:?}, CurrentWindowStack: {:?}, WindowsById: {:?}, WindowsActiveCount: {:?}, CurrentWindow: {:?}, HoveredWindow: {:?}, HoveredRootWindow: {:?}, HoveredWindowUnderMovingWindow: {:?}, HoveredDockNode: {:?}, MovingWindow: {:?}, WheelingWindow: {:?}, WheelingWindowRefMousePos: {:?}, WheelingWindowTimer: {:?}, HoveredId: {:?}, HoveredIdPreviousFrame: {:?}, HoveredIdAllowOverlap: {:?}, HoveredIdDisabled: {:?}, HoveredIdTimer: {:?}, HoveredIdNotActiveTimer: {:?}, ActiveId: {:?}, ActiveIdIsAlive: {:?}, ActiveIdTimer: {:?}, ActiveIdIsJustActivated: {:?}, ActiveIdAllowOverlap: {:?}, ActiveIdNoClearOnFocusLoss: {:?}, ActiveIdHasBeenPressedBefore: {:?}, ActiveIdHasBeenEditedBefore: {:?}, ActiveIdHasBeenEditedThisFrame: {:?}, ActiveIdUsingNavDirMask: {:?}, ActiveIdUsingNavInputMask: {:?}, ActiveIdUsingKeyInputMask: {:?}, ActiveIdClickOffset: {:?}, ActiveIdWindow: {:?}, ActiveIdSource: {:?}, ActiveIdMouseButton: {:?}, ActiveIdPreviousFrame: {:?}, ActiveIdPreviousFrameIsAlive: {:?}, ActiveIdPreviousFrameHasBeenEditedBefore: {:?}, ActiveIdPreviousFrameWindow: {:?}, LastActiveId: {:?}, LastActiveIdTimer: {:?}, NextWindowData: {:?}, NextItemData: {:?}, ColorModifiers: {:?}, StyleModifiers: {:?}, FontStack: {:?}, OpenPopupStack: {:?}, BeginPopupStack: {:?}, Viewports: {:?}, CurrentDpiScale: {:?}, CurrentViewport: {:?}, MouseViewport: {:?}, MouseLastHoveredViewport: {:?}, ViewportFrontMostStampCount: {:?}, NavWindow: {:?}, NavId: {:?}, NavFocusScopeId: {:?}, NavActivateId: {:?}, NavActivateDownId: {:?}, NavActivatePressedId: {:?}, NavInputId: {:?}, NavJustTabbedId: {:?}, NavJustMovedToId: {:?}, NavJustMovedToFocusScopeId: {:?}, NavJustMovedToKeyMods: {:?}, NavNextActivateId: {:?}, NavInputSource: {:?}, NavScoringRect: {:?}, NavScoringCount: {:?}, NavLayer: {:?}, NavIdTabCounter: {:?}, NavIdIsAlive: {:?}, NavMousePosDirty: {:?}, NavDisableHighlight: {:?}, NavDisableMouseHover: {:?}, NavAnyRequest: {:?}, NavInitRequest: {:?}, NavInitRequestFromMove: {:?}, NavInitResultId: {:?}, NavInitResultRectRel: {:?}, NavMoveRequest: {:?}, NavMoveRequestFlags: {:?}, NavMoveRequestForward: {:?}, NavMoveRequestKeyMods: {:?}, NavMoveDir: {:?}, NavMoveDirLast: {:?}, NavMoveClipDir: {:?}, NavMoveResultLocal: {:?}, NavMoveResultLocalVisibleSet: {:?}, NavMoveResultOther: {:?}, NavWrapRequestWindow: {:?}, NavWrapRequestFlags: {:?}, NavWindowingTarget: {:?}, NavWindowingTargetAnim: {:?}, NavWindowingListWindow: {:?}, NavWindowingTimer: {:?}, NavWindowingHighlightAlpha: {:?}, NavWindowingToggleLayer: {:?}, FocusRequestCurrWindow: {:?}, FocusRequestNextWindow: {:?}, FocusRequestCurrCounterRegular: {:?}, FocusRequestCurrCounterTabStop: {:?}, FocusRequestNextCounterRegular: {:?}, FocusRequestNextCounterTabStop: {:?}, FocusTabPressed: {:?}, DimBgRatio: {:?}, MouseCursor: {:?}, DragDropActive: {:?}, DragDropWithinSource: {:?}, DragDropWithinTarget: {:?}, DragDropSourceFlags: {:?}, DragDropSourceFrameCount: {:?}, DragDropMouseButton: {:?}, DragDropPayload: {:?}, DragDropTargetRect: {:?}, DragDropTargetId: {:?}, DragDropAcceptFlags: {:?}, DragDropAcceptIdCurrRectSurface: {:?}, DragDropAcceptIdCurr: {:?}, DragDropAcceptIdPrev: {:?}, DragDropAcceptFrameCount: {:?}, DragDropHoldJustPressedId: {:?}, DragDropPayloadBufHeap: {:?}, DragDropPayloadBufLocal: {:?}, CurrentTabBar: {:?}, TabBars: {:?}, CurrentTabBarStack: {:?}, ShrinkWidthBuffer: {:?}, LastValidMousePos: {:?}, InputTextState: {:?}, InputTextPasswordFont: {:?}, TempInputId: {:?}, ColorEditOptions: {:?}, ColorEditLastHue: {:?}, ColorEditLastSat: {:?}, ColorEditLastColor: {:?}, ColorPickerRef: {:?}, SliderCurrentAccum: {:?}, SliderCurrentAccumDirty: {:?}, DragCurrentAccumDirty: {:?}, DragCurrentAccum: {:?}, DragSpeedDefaultRatio: {:?}, ScrollbarClickDeltaToGrabCenter: {:?}, TooltipOverrideCount: {:?}, ClipboardHandlerData: {:?}, MenusIdSubmittedThisFrame: {:?}, PlatformImePos: {:?}, PlatformImeLastPos: {:?}, PlatformImePosViewport: {:?}, PlatformLocaleDecimalPoint: {:?}, DockContext: {:?}, SettingsLoaded: {:?}, SettingsDirtyTimer: {:?}, SettingsIniData: {:?}, SettingsHandlers: {:?}, SettingsWindows: {:?}, LogEnabled: {:?}, LogType: {:?}, LogFile: {:?}, LogBuffer: {:?}, LogLinePosY: {:?}, LogLineFirstItem: {:?}, LogDepthRef: {:?}, LogDepthToExpand: {:?}, LogDepthToExpandDefault: {:?}, DebugItemPickerActive: {:?}, DebugItemPickerBreakId: {:?}, FramerateSecPerFrame: [{}], FramerateSecPerFrameIdx: {:?}, FramerateSecPerFrameAccum: {:?}, WantCaptureMouseNextFrame: {:?}, WantCaptureKeyboardNextFrame: {:?}, WantTextInputNextFrame: {:?}, TempBuffer: [{}] }}" , self . Initialized , self . FontAtlasOwnedByContext , self . IO , self . PlatformIO , self . Style , self . ConfigFlagsCurrFrame , self . ConfigFlagsLastFrame , self . Font , self . FontSize , self . FontBaseSize , self . DrawListSharedData , self . Time , self . FrameCount , self . FrameCountEnded , self . FrameCountPlatformEnded , self . FrameCountRendered , self . WithinFrameScope , self . WithinFrameScopeWithImplicitWindow , self . WithinEndChild , self . TestEngineHookItems , self . TestEngineHookIdInfo , self . TestEngine , self . Windows , self . WindowsFocusOrder , self . WindowsTempSortBuffer , self . CurrentWindowStack , self . WindowsById , self . WindowsActiveCount , self . CurrentWindow , self . HoveredWindow , self . HoveredRootWindow , self . HoveredWindowUnderMovingWindow , self . HoveredDockNode , self . MovingWindow , self . WheelingWindow , self . WheelingWindowRefMousePos , self . WheelingWindowTimer , self . HoveredId , self . HoveredIdPreviousFrame , self . HoveredIdAllowOverlap , self . HoveredIdDisabled , self . HoveredIdTimer , self . HoveredIdNotActiveTimer , self . ActiveId , self . ActiveIdIsAlive , self . ActiveIdTimer , self . ActiveIdIsJustActivated , self . ActiveIdAllowOverlap , self . ActiveIdNoClearOnFocusLoss , self . ActiveIdHasBeenPressedBefore , self . ActiveIdHasBeenEditedBefore , self . ActiveIdHasBeenEditedThisFrame , self . ActiveIdUsingNavDirMask , self . ActiveIdUsingNavInputMask , self . ActiveIdUsingKeyInputMask , self . ActiveIdClickOffset , self . ActiveIdWindow , self . ActiveIdSource , self . ActiveIdMouseButton , self . ActiveIdPreviousFrame , self . ActiveIdPreviousFrameIsAlive , self . ActiveIdPreviousFrameHasBeenEditedBefore , self . ActiveIdPreviousFrameWindow , self . LastActiveId , self . LastActiveIdTimer , self . NextWindowData , self . NextItemData , self . ColorModifiers , self . StyleModifiers , self . FontStack , self . OpenPopupStack , self . BeginPopupStack , self . Viewports , self . CurrentDpiScale , self . CurrentViewport , self . MouseViewport , self . MouseLastHoveredViewport , self . ViewportFrontMostStampCount , self . NavWindow , self . NavId , self . NavFocusScopeId , self . NavActivateId , self . NavActivateDownId , self . NavActivatePressedId , self . NavInputId , self . NavJustTabbedId , self . NavJustMovedToId , self . NavJustMovedToFocusScopeId , self . NavJustMovedToKeyMods , self . NavNextActivateId , self . NavInputSource , self . NavScoringRect , self . NavScoringCount , self . NavLayer , self . NavIdTabCounter , self . NavIdIsAlive , self . NavMousePosDirty , self . NavDisableHighlight , self . NavDisableMouseHover , self . NavAnyRequest , self . NavInitRequest , self . NavInitRequestFromMove , self . NavInitResultId , self . NavInitResultRectRel , self . NavMoveRequest , self . NavMoveRequestFlags , self . NavMoveRequestForward , self . NavMoveRequestKeyMods , self . NavMoveDir , self . NavMoveDirLast , self . NavMoveClipDir , self . NavMoveResultLocal , self . NavMoveResultLocalVisibleSet , self . NavMoveResultOther , self . NavWrapRequestWindow , self . NavWrapRequestFlags , self . NavWindowingTarget , self . NavWindowingTargetAnim , self . NavWindowingListWindow , self . NavWindowingTimer , self . NavWindowingHighlightAlpha , self . NavWindowingToggleLayer , self . FocusRequestCurrWindow , self . FocusRequestNextWindow , self . FocusRequestCurrCounterRegular , self . FocusRequestCurrCounterTabStop , self . FocusRequestNextCounterRegular , self . FocusRequestNextCounterTabStop , self . FocusTabPressed , self . DimBgRatio , self . MouseCursor , self . DragDropActive , self . DragDropWithinSource , self . DragDropWithinTarget , self . DragDropSourceFlags , self . DragDropSourceFrameCount , self . DragDropMouseButton , self . DragDropPayload , self . DragDropTargetRect , self . DragDropTargetId , self . DragDropAcceptFlags , self . DragDropAcceptIdCurrRectSurface , self . DragDropAcceptIdCurr , self . DragDropAcceptIdPrev , self . DragDropAcceptFrameCount , self . DragDropHoldJustPressedId , self . DragDropPayloadBufHeap , self . DragDropPayloadBufLocal , self . CurrentTabBar , self . TabBars , self . CurrentTabBarStack , self . ShrinkWidthBuffer , self . LastValidMousePos , self . InputTextState , self . InputTextPasswordFont , self . TempInputId , self . ColorEditOptions , self . ColorEditLastHue , self . ColorEditLastSat , self . ColorEditLastColor , self . ColorPickerRef , self . SliderCurrentAccum , self . SliderCurrentAccumDirty , self . DragCurrentAccumDirty , self . DragCurrentAccum , self . DragSpeedDefaultRatio , self . ScrollbarClickDeltaToGrabCenter , self . TooltipOverrideCount , self . ClipboardHandlerData , self . MenusIdSubmittedThisFrame , self . PlatformImePos , self . PlatformImeLastPos , self . PlatformImePosViewport , self . PlatformLocaleDecimalPoint , self . DockContext , self . SettingsLoaded , self . SettingsDirtyTimer , self . SettingsIniData , self . SettingsHandlers , self . SettingsWindows , self . LogEnabled , self . LogType , self . LogFile , self . LogBuffer , self . LogLinePosY , self . LogLineFirstItem , self . LogDepthRef , self . LogDepthToExpand , self . LogDepthToExpandDefault , self . DebugItemPickerActive , self . DebugItemPickerBreakId , self . FramerateSecPerFrame . iter () . enumerate () . map (| (i , v) | format ! ("{}{:?}" , if i > 0 { ", " } else { "" } , v)) . collect :: < String > () , self . FramerateSecPerFrameIdx , self . FramerateSecPerFrameAccum , self . WantCaptureMouseNextFrame , self . WantCaptureKeyboardNextFrame , self . WantTextInputNextFrame , self . TempBuffer . iter () . enumerate () . map (| (i , v) | format ! ("{}{:?}" , if i > 0 { ", " } else { "" } , v)) . collect :: < String > ())
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct ImGuiWindowTempData {
+    pub CursorPos: ImVec2,
+    pub CursorPosPrevLine: ImVec2,
+    pub CursorStartPos: ImVec2,
+    pub CursorMaxPos: ImVec2,
+    pub CurrLineSize: ImVec2,
+    pub PrevLineSize: ImVec2,
+    pub CurrLineTextBaseOffset: f32,
+    pub PrevLineTextBaseOffset: f32,
+    pub Indent: ImVec1,
+    pub ColumnsOffset: ImVec1,
+    pub GroupOffset: ImVec1,
+    pub LastItemId: ImGuiID,
+    pub LastItemStatusFlags: ImGuiItemStatusFlags,
+    pub LastItemRect: ImRect,
+    pub LastItemDisplayRect: ImRect,
+    pub NavLayerCurrent: ImGuiNavLayer,
+    pub NavLayerActiveMask: ::std::os::raw::c_int,
+    pub NavLayerActiveMaskNext: ::std::os::raw::c_int,
+    pub NavFocusScopeIdCurrent: ImGuiID,
+    pub NavHideHighlightOneFrame: bool,
+    pub NavHasScroll: bool,
+    pub MenuBarAppending: bool,
+    pub MenuBarOffset: ImVec2,
+    pub MenuColumns: ImGuiMenuColumns,
+    pub TreeDepth: ::std::os::raw::c_int,
+    pub TreeJumpToParentOnPopMask: ImU32,
+    pub ChildWindows: ImVector_ImGuiWindowPtr,
+    pub StateStorage: *mut ImGuiStorage,
+    pub CurrentColumns: *mut ImGuiColumns,
+    pub LayoutType: ImGuiLayoutType,
+    pub ParentLayoutType: ImGuiLayoutType,
+    pub FocusCounterRegular: ::std::os::raw::c_int,
+    pub FocusCounterTabStop: ::std::os::raw::c_int,
+    pub ItemFlags: ImGuiItemFlags,
+    pub ItemWidth: f32,
+    pub TextWrapPos: f32,
+    pub ItemFlagsStack: ImVector_ImGuiItemFlags,
+    pub ItemWidthStack: ImVector_float,
+    pub TextWrapPosStack: ImVector_float,
+    pub GroupStack: ImVector_ImGuiGroupData,
+    pub StackSizesBackup: [::std::os::raw::c_short; 6usize],
+}
+#[test]
+fn bindgen_test_layout_ImGuiWindowTempData() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiWindowTempData>(),
+        328usize,
+        concat!("Size of: ", stringify!(ImGuiWindowTempData))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiWindowTempData>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiWindowTempData))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowTempData>())).CursorPos as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(CursorPos)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).CursorPosPrevLine as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(CursorPosPrevLine)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).CursorStartPos as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(CursorStartPos)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).CursorMaxPos as *const _ as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(CursorMaxPos)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).CurrLineSize as *const _ as usize
+        },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(CurrLineSize)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).PrevLineSize as *const _ as usize
+        },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(PrevLineSize)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).CurrLineTextBaseOffset as *const _
+                as usize
+        },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(CurrLineTextBaseOffset)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).PrevLineTextBaseOffset as *const _
+                as usize
+        },
+        52usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(PrevLineTextBaseOffset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowTempData>())).Indent as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(Indent)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).ColumnsOffset as *const _ as usize
+        },
+        60usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(ColumnsOffset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowTempData>())).GroupOffset as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(GroupOffset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowTempData>())).LastItemId as *const _ as usize },
+        68usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(LastItemId)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).LastItemStatusFlags as *const _ as usize
+        },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(LastItemStatusFlags)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).LastItemRect as *const _ as usize
+        },
+        76usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(LastItemRect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).LastItemDisplayRect as *const _ as usize
+        },
+        92usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(LastItemDisplayRect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).NavLayerCurrent as *const _ as usize
+        },
+        108usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(NavLayerCurrent)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).NavLayerActiveMask as *const _ as usize
+        },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(NavLayerActiveMask)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).NavLayerActiveMaskNext as *const _
+                as usize
+        },
+        116usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(NavLayerActiveMaskNext)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).NavFocusScopeIdCurrent as *const _
+                as usize
+        },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(NavFocusScopeIdCurrent)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).NavHideHighlightOneFrame as *const _
+                as usize
+        },
+        124usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(NavHideHighlightOneFrame)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).NavHasScroll as *const _ as usize
+        },
+        125usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(NavHasScroll)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).MenuBarAppending as *const _ as usize
+        },
+        126usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(MenuBarAppending)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).MenuBarOffset as *const _ as usize
+        },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(MenuBarOffset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowTempData>())).MenuColumns as *const _ as usize },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(MenuColumns)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowTempData>())).TreeDepth as *const _ as usize },
+        172usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(TreeDepth)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).TreeJumpToParentOnPopMask as *const _
+                as usize
+        },
+        176usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(TreeJumpToParentOnPopMask)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).ChildWindows as *const _ as usize
+        },
+        184usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(ChildWindows)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).StateStorage as *const _ as usize
+        },
+        200usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(StateStorage)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).CurrentColumns as *const _ as usize
+        },
+        208usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(CurrentColumns)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowTempData>())).LayoutType as *const _ as usize },
+        216usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(LayoutType)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).ParentLayoutType as *const _ as usize
+        },
+        220usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(ParentLayoutType)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).FocusCounterRegular as *const _ as usize
+        },
+        224usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(FocusCounterRegular)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).FocusCounterTabStop as *const _ as usize
+        },
+        228usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(FocusCounterTabStop)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowTempData>())).ItemFlags as *const _ as usize },
+        232usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(ItemFlags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowTempData>())).ItemWidth as *const _ as usize },
+        236usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(ItemWidth)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowTempData>())).TextWrapPos as *const _ as usize },
+        240usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(TextWrapPos)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).ItemFlagsStack as *const _ as usize
+        },
+        248usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(ItemFlagsStack)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).ItemWidthStack as *const _ as usize
+        },
+        264usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(ItemWidthStack)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).TextWrapPosStack as *const _ as usize
+        },
+        280usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(TextWrapPosStack)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindowTempData>())).GroupStack as *const _ as usize },
+        296usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(GroupStack)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindowTempData>())).StackSizesBackup as *const _ as usize
+        },
+        312usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindowTempData),
+            "::",
+            stringify!(StackSizesBackup)
+        )
+    );
+}
+impl Default for ImGuiWindowTempData {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct ImGuiWindow {
+    pub Name: *mut ::std::os::raw::c_char,
+    pub ID: ImGuiID,
+    pub Flags: ImGuiWindowFlags,
+    pub FlagsPreviousFrame: ImGuiWindowFlags,
+    pub WindowClass: ImGuiWindowClass,
+    pub Viewport: *mut ImGuiViewportP,
+    pub ViewportId: ImGuiID,
+    pub ViewportPos: ImVec2,
+    pub ViewportAllowPlatformMonitorExtend: ::std::os::raw::c_int,
+    pub Pos: ImVec2,
+    pub Size: ImVec2,
+    pub SizeFull: ImVec2,
+    pub ContentSize: ImVec2,
+    pub ContentSizeExplicit: ImVec2,
+    pub WindowPadding: ImVec2,
+    pub WindowRounding: f32,
+    pub WindowBorderSize: f32,
+    pub NameBufLen: ::std::os::raw::c_int,
+    pub MoveId: ImGuiID,
+    pub ChildId: ImGuiID,
+    pub Scroll: ImVec2,
+    pub ScrollMax: ImVec2,
+    pub ScrollTarget: ImVec2,
+    pub ScrollTargetCenterRatio: ImVec2,
+    pub ScrollTargetEdgeSnapDist: ImVec2,
+    pub ScrollbarSizes: ImVec2,
+    pub ScrollbarX: bool,
+    pub ScrollbarY: bool,
+    pub ViewportOwned: bool,
+    pub Active: bool,
+    pub WasActive: bool,
+    pub WriteAccessed: bool,
+    pub Collapsed: bool,
+    pub WantCollapseToggle: bool,
+    pub SkipItems: bool,
+    pub Appearing: bool,
+    pub Hidden: bool,
+    pub IsFallbackWindow: bool,
+    pub HasCloseButton: bool,
+    pub ResizeBorderHeld: ::std::os::raw::c_schar,
+    pub BeginCount: ::std::os::raw::c_short,
+    pub BeginOrderWithinParent: ::std::os::raw::c_short,
+    pub BeginOrderWithinContext: ::std::os::raw::c_short,
+    pub PopupId: ImGuiID,
+    pub AutoFitFramesX: ImS8,
+    pub AutoFitFramesY: ImS8,
+    pub AutoFitChildAxises: ImS8,
+    pub AutoFitOnlyGrows: bool,
+    pub AutoPosLastDirection: ImGuiDir,
+    pub HiddenFramesCanSkipItems: ::std::os::raw::c_int,
+    pub HiddenFramesCannotSkipItems: ::std::os::raw::c_int,
+    pub SetWindowPosAllowFlags: ImGuiCond,
+    pub SetWindowSizeAllowFlags: ImGuiCond,
+    pub SetWindowCollapsedAllowFlags: ImGuiCond,
+    pub SetWindowDockAllowFlags: ImGuiCond,
+    pub SetWindowPosVal: ImVec2,
+    pub SetWindowPosPivot: ImVec2,
+    pub IDStack: ImVector_ImGuiID,
+    pub DC: ImGuiWindowTempData,
+    pub OuterRectClipped: ImRect,
+    pub InnerRect: ImRect,
+    pub InnerClipRect: ImRect,
+    pub WorkRect: ImRect,
+    pub ParentWorkRect: ImRect,
+    pub ClipRect: ImRect,
+    pub ContentRegionRect: ImRect,
+    pub HitTestHoleSize: ImVec2ih,
+    pub HitTestHoleOffset: ImVec2ih,
+    pub LastFrameActive: ::std::os::raw::c_int,
+    pub LastFrameJustFocused: ::std::os::raw::c_int,
+    pub LastTimeActive: f32,
+    pub ItemWidthDefault: f32,
+    pub StateStorage: ImGuiStorage,
+    pub ColumnsStorage: ImVector_ImGuiColumns,
+    pub FontWindowScale: f32,
+    pub FontDpiScale: f32,
+    pub SettingsOffset: ::std::os::raw::c_int,
+    pub DrawList: *mut ImDrawList,
+    pub DrawListInst: ImDrawList,
+    pub ParentWindow: *mut ImGuiWindow,
+    pub RootWindow: *mut ImGuiWindow,
+    pub RootWindowDockStop: *mut ImGuiWindow,
+    pub RootWindowForTitleBarHighlight: *mut ImGuiWindow,
+    pub RootWindowForNav: *mut ImGuiWindow,
+    pub NavLastChildNavWindow: *mut ImGuiWindow,
+    pub NavLastIds: [ImGuiID; 2usize],
+    pub NavRectRel: [ImRect; 2usize],
+    pub MemoryCompacted: bool,
+    pub MemoryDrawListIdxCapacity: ::std::os::raw::c_int,
+    pub MemoryDrawListVtxCapacity: ::std::os::raw::c_int,
+    pub DockNode: *mut ImGuiDockNode,
+    pub DockNodeAsHost: *mut ImGuiDockNode,
+    pub DockId: ImGuiID,
+    pub DockTabItemStatusFlags: ImGuiItemStatusFlags,
+    pub DockTabItemRect: ImRect,
+    pub DockOrder: ::std::os::raw::c_short,
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize], u8>,
+    pub __bindgen_padding_0: [u8; 5usize],
+}
+#[test]
+fn bindgen_test_layout_ImGuiWindow() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiWindow>(),
+        1176usize,
+        concat!("Size of: ", stringify!(ImGuiWindow))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiWindow>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiWindow))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).Name as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(Name)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ID as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ID)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).Flags as *const _ as usize },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(Flags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).FlagsPreviousFrame as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(FlagsPreviousFrame)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).WindowClass as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(WindowClass)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).Viewport as *const _ as usize },
+        48usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(Viewport)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ViewportId as *const _ as usize },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ViewportId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ViewportPos as *const _ as usize },
+        60usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ViewportPos)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).ViewportAllowPlatformMonitorExtend as *const _
+                as usize
+        },
+        68usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ViewportAllowPlatformMonitorExtend)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).Pos as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(Pos)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).Size as *const _ as usize },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(Size)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).SizeFull as *const _ as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(SizeFull)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ContentSize as *const _ as usize },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ContentSize)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ContentSizeExplicit as *const _ as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ContentSizeExplicit)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).WindowPadding as *const _ as usize },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(WindowPadding)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).WindowRounding as *const _ as usize },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(WindowRounding)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).WindowBorderSize as *const _ as usize },
+        124usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(WindowBorderSize)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).NameBufLen as *const _ as usize },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(NameBufLen)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).MoveId as *const _ as usize },
+        132usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(MoveId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ChildId as *const _ as usize },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ChildId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).Scroll as *const _ as usize },
+        140usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(Scroll)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ScrollMax as *const _ as usize },
+        148usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ScrollMax)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ScrollTarget as *const _ as usize },
+        156usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ScrollTarget)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).ScrollTargetCenterRatio as *const _ as usize
+        },
+        164usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ScrollTargetCenterRatio)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).ScrollTargetEdgeSnapDist as *const _ as usize
+        },
+        172usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ScrollTargetEdgeSnapDist)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ScrollbarSizes as *const _ as usize },
+        180usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ScrollbarSizes)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ScrollbarX as *const _ as usize },
+        188usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ScrollbarX)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ScrollbarY as *const _ as usize },
+        189usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ScrollbarY)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ViewportOwned as *const _ as usize },
+        190usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ViewportOwned)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).Active as *const _ as usize },
+        191usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(Active)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).WasActive as *const _ as usize },
+        192usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(WasActive)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).WriteAccessed as *const _ as usize },
+        193usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(WriteAccessed)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).Collapsed as *const _ as usize },
+        194usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(Collapsed)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).WantCollapseToggle as *const _ as usize },
+        195usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(WantCollapseToggle)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).SkipItems as *const _ as usize },
+        196usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(SkipItems)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).Appearing as *const _ as usize },
+        197usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(Appearing)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).Hidden as *const _ as usize },
+        198usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(Hidden)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).IsFallbackWindow as *const _ as usize },
+        199usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(IsFallbackWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).HasCloseButton as *const _ as usize },
+        200usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(HasCloseButton)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ResizeBorderHeld as *const _ as usize },
+        201usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ResizeBorderHeld)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).BeginCount as *const _ as usize },
+        202usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(BeginCount)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).BeginOrderWithinParent as *const _ as usize
+        },
+        204usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(BeginOrderWithinParent)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).BeginOrderWithinContext as *const _ as usize
+        },
+        206usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(BeginOrderWithinContext)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).PopupId as *const _ as usize },
+        208usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(PopupId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).AutoFitFramesX as *const _ as usize },
+        212usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(AutoFitFramesX)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).AutoFitFramesY as *const _ as usize },
+        213usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(AutoFitFramesY)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).AutoFitChildAxises as *const _ as usize },
+        214usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(AutoFitChildAxises)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).AutoFitOnlyGrows as *const _ as usize },
+        215usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(AutoFitOnlyGrows)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).AutoPosLastDirection as *const _ as usize
+        },
+        216usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(AutoPosLastDirection)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).HiddenFramesCanSkipItems as *const _ as usize
+        },
+        220usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(HiddenFramesCanSkipItems)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).HiddenFramesCannotSkipItems as *const _ as usize
+        },
+        224usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(HiddenFramesCannotSkipItems)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).SetWindowPosAllowFlags as *const _ as usize
+        },
+        228usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(SetWindowPosAllowFlags)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).SetWindowSizeAllowFlags as *const _ as usize
+        },
+        232usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(SetWindowSizeAllowFlags)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).SetWindowCollapsedAllowFlags as *const _
+                as usize
+        },
+        236usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(SetWindowCollapsedAllowFlags)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).SetWindowDockAllowFlags as *const _ as usize
+        },
+        240usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(SetWindowDockAllowFlags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).SetWindowPosVal as *const _ as usize },
+        244usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(SetWindowPosVal)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).SetWindowPosPivot as *const _ as usize },
+        252usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(SetWindowPosPivot)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).IDStack as *const _ as usize },
+        264usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(IDStack)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).DC as *const _ as usize },
+        280usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(DC)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).OuterRectClipped as *const _ as usize },
+        608usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(OuterRectClipped)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).InnerRect as *const _ as usize },
+        624usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(InnerRect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).InnerClipRect as *const _ as usize },
+        640usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(InnerClipRect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).WorkRect as *const _ as usize },
+        656usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(WorkRect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ParentWorkRect as *const _ as usize },
+        672usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ParentWorkRect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ClipRect as *const _ as usize },
+        688usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ClipRect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ContentRegionRect as *const _ as usize },
+        704usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ContentRegionRect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).HitTestHoleSize as *const _ as usize },
+        720usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(HitTestHoleSize)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).HitTestHoleOffset as *const _ as usize },
+        724usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(HitTestHoleOffset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).LastFrameActive as *const _ as usize },
+        728usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(LastFrameActive)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).LastFrameJustFocused as *const _ as usize
+        },
+        732usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(LastFrameJustFocused)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).LastTimeActive as *const _ as usize },
+        736usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(LastTimeActive)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ItemWidthDefault as *const _ as usize },
+        740usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ItemWidthDefault)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).StateStorage as *const _ as usize },
+        744usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(StateStorage)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ColumnsStorage as *const _ as usize },
+        760usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ColumnsStorage)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).FontWindowScale as *const _ as usize },
+        776usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(FontWindowScale)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).FontDpiScale as *const _ as usize },
+        780usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(FontDpiScale)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).SettingsOffset as *const _ as usize },
+        784usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(SettingsOffset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).DrawList as *const _ as usize },
+        792usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(DrawList)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).DrawListInst as *const _ as usize },
+        800usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(DrawListInst)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).ParentWindow as *const _ as usize },
+        1024usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(ParentWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).RootWindow as *const _ as usize },
+        1032usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(RootWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).RootWindowDockStop as *const _ as usize },
+        1040usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(RootWindowDockStop)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).RootWindowForTitleBarHighlight as *const _
+                as usize
+        },
+        1048usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(RootWindowForTitleBarHighlight)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).RootWindowForNav as *const _ as usize },
+        1056usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(RootWindowForNav)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).NavLastChildNavWindow as *const _ as usize
+        },
+        1064usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(NavLastChildNavWindow)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).NavLastIds as *const _ as usize },
+        1072usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(NavLastIds)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).NavRectRel as *const _ as usize },
+        1080usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(NavRectRel)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).MemoryCompacted as *const _ as usize },
+        1112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(MemoryCompacted)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).MemoryDrawListIdxCapacity as *const _ as usize
+        },
+        1116usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(MemoryDrawListIdxCapacity)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).MemoryDrawListVtxCapacity as *const _ as usize
+        },
+        1120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(MemoryDrawListVtxCapacity)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).DockNode as *const _ as usize },
+        1128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(DockNode)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).DockNodeAsHost as *const _ as usize },
+        1136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(DockNodeAsHost)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).DockId as *const _ as usize },
+        1144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(DockId)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiWindow>())).DockTabItemStatusFlags as *const _ as usize
+        },
+        1148usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(DockTabItemStatusFlags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).DockTabItemRect as *const _ as usize },
+        1152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(DockTabItemRect)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiWindow>())).DockOrder as *const _ as usize },
+        1168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiWindow),
+            "::",
+            stringify!(DockOrder)
+        )
+    );
+}
+impl Default for ImGuiWindow {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+impl ImGuiWindow {
+    #[inline]
+    pub fn DockIsActive(&self) -> bool {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_DockIsActive(&mut self, val: bool) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn DockTabIsVisible(&self) -> bool {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_DockTabIsVisible(&mut self, val: bool) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(1usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn DockTabWantClose(&self) -> bool {
+        unsafe { ::std::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_DockTabWantClose(&mut self, val: bool) {
+        unsafe {
+            let val: u8 = ::std::mem::transmute(val);
+            self._bitfield_1.set(2usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        DockIsActive: bool,
+        DockTabIsVisible: bool,
+        DockTabWantClose: bool,
+    ) -> __BindgenBitfieldUnit<[u8; 1usize], u8> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize], u8> =
+            Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let DockIsActive: u8 = unsafe { ::std::mem::transmute(DockIsActive) };
+            DockIsActive as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 1u8, {
+            let DockTabIsVisible: u8 = unsafe { ::std::mem::transmute(DockTabIsVisible) };
+            DockTabIsVisible as u64
+        });
+        __bindgen_bitfield_unit.set(2usize, 1u8, {
+            let DockTabWantClose: u8 = unsafe { ::std::mem::transmute(DockTabWantClose) };
+            DockTabWantClose as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[repr(C)]
+#[derive(Debug, Default, Copy, Clone, PartialEq)]
+pub struct ImGuiLastItemDataBackup {
+    pub LastItemId: ImGuiID,
+    pub LastItemStatusFlags: ImGuiItemStatusFlags,
+    pub LastItemRect: ImRect,
+    pub LastItemDisplayRect: ImRect,
+}
+#[test]
+fn bindgen_test_layout_ImGuiLastItemDataBackup() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiLastItemDataBackup>(),
+        40usize,
+        concat!("Size of: ", stringify!(ImGuiLastItemDataBackup))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiLastItemDataBackup>(),
+        4usize,
+        concat!("Alignment of ", stringify!(ImGuiLastItemDataBackup))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiLastItemDataBackup>())).LastItemId as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiLastItemDataBackup),
+            "::",
+            stringify!(LastItemId)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiLastItemDataBackup>())).LastItemStatusFlags as *const _
+                as usize
+        },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiLastItemDataBackup),
+            "::",
+            stringify!(LastItemStatusFlags)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiLastItemDataBackup>())).LastItemRect as *const _ as usize
+        },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiLastItemDataBackup),
+            "::",
+            stringify!(LastItemRect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiLastItemDataBackup>())).LastItemDisplayRect as *const _
+                as usize
+        },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiLastItemDataBackup),
+            "::",
+            stringify!(LastItemDisplayRect)
+        )
+    );
+}
+pub const ImGuiTabBarFlags_DockNode: ImGuiTabBarFlagsPrivate_ = 1048576;
+pub const ImGuiTabBarFlags_IsFocused: ImGuiTabBarFlagsPrivate_ = 2097152;
+pub const ImGuiTabBarFlags_SaveSettings: ImGuiTabBarFlagsPrivate_ = 4194304;
+pub type ImGuiTabBarFlagsPrivate_ = ::std::os::raw::c_uint;
+pub const ImGuiTabItemFlags_NoCloseButton: ImGuiTabItemFlagsPrivate_ = 1048576;
+pub const ImGuiTabItemFlags_Button: ImGuiTabItemFlagsPrivate_ = 2097152;
+pub const ImGuiTabItemFlags_Unsorted: ImGuiTabItemFlagsPrivate_ = 4194304;
+pub const ImGuiTabItemFlags_Preview: ImGuiTabItemFlagsPrivate_ = 8388608;
+pub type ImGuiTabItemFlagsPrivate_ = ::std::os::raw::c_uint;
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct ImGuiTabItem {
+    pub ID: ImGuiID,
+    pub Flags: ImGuiTabItemFlags,
+    pub Window: *mut ImGuiWindow,
+    pub LastFrameVisible: ::std::os::raw::c_int,
+    pub LastFrameSelected: ::std::os::raw::c_int,
+    pub Offset: f32,
+    pub Width: f32,
+    pub ContentWidth: f32,
+    pub NameOffset: ImS16,
+    pub BeginOrder: ImS8,
+    pub IndexDuringLayout: ImS8,
+    pub WantClose: bool,
+}
+#[test]
+fn bindgen_test_layout_ImGuiTabItem() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiTabItem>(),
+        48usize,
+        concat!("Size of: ", stringify!(ImGuiTabItem))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiTabItem>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiTabItem))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabItem>())).ID as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabItem),
+            "::",
+            stringify!(ID)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabItem>())).Flags as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabItem),
+            "::",
+            stringify!(Flags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabItem>())).Window as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabItem),
+            "::",
+            stringify!(Window)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabItem>())).LastFrameVisible as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabItem),
+            "::",
+            stringify!(LastFrameVisible)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabItem>())).LastFrameSelected as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabItem),
+            "::",
+            stringify!(LastFrameSelected)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabItem>())).Offset as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabItem),
+            "::",
+            stringify!(Offset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabItem>())).Width as *const _ as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabItem),
+            "::",
+            stringify!(Width)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabItem>())).ContentWidth as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabItem),
+            "::",
+            stringify!(ContentWidth)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabItem>())).NameOffset as *const _ as usize },
+        36usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabItem),
+            "::",
+            stringify!(NameOffset)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabItem>())).BeginOrder as *const _ as usize },
+        38usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabItem),
+            "::",
+            stringify!(BeginOrder)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabItem>())).IndexDuringLayout as *const _ as usize },
+        39usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabItem),
+            "::",
+            stringify!(IndexDuringLayout)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabItem>())).WantClose as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabItem),
+            "::",
+            stringify!(WantClose)
+        )
+    );
+}
+impl Default for ImGuiTabItem {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub struct ImGuiTabBar {
+    pub Tabs: ImVector_ImGuiTabItem,
+    pub ID: ImGuiID,
+    pub SelectedTabId: ImGuiID,
+    pub NextSelectedTabId: ImGuiID,
+    pub VisibleTabId: ImGuiID,
+    pub CurrFrameVisible: ::std::os::raw::c_int,
+    pub PrevFrameVisible: ::std::os::raw::c_int,
+    pub BarRect: ImRect,
+    pub LastTabContentHeight: f32,
+    pub WidthAllTabs: f32,
+    pub WidthAllTabsIdeal: f32,
+    pub ScrollingAnim: f32,
+    pub ScrollingTarget: f32,
+    pub ScrollingTargetDistToVisibility: f32,
+    pub ScrollingSpeed: f32,
+    pub ScrollingRectMinX: f32,
+    pub ScrollingRectMaxX: f32,
+    pub Flags: ImGuiTabBarFlags,
+    pub ReorderRequestTabId: ImGuiID,
+    pub ReorderRequestDir: ImS8,
+    pub TabsActiveCount: ImS8,
+    pub WantLayout: bool,
+    pub VisibleTabWasSubmitted: bool,
+    pub TabsAddedNew: bool,
+    pub LastTabItemIdx: ::std::os::raw::c_short,
+    pub FramePadding: ImVec2,
+    pub TabsNames: ImGuiTextBuffer,
+}
+#[test]
+fn bindgen_test_layout_ImGuiTabBar() {
+    assert_eq!(
+        ::std::mem::size_of::<ImGuiTabBar>(),
+        136usize,
+        concat!("Size of: ", stringify!(ImGuiTabBar))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ImGuiTabBar>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ImGuiTabBar))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).Tabs as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(Tabs)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).ID as *const _ as usize },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(ID)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).SelectedTabId as *const _ as usize },
+        20usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(SelectedTabId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).NextSelectedTabId as *const _ as usize },
+        24usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(NextSelectedTabId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).VisibleTabId as *const _ as usize },
+        28usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(VisibleTabId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).CurrFrameVisible as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(CurrFrameVisible)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).PrevFrameVisible as *const _ as usize },
+        36usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(PrevFrameVisible)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).BarRect as *const _ as usize },
+        40usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(BarRect)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiTabBar>())).LastTabContentHeight as *const _ as usize
+        },
+        56usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(LastTabContentHeight)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).WidthAllTabs as *const _ as usize },
+        60usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(WidthAllTabs)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).WidthAllTabsIdeal as *const _ as usize },
+        64usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(WidthAllTabsIdeal)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).ScrollingAnim as *const _ as usize },
+        68usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(ScrollingAnim)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).ScrollingTarget as *const _ as usize },
+        72usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(ScrollingTarget)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiTabBar>())).ScrollingTargetDistToVisibility as *const _
+                as usize
+        },
+        76usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(ScrollingTargetDistToVisibility)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).ScrollingSpeed as *const _ as usize },
+        80usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(ScrollingSpeed)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).ScrollingRectMinX as *const _ as usize },
+        84usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(ScrollingRectMinX)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).ScrollingRectMaxX as *const _ as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(ScrollingRectMaxX)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).Flags as *const _ as usize },
+        92usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(Flags)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).ReorderRequestTabId as *const _ as usize },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(ReorderRequestTabId)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).ReorderRequestDir as *const _ as usize },
+        100usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(ReorderRequestDir)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).TabsActiveCount as *const _ as usize },
+        101usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(TabsActiveCount)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).WantLayout as *const _ as usize },
+        102usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(WantLayout)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ImGuiTabBar>())).VisibleTabWasSubmitted as *const _ as usize
+        },
+        103usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(VisibleTabWasSubmitted)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).TabsAddedNew as *const _ as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(TabsAddedNew)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).LastTabItemIdx as *const _ as usize },
+        106usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(LastTabItemIdx)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).FramePadding as *const _ as usize },
+        108usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(FramePadding)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ImGuiTabBar>())).TabsNames as *const _ as usize },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ImGuiTabBar),
+            "::",
+            stringify!(TabsNames)
+        )
+    );
+}
+impl Default for ImGuiTabBar {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
 extern "C" {
     pub fn ImVec2_ImVec2Nil() -> *mut ImVec2;
 }
@@ -6526,10 +16439,10 @@ extern "C" {
     pub fn igGetScrollMaxY() -> f32;
 }
 extern "C" {
-    pub fn igSetScrollX(scroll_x: f32);
+    pub fn igSetScrollXFloat(scroll_x: f32);
 }
 extern "C" {
-    pub fn igSetScrollY(scroll_y: f32);
+    pub fn igSetScrollYFloat(scroll_y: f32);
 }
 extern "C" {
     pub fn igSetScrollHereX(center_x_ratio: f32);
@@ -6538,10 +16451,10 @@ extern "C" {
     pub fn igSetScrollHereY(center_y_ratio: f32);
 }
 extern "C" {
-    pub fn igSetScrollFromPosX(local_x: f32, center_x_ratio: f32);
+    pub fn igSetScrollFromPosXFloat(local_x: f32, center_x_ratio: f32);
 }
 extern "C" {
-    pub fn igSetScrollFromPosY(local_y: f32, center_y_ratio: f32);
+    pub fn igSetScrollFromPosYFloat(local_y: f32, center_y_ratio: f32);
 }
 extern "C" {
     pub fn igPushFont(font: *mut ImFont);
@@ -7590,7 +17503,7 @@ extern "C" {
     ) -> bool;
 }
 extern "C" {
-    pub fn igIsPopupOpen(str_id: *const ::std::os::raw::c_char, flags: ImGuiPopupFlags) -> bool;
+    pub fn igIsPopupOpenStr(str_id: *const ::std::os::raw::c_char, flags: ImGuiPopupFlags) -> bool;
 }
 extern "C" {
     pub fn igColumns(count: ::std::os::raw::c_int, id: *const ::std::os::raw::c_char, border: bool);
@@ -9109,6 +19022,1984 @@ extern "C" {
 }
 extern "C" {
     pub fn ImGuiViewport_GetWorkSize(pOut: *mut ImVec2, self_: *mut ImGuiViewport);
+}
+extern "C" {
+    pub fn igImHashData(
+        data: *const ::std::os::raw::c_void,
+        data_size: usize,
+        seed: ImU32,
+    ) -> ImU32;
+}
+extern "C" {
+    pub fn igImHashStr(data: *const ::std::os::raw::c_char, data_size: usize, seed: ImU32)
+        -> ImU32;
+}
+extern "C" {
+    pub fn igImAlphaBlendColors(col_a: ImU32, col_b: ImU32) -> ImU32;
+}
+extern "C" {
+    pub fn igImIsPowerOfTwo(v: ::std::os::raw::c_int) -> bool;
+}
+extern "C" {
+    pub fn igImUpperPowerOfTwo(v: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igImStricmp(
+        str1: *const ::std::os::raw::c_char,
+        str2: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igImStrnicmp(
+        str1: *const ::std::os::raw::c_char,
+        str2: *const ::std::os::raw::c_char,
+        count: usize,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igImStrncpy(
+        dst: *mut ::std::os::raw::c_char,
+        src: *const ::std::os::raw::c_char,
+        count: usize,
+    );
+}
+extern "C" {
+    pub fn igImStrdup(str_: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn igImStrdupcpy(
+        dst: *mut ::std::os::raw::c_char,
+        p_dst_size: *mut usize,
+        str_: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn igImStrchrRange(
+        str_begin: *const ::std::os::raw::c_char,
+        str_end: *const ::std::os::raw::c_char,
+        c: ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn igImStrlenW(str_: *const ImWchar) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igImStreolRange(
+        str_: *const ::std::os::raw::c_char,
+        str_end: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn igImStrbolW(buf_mid_line: *const ImWchar, buf_begin: *const ImWchar) -> *const ImWchar;
+}
+extern "C" {
+    pub fn igImStristr(
+        haystack: *const ::std::os::raw::c_char,
+        haystack_end: *const ::std::os::raw::c_char,
+        needle: *const ::std::os::raw::c_char,
+        needle_end: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn igImStrTrimBlanks(str_: *mut ::std::os::raw::c_char);
+}
+extern "C" {
+    pub fn igImStrSkipBlank(str_: *const ::std::os::raw::c_char) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn igImFormatString(
+        buf: *mut ::std::os::raw::c_char,
+        buf_size: usize,
+        fmt: *const ::std::os::raw::c_char,
+        ...
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igImParseFormatFindStart(
+        format: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn igImParseFormatFindEnd(
+        format: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn igImParseFormatTrimDecorations(
+        format: *const ::std::os::raw::c_char,
+        buf: *mut ::std::os::raw::c_char,
+        buf_size: usize,
+    ) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn igImParseFormatPrecision(
+        format: *const ::std::os::raw::c_char,
+        default_value: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igImCharIsBlankA(c: ::std::os::raw::c_char) -> bool;
+}
+extern "C" {
+    pub fn igImCharIsBlankW(c: ::std::os::raw::c_uint) -> bool;
+}
+extern "C" {
+    pub fn igImTextStrToUtf8(
+        buf: *mut ::std::os::raw::c_char,
+        buf_size: ::std::os::raw::c_int,
+        in_text: *const ImWchar,
+        in_text_end: *const ImWchar,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igImTextCharFromUtf8(
+        out_char: *mut ::std::os::raw::c_uint,
+        in_text: *const ::std::os::raw::c_char,
+        in_text_end: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igImTextStrFromUtf8(
+        buf: *mut ImWchar,
+        buf_size: ::std::os::raw::c_int,
+        in_text: *const ::std::os::raw::c_char,
+        in_text_end: *const ::std::os::raw::c_char,
+        in_remaining: *mut *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igImTextCountCharsFromUtf8(
+        in_text: *const ::std::os::raw::c_char,
+        in_text_end: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igImTextCountUtf8BytesFromChar(
+        in_text: *const ::std::os::raw::c_char,
+        in_text_end: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igImTextCountUtf8BytesFromStr(
+        in_text: *const ImWchar,
+        in_text_end: *const ImWchar,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igImFileOpen(
+        filename: *const ::std::os::raw::c_char,
+        mode: *const ::std::os::raw::c_char,
+    ) -> ImFileHandle;
+}
+extern "C" {
+    pub fn igImFileClose(file: ImFileHandle) -> bool;
+}
+extern "C" {
+    pub fn igImFileGetSize(file: ImFileHandle) -> ImU64;
+}
+extern "C" {
+    pub fn igImFileRead(
+        data: *mut ::std::os::raw::c_void,
+        size: ImU64,
+        count: ImU64,
+        file: ImFileHandle,
+    ) -> ImU64;
+}
+extern "C" {
+    pub fn igImFileWrite(
+        data: *const ::std::os::raw::c_void,
+        size: ImU64,
+        count: ImU64,
+        file: ImFileHandle,
+    ) -> ImU64;
+}
+extern "C" {
+    pub fn igImFileLoadToMemory(
+        filename: *const ::std::os::raw::c_char,
+        mode: *const ::std::os::raw::c_char,
+        out_file_size: *mut usize,
+        padding_bytes: ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_void;
+}
+extern "C" {
+    pub fn igImPowFloat(x: f32, y: f32) -> f32;
+}
+extern "C" {
+    pub fn igImPowdouble(x: f64, y: f64) -> f64;
+}
+extern "C" {
+    pub fn igImLogFloat(x: f32) -> f32;
+}
+extern "C" {
+    pub fn igImLogdouble(x: f64) -> f64;
+}
+extern "C" {
+    pub fn igImAbsFloat(x: f32) -> f32;
+}
+extern "C" {
+    pub fn igImAbsdouble(x: f64) -> f64;
+}
+extern "C" {
+    pub fn igImSignFloat(x: f32) -> f32;
+}
+extern "C" {
+    pub fn igImSigndouble(x: f64) -> f64;
+}
+extern "C" {
+    pub fn igImMin(pOut: *mut ImVec2, lhs: ImVec2, rhs: ImVec2);
+}
+extern "C" {
+    pub fn igImMax(pOut: *mut ImVec2, lhs: ImVec2, rhs: ImVec2);
+}
+extern "C" {
+    pub fn igImClamp(pOut: *mut ImVec2, v: ImVec2, mn: ImVec2, mx: ImVec2);
+}
+extern "C" {
+    pub fn igImLerpVec2Float(pOut: *mut ImVec2, a: ImVec2, b: ImVec2, t: f32);
+}
+extern "C" {
+    pub fn igImLerpVec2Vec2(pOut: *mut ImVec2, a: ImVec2, b: ImVec2, t: ImVec2);
+}
+extern "C" {
+    pub fn igImLerpVec4(pOut: *mut ImVec4, a: ImVec4, b: ImVec4, t: f32);
+}
+extern "C" {
+    pub fn igImSaturate(f: f32) -> f32;
+}
+extern "C" {
+    pub fn igImLengthSqrVec2(lhs: ImVec2) -> f32;
+}
+extern "C" {
+    pub fn igImLengthSqrVec4(lhs: ImVec4) -> f32;
+}
+extern "C" {
+    pub fn igImInvLength(lhs: ImVec2, fail_value: f32) -> f32;
+}
+extern "C" {
+    pub fn igImFloorFloat(f: f32) -> f32;
+}
+extern "C" {
+    pub fn igImFloorVec2(pOut: *mut ImVec2, v: ImVec2);
+}
+extern "C" {
+    pub fn igImModPositive(
+        a: ::std::os::raw::c_int,
+        b: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igImDot(a: ImVec2, b: ImVec2) -> f32;
+}
+extern "C" {
+    pub fn igImRotate(pOut: *mut ImVec2, v: ImVec2, cos_a: f32, sin_a: f32);
+}
+extern "C" {
+    pub fn igImLinearSweep(current: f32, target: f32, speed: f32) -> f32;
+}
+extern "C" {
+    pub fn igImMul(pOut: *mut ImVec2, lhs: ImVec2, rhs: ImVec2);
+}
+extern "C" {
+    pub fn igImBezierCalc(
+        pOut: *mut ImVec2,
+        p1: ImVec2,
+        p2: ImVec2,
+        p3: ImVec2,
+        p4: ImVec2,
+        t: f32,
+    );
+}
+extern "C" {
+    pub fn igImBezierClosestPoint(
+        pOut: *mut ImVec2,
+        p1: ImVec2,
+        p2: ImVec2,
+        p3: ImVec2,
+        p4: ImVec2,
+        p: ImVec2,
+        num_segments: ::std::os::raw::c_int,
+    );
+}
+extern "C" {
+    pub fn igImBezierClosestPointCasteljau(
+        pOut: *mut ImVec2,
+        p1: ImVec2,
+        p2: ImVec2,
+        p3: ImVec2,
+        p4: ImVec2,
+        p: ImVec2,
+        tess_tol: f32,
+    );
+}
+extern "C" {
+    pub fn igImLineClosestPoint(pOut: *mut ImVec2, a: ImVec2, b: ImVec2, p: ImVec2);
+}
+extern "C" {
+    pub fn igImTriangleContainsPoint(a: ImVec2, b: ImVec2, c: ImVec2, p: ImVec2) -> bool;
+}
+extern "C" {
+    pub fn igImTriangleClosestPoint(pOut: *mut ImVec2, a: ImVec2, b: ImVec2, c: ImVec2, p: ImVec2);
+}
+extern "C" {
+    pub fn igImTriangleBarycentricCoords(
+        a: ImVec2,
+        b: ImVec2,
+        c: ImVec2,
+        p: ImVec2,
+        out_u: *mut f32,
+        out_v: *mut f32,
+        out_w: *mut f32,
+    );
+}
+extern "C" {
+    pub fn igImTriangleArea(a: ImVec2, b: ImVec2, c: ImVec2) -> f32;
+}
+extern "C" {
+    pub fn igImGetDirQuadrantFromDelta(dx: f32, dy: f32) -> ImGuiDir;
+}
+extern "C" {
+    pub fn ImVec1_ImVec1Nil() -> *mut ImVec1;
+}
+extern "C" {
+    pub fn ImVec1_destroy(self_: *mut ImVec1);
+}
+extern "C" {
+    pub fn ImVec1_ImVec1Float(_x: f32) -> *mut ImVec1;
+}
+extern "C" {
+    pub fn ImVec2ih_ImVec2ihNil() -> *mut ImVec2ih;
+}
+extern "C" {
+    pub fn ImVec2ih_destroy(self_: *mut ImVec2ih);
+}
+extern "C" {
+    pub fn ImVec2ih_ImVec2ihshort(
+        _x: ::std::os::raw::c_short,
+        _y: ::std::os::raw::c_short,
+    ) -> *mut ImVec2ih;
+}
+extern "C" {
+    pub fn ImVec2ih_ImVec2ihVec2(rhs: ImVec2) -> *mut ImVec2ih;
+}
+extern "C" {
+    pub fn ImRect_ImRectNil() -> *mut ImRect;
+}
+extern "C" {
+    pub fn ImRect_destroy(self_: *mut ImRect);
+}
+extern "C" {
+    pub fn ImRect_ImRectVec2(min: ImVec2, max: ImVec2) -> *mut ImRect;
+}
+extern "C" {
+    pub fn ImRect_ImRectVec4(v: ImVec4) -> *mut ImRect;
+}
+extern "C" {
+    pub fn ImRect_ImRectFloat(x1: f32, y1: f32, x2: f32, y2: f32) -> *mut ImRect;
+}
+extern "C" {
+    pub fn ImRect_GetCenter(pOut: *mut ImVec2, self_: *mut ImRect);
+}
+extern "C" {
+    pub fn ImRect_GetSize(pOut: *mut ImVec2, self_: *mut ImRect);
+}
+extern "C" {
+    pub fn ImRect_GetWidth(self_: *mut ImRect) -> f32;
+}
+extern "C" {
+    pub fn ImRect_GetHeight(self_: *mut ImRect) -> f32;
+}
+extern "C" {
+    pub fn ImRect_GetTL(pOut: *mut ImVec2, self_: *mut ImRect);
+}
+extern "C" {
+    pub fn ImRect_GetTR(pOut: *mut ImVec2, self_: *mut ImRect);
+}
+extern "C" {
+    pub fn ImRect_GetBL(pOut: *mut ImVec2, self_: *mut ImRect);
+}
+extern "C" {
+    pub fn ImRect_GetBR(pOut: *mut ImVec2, self_: *mut ImRect);
+}
+extern "C" {
+    pub fn ImRect_ContainsVec2(self_: *mut ImRect, p: ImVec2) -> bool;
+}
+extern "C" {
+    pub fn ImRect_ContainsRect(self_: *mut ImRect, r: ImRect) -> bool;
+}
+extern "C" {
+    pub fn ImRect_Overlaps(self_: *mut ImRect, r: ImRect) -> bool;
+}
+extern "C" {
+    pub fn ImRect_AddVec2(self_: *mut ImRect, p: ImVec2);
+}
+extern "C" {
+    pub fn ImRect_AddRect(self_: *mut ImRect, r: ImRect);
+}
+extern "C" {
+    pub fn ImRect_ExpandFloat(self_: *mut ImRect, amount: f32);
+}
+extern "C" {
+    pub fn ImRect_ExpandVec2(self_: *mut ImRect, amount: ImVec2);
+}
+extern "C" {
+    pub fn ImRect_Translate(self_: *mut ImRect, d: ImVec2);
+}
+extern "C" {
+    pub fn ImRect_TranslateX(self_: *mut ImRect, dx: f32);
+}
+extern "C" {
+    pub fn ImRect_TranslateY(self_: *mut ImRect, dy: f32);
+}
+extern "C" {
+    pub fn ImRect_ClipWith(self_: *mut ImRect, r: ImRect);
+}
+extern "C" {
+    pub fn ImRect_ClipWithFull(self_: *mut ImRect, r: ImRect);
+}
+extern "C" {
+    pub fn ImRect_Floor(self_: *mut ImRect);
+}
+extern "C" {
+    pub fn ImRect_IsInverted(self_: *mut ImRect) -> bool;
+}
+extern "C" {
+    pub fn ImRect_ToVec4(pOut: *mut ImVec4, self_: *mut ImRect);
+}
+extern "C" {
+    pub fn igImBitArrayTestBit(arr: *const ImU32, n: ::std::os::raw::c_int) -> bool;
+}
+extern "C" {
+    pub fn igImBitArrayClearBit(arr: *mut ImU32, n: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn igImBitArraySetBit(arr: *mut ImU32, n: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn igImBitArraySetBitRange(
+        arr: *mut ImU32,
+        n: ::std::os::raw::c_int,
+        n2: ::std::os::raw::c_int,
+    );
+}
+extern "C" {
+    pub fn ImBitVector_Create(self_: *mut ImBitVector, sz: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn ImBitVector_Clear(self_: *mut ImBitVector);
+}
+extern "C" {
+    pub fn ImBitVector_TestBit(self_: *mut ImBitVector, n: ::std::os::raw::c_int) -> bool;
+}
+extern "C" {
+    pub fn ImBitVector_SetBit(self_: *mut ImBitVector, n: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn ImBitVector_ClearBit(self_: *mut ImBitVector, n: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn ImDrawListSharedData_ImDrawListSharedData() -> *mut ImDrawListSharedData;
+}
+extern "C" {
+    pub fn ImDrawListSharedData_destroy(self_: *mut ImDrawListSharedData);
+}
+extern "C" {
+    pub fn ImDrawListSharedData_SetCircleSegmentMaxError(
+        self_: *mut ImDrawListSharedData,
+        max_error: f32,
+    );
+}
+extern "C" {
+    pub fn ImDrawDataBuilder_Clear(self_: *mut ImDrawDataBuilder);
+}
+extern "C" {
+    pub fn ImDrawDataBuilder_ClearFreeMemory(self_: *mut ImDrawDataBuilder);
+}
+extern "C" {
+    pub fn ImDrawDataBuilder_FlattenIntoSingleLayer(self_: *mut ImDrawDataBuilder);
+}
+extern "C" {
+    pub fn ImGuiStyleMod_ImGuiStyleModInt(
+        idx: ImGuiStyleVar,
+        v: ::std::os::raw::c_int,
+    ) -> *mut ImGuiStyleMod;
+}
+extern "C" {
+    pub fn ImGuiStyleMod_destroy(self_: *mut ImGuiStyleMod);
+}
+extern "C" {
+    pub fn ImGuiStyleMod_ImGuiStyleModFloat(idx: ImGuiStyleVar, v: f32) -> *mut ImGuiStyleMod;
+}
+extern "C" {
+    pub fn ImGuiStyleMod_ImGuiStyleModVec2(idx: ImGuiStyleVar, v: ImVec2) -> *mut ImGuiStyleMod;
+}
+extern "C" {
+    pub fn ImGuiMenuColumns_ImGuiMenuColumns() -> *mut ImGuiMenuColumns;
+}
+extern "C" {
+    pub fn ImGuiMenuColumns_destroy(self_: *mut ImGuiMenuColumns);
+}
+extern "C" {
+    pub fn ImGuiMenuColumns_Update(
+        self_: *mut ImGuiMenuColumns,
+        count: ::std::os::raw::c_int,
+        spacing: f32,
+        clear: bool,
+    );
+}
+extern "C" {
+    pub fn ImGuiMenuColumns_DeclColumns(
+        self_: *mut ImGuiMenuColumns,
+        w0: f32,
+        w1: f32,
+        w2: f32,
+    ) -> f32;
+}
+extern "C" {
+    pub fn ImGuiMenuColumns_CalcExtraSpace(self_: *mut ImGuiMenuColumns, avail_w: f32) -> f32;
+}
+extern "C" {
+    pub fn ImGuiInputTextState_ImGuiInputTextState() -> *mut ImGuiInputTextState;
+}
+extern "C" {
+    pub fn ImGuiInputTextState_destroy(self_: *mut ImGuiInputTextState);
+}
+extern "C" {
+    pub fn ImGuiInputTextState_ClearText(self_: *mut ImGuiInputTextState);
+}
+extern "C" {
+    pub fn ImGuiInputTextState_ClearFreeMemory(self_: *mut ImGuiInputTextState);
+}
+extern "C" {
+    pub fn ImGuiInputTextState_GetUndoAvailCount(
+        self_: *mut ImGuiInputTextState,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn ImGuiInputTextState_GetRedoAvailCount(
+        self_: *mut ImGuiInputTextState,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn ImGuiInputTextState_OnKeyPressed(
+        self_: *mut ImGuiInputTextState,
+        key: ::std::os::raw::c_int,
+    );
+}
+extern "C" {
+    pub fn ImGuiInputTextState_CursorAnimReset(self_: *mut ImGuiInputTextState);
+}
+extern "C" {
+    pub fn ImGuiInputTextState_CursorClamp(self_: *mut ImGuiInputTextState);
+}
+extern "C" {
+    pub fn ImGuiInputTextState_HasSelection(self_: *mut ImGuiInputTextState) -> bool;
+}
+extern "C" {
+    pub fn ImGuiInputTextState_ClearSelection(self_: *mut ImGuiInputTextState);
+}
+extern "C" {
+    pub fn ImGuiInputTextState_SelectAll(self_: *mut ImGuiInputTextState);
+}
+extern "C" {
+    pub fn ImGuiPopupData_ImGuiPopupData() -> *mut ImGuiPopupData;
+}
+extern "C" {
+    pub fn ImGuiPopupData_destroy(self_: *mut ImGuiPopupData);
+}
+extern "C" {
+    pub fn ImGuiNavMoveResult_ImGuiNavMoveResult() -> *mut ImGuiNavMoveResult;
+}
+extern "C" {
+    pub fn ImGuiNavMoveResult_destroy(self_: *mut ImGuiNavMoveResult);
+}
+extern "C" {
+    pub fn ImGuiNavMoveResult_Clear(self_: *mut ImGuiNavMoveResult);
+}
+extern "C" {
+    pub fn ImGuiNextWindowData_ImGuiNextWindowData() -> *mut ImGuiNextWindowData;
+}
+extern "C" {
+    pub fn ImGuiNextWindowData_destroy(self_: *mut ImGuiNextWindowData);
+}
+extern "C" {
+    pub fn ImGuiNextWindowData_ClearFlags(self_: *mut ImGuiNextWindowData);
+}
+extern "C" {
+    pub fn ImGuiNextItemData_ImGuiNextItemData() -> *mut ImGuiNextItemData;
+}
+extern "C" {
+    pub fn ImGuiNextItemData_destroy(self_: *mut ImGuiNextItemData);
+}
+extern "C" {
+    pub fn ImGuiNextItemData_ClearFlags(self_: *mut ImGuiNextItemData);
+}
+extern "C" {
+    pub fn ImGuiPtrOrIndex_ImGuiPtrOrIndexPtr(
+        ptr: *mut ::std::os::raw::c_void,
+    ) -> *mut ImGuiPtrOrIndex;
+}
+extern "C" {
+    pub fn ImGuiPtrOrIndex_destroy(self_: *mut ImGuiPtrOrIndex);
+}
+extern "C" {
+    pub fn ImGuiPtrOrIndex_ImGuiPtrOrIndexInt(index: ::std::os::raw::c_int)
+        -> *mut ImGuiPtrOrIndex;
+}
+extern "C" {
+    pub fn ImGuiColumnData_ImGuiColumnData() -> *mut ImGuiColumnData;
+}
+extern "C" {
+    pub fn ImGuiColumnData_destroy(self_: *mut ImGuiColumnData);
+}
+extern "C" {
+    pub fn ImGuiColumns_ImGuiColumns() -> *mut ImGuiColumns;
+}
+extern "C" {
+    pub fn ImGuiColumns_destroy(self_: *mut ImGuiColumns);
+}
+extern "C" {
+    pub fn ImGuiColumns_Clear(self_: *mut ImGuiColumns);
+}
+extern "C" {
+    pub fn ImGuiDockNode_ImGuiDockNode(id: ImGuiID) -> *mut ImGuiDockNode;
+}
+extern "C" {
+    pub fn ImGuiDockNode_destroy(self_: *mut ImGuiDockNode);
+}
+extern "C" {
+    pub fn ImGuiDockNode_IsRootNode(self_: *mut ImGuiDockNode) -> bool;
+}
+extern "C" {
+    pub fn ImGuiDockNode_IsDockSpace(self_: *mut ImGuiDockNode) -> bool;
+}
+extern "C" {
+    pub fn ImGuiDockNode_IsFloatingNode(self_: *mut ImGuiDockNode) -> bool;
+}
+extern "C" {
+    pub fn ImGuiDockNode_IsCentralNode(self_: *mut ImGuiDockNode) -> bool;
+}
+extern "C" {
+    pub fn ImGuiDockNode_IsHiddenTabBar(self_: *mut ImGuiDockNode) -> bool;
+}
+extern "C" {
+    pub fn ImGuiDockNode_IsNoTabBar(self_: *mut ImGuiDockNode) -> bool;
+}
+extern "C" {
+    pub fn ImGuiDockNode_IsSplitNode(self_: *mut ImGuiDockNode) -> bool;
+}
+extern "C" {
+    pub fn ImGuiDockNode_IsLeafNode(self_: *mut ImGuiDockNode) -> bool;
+}
+extern "C" {
+    pub fn ImGuiDockNode_IsEmpty(self_: *mut ImGuiDockNode) -> bool;
+}
+extern "C" {
+    pub fn ImGuiDockNode_GetMergedFlags(self_: *mut ImGuiDockNode) -> ImGuiDockNodeFlags;
+}
+extern "C" {
+    pub fn ImGuiDockNode_Rect(pOut: *mut ImRect, self_: *mut ImGuiDockNode);
+}
+extern "C" {
+    pub fn ImGuiDockContext_ImGuiDockContext() -> *mut ImGuiDockContext;
+}
+extern "C" {
+    pub fn ImGuiDockContext_destroy(self_: *mut ImGuiDockContext);
+}
+extern "C" {
+    pub fn ImGuiViewportP_ImGuiViewportP() -> *mut ImGuiViewportP;
+}
+extern "C" {
+    pub fn ImGuiViewportP_destroy(self_: *mut ImGuiViewportP);
+}
+extern "C" {
+    pub fn ImGuiViewportP_GetMainRect(pOut: *mut ImRect, self_: *mut ImGuiViewportP);
+}
+extern "C" {
+    pub fn ImGuiViewportP_GetWorkRect(pOut: *mut ImRect, self_: *mut ImGuiViewportP);
+}
+extern "C" {
+    pub fn ImGuiViewportP_ClearRequestFlags(self_: *mut ImGuiViewportP);
+}
+extern "C" {
+    pub fn ImGuiWindowSettings_ImGuiWindowSettings() -> *mut ImGuiWindowSettings;
+}
+extern "C" {
+    pub fn ImGuiWindowSettings_destroy(self_: *mut ImGuiWindowSettings);
+}
+extern "C" {
+    pub fn ImGuiWindowSettings_GetName(
+        self_: *mut ImGuiWindowSettings,
+    ) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn ImGuiSettingsHandler_ImGuiSettingsHandler() -> *mut ImGuiSettingsHandler;
+}
+extern "C" {
+    pub fn ImGuiSettingsHandler_destroy(self_: *mut ImGuiSettingsHandler);
+}
+extern "C" {
+    pub fn ImGuiContext_ImGuiContext(shared_font_atlas: *mut ImFontAtlas) -> *mut ImGuiContext;
+}
+extern "C" {
+    pub fn ImGuiContext_destroy(self_: *mut ImGuiContext);
+}
+extern "C" {
+    pub fn ImGuiWindowTempData_ImGuiWindowTempData() -> *mut ImGuiWindowTempData;
+}
+extern "C" {
+    pub fn ImGuiWindowTempData_destroy(self_: *mut ImGuiWindowTempData);
+}
+extern "C" {
+    pub fn ImGuiWindow_ImGuiWindow(
+        context: *mut ImGuiContext,
+        name: *const ::std::os::raw::c_char,
+    ) -> *mut ImGuiWindow;
+}
+extern "C" {
+    pub fn ImGuiWindow_destroy(self_: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn ImGuiWindow_GetIDStr(
+        self_: *mut ImGuiWindow,
+        str_: *const ::std::os::raw::c_char,
+        str_end: *const ::std::os::raw::c_char,
+    ) -> ImGuiID;
+}
+extern "C" {
+    pub fn ImGuiWindow_GetIDPtr(
+        self_: *mut ImGuiWindow,
+        ptr: *const ::std::os::raw::c_void,
+    ) -> ImGuiID;
+}
+extern "C" {
+    pub fn ImGuiWindow_GetIDInt(self_: *mut ImGuiWindow, n: ::std::os::raw::c_int) -> ImGuiID;
+}
+extern "C" {
+    pub fn ImGuiWindow_GetIDNoKeepAliveStr(
+        self_: *mut ImGuiWindow,
+        str_: *const ::std::os::raw::c_char,
+        str_end: *const ::std::os::raw::c_char,
+    ) -> ImGuiID;
+}
+extern "C" {
+    pub fn ImGuiWindow_GetIDNoKeepAlivePtr(
+        self_: *mut ImGuiWindow,
+        ptr: *const ::std::os::raw::c_void,
+    ) -> ImGuiID;
+}
+extern "C" {
+    pub fn ImGuiWindow_GetIDNoKeepAliveInt(
+        self_: *mut ImGuiWindow,
+        n: ::std::os::raw::c_int,
+    ) -> ImGuiID;
+}
+extern "C" {
+    pub fn ImGuiWindow_GetIDFromRectangle(self_: *mut ImGuiWindow, r_abs: ImRect) -> ImGuiID;
+}
+extern "C" {
+    pub fn ImGuiWindow_Rect(pOut: *mut ImRect, self_: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn ImGuiWindow_CalcFontSize(self_: *mut ImGuiWindow) -> f32;
+}
+extern "C" {
+    pub fn ImGuiWindow_TitleBarHeight(self_: *mut ImGuiWindow) -> f32;
+}
+extern "C" {
+    pub fn ImGuiWindow_TitleBarRect(pOut: *mut ImRect, self_: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn ImGuiWindow_MenuBarHeight(self_: *mut ImGuiWindow) -> f32;
+}
+extern "C" {
+    pub fn ImGuiWindow_MenuBarRect(pOut: *mut ImRect, self_: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn ImGuiLastItemDataBackup_ImGuiLastItemDataBackup() -> *mut ImGuiLastItemDataBackup;
+}
+extern "C" {
+    pub fn ImGuiLastItemDataBackup_destroy(self_: *mut ImGuiLastItemDataBackup);
+}
+extern "C" {
+    pub fn ImGuiLastItemDataBackup_Backup(self_: *mut ImGuiLastItemDataBackup);
+}
+extern "C" {
+    pub fn ImGuiLastItemDataBackup_Restore(self_: *mut ImGuiLastItemDataBackup);
+}
+extern "C" {
+    pub fn ImGuiTabItem_ImGuiTabItem() -> *mut ImGuiTabItem;
+}
+extern "C" {
+    pub fn ImGuiTabItem_destroy(self_: *mut ImGuiTabItem);
+}
+extern "C" {
+    pub fn ImGuiTabBar_ImGuiTabBar() -> *mut ImGuiTabBar;
+}
+extern "C" {
+    pub fn ImGuiTabBar_destroy(self_: *mut ImGuiTabBar);
+}
+extern "C" {
+    pub fn ImGuiTabBar_GetTabOrder(
+        self_: *mut ImGuiTabBar,
+        tab: *const ImGuiTabItem,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn ImGuiTabBar_GetTabName(
+        self_: *mut ImGuiTabBar,
+        tab: *const ImGuiTabItem,
+    ) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn igGetCurrentWindowRead() -> *mut ImGuiWindow;
+}
+extern "C" {
+    pub fn igGetCurrentWindow() -> *mut ImGuiWindow;
+}
+extern "C" {
+    pub fn igFindWindowByID(id: ImGuiID) -> *mut ImGuiWindow;
+}
+extern "C" {
+    pub fn igFindWindowByName(name: *const ::std::os::raw::c_char) -> *mut ImGuiWindow;
+}
+extern "C" {
+    pub fn igUpdateWindowParentAndRootLinks(
+        window: *mut ImGuiWindow,
+        flags: ImGuiWindowFlags,
+        parent_window: *mut ImGuiWindow,
+    );
+}
+extern "C" {
+    pub fn igCalcWindowExpectedSize(pOut: *mut ImVec2, window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igIsWindowChildOf(window: *mut ImGuiWindow, potential_parent: *mut ImGuiWindow) -> bool;
+}
+extern "C" {
+    pub fn igIsWindowNavFocusable(window: *mut ImGuiWindow) -> bool;
+}
+extern "C" {
+    pub fn igGetWindowAllowedExtentRect(pOut: *mut ImRect, window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igSetWindowPosWindowPtr(window: *mut ImGuiWindow, pos: ImVec2, cond: ImGuiCond);
+}
+extern "C" {
+    pub fn igSetWindowSizeWindowPtr(window: *mut ImGuiWindow, size: ImVec2, cond: ImGuiCond);
+}
+extern "C" {
+    pub fn igSetWindowCollapsedWindowPtr(
+        window: *mut ImGuiWindow,
+        collapsed: bool,
+        cond: ImGuiCond,
+    );
+}
+extern "C" {
+    pub fn igSetWindowHitTestHole(window: *mut ImGuiWindow, pos: ImVec2, size: ImVec2);
+}
+extern "C" {
+    pub fn igFocusWindow(window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igFocusTopMostWindowUnderOne(
+        under_this_window: *mut ImGuiWindow,
+        ignore_window: *mut ImGuiWindow,
+    );
+}
+extern "C" {
+    pub fn igBringWindowToFocusFront(window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igBringWindowToDisplayFront(window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igBringWindowToDisplayBack(window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igSetCurrentFont(font: *mut ImFont);
+}
+extern "C" {
+    pub fn igGetDefaultFont() -> *mut ImFont;
+}
+extern "C" {
+    pub fn igGetForegroundDrawListWindowPtr(window: *mut ImGuiWindow) -> *mut ImDrawList;
+}
+extern "C" {
+    pub fn igInitialize(context: *mut ImGuiContext);
+}
+extern "C" {
+    pub fn igShutdown(context: *mut ImGuiContext);
+}
+extern "C" {
+    pub fn igUpdateHoveredWindowAndCaptureFlags();
+}
+extern "C" {
+    pub fn igStartMouseMovingWindow(window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igStartMouseMovingWindowOrNode(
+        window: *mut ImGuiWindow,
+        node: *mut ImGuiDockNode,
+        undock_floating_node: bool,
+    );
+}
+extern "C" {
+    pub fn igUpdateMouseMovingWindowNewFrame();
+}
+extern "C" {
+    pub fn igUpdateMouseMovingWindowEndFrame();
+}
+extern "C" {
+    pub fn igTranslateWindowsInViewport(
+        viewport: *mut ImGuiViewportP,
+        old_pos: ImVec2,
+        new_pos: ImVec2,
+    );
+}
+extern "C" {
+    pub fn igScaleWindowsInViewport(viewport: *mut ImGuiViewportP, scale: f32);
+}
+extern "C" {
+    pub fn igDestroyPlatformWindow(viewport: *mut ImGuiViewportP);
+}
+extern "C" {
+    pub fn igShowViewportThumbnails();
+}
+extern "C" {
+    pub fn igMarkIniSettingsDirtyNil();
+}
+extern "C" {
+    pub fn igMarkIniSettingsDirtyWindowPtr(window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igClearIniSettings();
+}
+extern "C" {
+    pub fn igCreateNewWindowSettings(
+        name: *const ::std::os::raw::c_char,
+    ) -> *mut ImGuiWindowSettings;
+}
+extern "C" {
+    pub fn igFindWindowSettings(id: ImGuiID) -> *mut ImGuiWindowSettings;
+}
+extern "C" {
+    pub fn igFindOrCreateWindowSettings(
+        name: *const ::std::os::raw::c_char,
+    ) -> *mut ImGuiWindowSettings;
+}
+extern "C" {
+    pub fn igFindSettingsHandler(
+        type_name: *const ::std::os::raw::c_char,
+    ) -> *mut ImGuiSettingsHandler;
+}
+extern "C" {
+    pub fn igSetNextWindowScroll(scroll: ImVec2);
+}
+extern "C" {
+    pub fn igSetScrollXWindowPtr(window: *mut ImGuiWindow, scroll_x: f32);
+}
+extern "C" {
+    pub fn igSetScrollYWindowPtr(window: *mut ImGuiWindow, scroll_y: f32);
+}
+extern "C" {
+    pub fn igSetScrollFromPosXWindowPtr(
+        window: *mut ImGuiWindow,
+        local_x: f32,
+        center_x_ratio: f32,
+    );
+}
+extern "C" {
+    pub fn igSetScrollFromPosYWindowPtr(
+        window: *mut ImGuiWindow,
+        local_y: f32,
+        center_y_ratio: f32,
+    );
+}
+extern "C" {
+    pub fn igScrollToBringRectIntoView(
+        pOut: *mut ImVec2,
+        window: *mut ImGuiWindow,
+        item_rect: ImRect,
+    );
+}
+extern "C" {
+    pub fn igGetItemID() -> ImGuiID;
+}
+extern "C" {
+    pub fn igGetItemStatusFlags() -> ImGuiItemStatusFlags;
+}
+extern "C" {
+    pub fn igGetActiveID() -> ImGuiID;
+}
+extern "C" {
+    pub fn igGetFocusID() -> ImGuiID;
+}
+extern "C" {
+    pub fn igSetActiveID(id: ImGuiID, window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igSetFocusID(id: ImGuiID, window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igClearActiveID();
+}
+extern "C" {
+    pub fn igGetHoveredID() -> ImGuiID;
+}
+extern "C" {
+    pub fn igSetHoveredID(id: ImGuiID);
+}
+extern "C" {
+    pub fn igKeepAliveID(id: ImGuiID);
+}
+extern "C" {
+    pub fn igMarkItemEdited(id: ImGuiID);
+}
+extern "C" {
+    pub fn igPushOverrideID(id: ImGuiID);
+}
+extern "C" {
+    pub fn igGetIDWithSeed(
+        str_id_begin: *const ::std::os::raw::c_char,
+        str_id_end: *const ::std::os::raw::c_char,
+        seed: ImGuiID,
+    ) -> ImGuiID;
+}
+extern "C" {
+    pub fn igItemSizeVec2(size: ImVec2, text_baseline_y: f32);
+}
+extern "C" {
+    pub fn igItemSizeRect(bb: ImRect, text_baseline_y: f32);
+}
+extern "C" {
+    pub fn igItemAdd(bb: ImRect, id: ImGuiID, nav_bb: *const ImRect) -> bool;
+}
+extern "C" {
+    pub fn igItemHoverable(bb: ImRect, id: ImGuiID) -> bool;
+}
+extern "C" {
+    pub fn igIsClippedEx(bb: ImRect, id: ImGuiID, clip_even_when_logged: bool) -> bool;
+}
+extern "C" {
+    pub fn igSetLastItemData(
+        window: *mut ImGuiWindow,
+        item_id: ImGuiID,
+        status_flags: ImGuiItemStatusFlags,
+        item_rect: ImRect,
+    );
+}
+extern "C" {
+    pub fn igFocusableItemRegister(window: *mut ImGuiWindow, id: ImGuiID) -> bool;
+}
+extern "C" {
+    pub fn igFocusableItemUnregister(window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igCalcItemSize(pOut: *mut ImVec2, size: ImVec2, default_w: f32, default_h: f32);
+}
+extern "C" {
+    pub fn igCalcWrapWidthForPos(pos: ImVec2, wrap_pos_x: f32) -> f32;
+}
+extern "C" {
+    pub fn igPushMultiItemsWidths(components: ::std::os::raw::c_int, width_full: f32);
+}
+extern "C" {
+    pub fn igPushItemFlag(option: ImGuiItemFlags, enabled: bool);
+}
+extern "C" {
+    pub fn igPopItemFlag();
+}
+extern "C" {
+    pub fn igIsItemToggledSelection() -> bool;
+}
+extern "C" {
+    pub fn igGetContentRegionMaxAbs(pOut: *mut ImVec2);
+}
+extern "C" {
+    pub fn igShrinkWidths(
+        items: *mut ImGuiShrinkWidthItem,
+        count: ::std::os::raw::c_int,
+        width_excess: f32,
+    );
+}
+extern "C" {
+    pub fn igLogBegin(type_: ImGuiLogType, auto_open_depth: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn igLogToBuffer(auto_open_depth: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn igBeginChildEx(
+        name: *const ::std::os::raw::c_char,
+        id: ImGuiID,
+        size_arg: ImVec2,
+        border: bool,
+        flags: ImGuiWindowFlags,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igOpenPopupEx(id: ImGuiID, popup_flags: ImGuiPopupFlags);
+}
+extern "C" {
+    pub fn igClosePopupToLevel(
+        remaining: ::std::os::raw::c_int,
+        restore_focus_to_window_under_popup: bool,
+    );
+}
+extern "C" {
+    pub fn igClosePopupsOverWindow(
+        ref_window: *mut ImGuiWindow,
+        restore_focus_to_window_under_popup: bool,
+    );
+}
+extern "C" {
+    pub fn igIsPopupOpenID(id: ImGuiID, popup_flags: ImGuiPopupFlags) -> bool;
+}
+extern "C" {
+    pub fn igBeginPopupEx(id: ImGuiID, extra_flags: ImGuiWindowFlags) -> bool;
+}
+extern "C" {
+    pub fn igBeginTooltipEx(extra_flags: ImGuiWindowFlags, tooltip_flags: ImGuiTooltipFlags);
+}
+extern "C" {
+    pub fn igGetTopMostPopupModal() -> *mut ImGuiWindow;
+}
+extern "C" {
+    pub fn igFindBestWindowPosForPopup(pOut: *mut ImVec2, window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igFindBestWindowPosForPopupEx(
+        pOut: *mut ImVec2,
+        ref_pos: ImVec2,
+        size: ImVec2,
+        last_dir: *mut ImGuiDir,
+        r_outer: ImRect,
+        r_avoid: ImRect,
+        policy: ImGuiPopupPositionPolicy,
+    );
+}
+extern "C" {
+    pub fn igNavInitWindow(window: *mut ImGuiWindow, force_reinit: bool);
+}
+extern "C" {
+    pub fn igNavMoveRequestButNoResultYet() -> bool;
+}
+extern "C" {
+    pub fn igNavMoveRequestCancel();
+}
+extern "C" {
+    pub fn igNavMoveRequestForward(
+        move_dir: ImGuiDir,
+        clip_dir: ImGuiDir,
+        bb_rel: ImRect,
+        move_flags: ImGuiNavMoveFlags,
+    );
+}
+extern "C" {
+    pub fn igNavMoveRequestTryWrapping(window: *mut ImGuiWindow, move_flags: ImGuiNavMoveFlags);
+}
+extern "C" {
+    pub fn igGetNavInputAmount(n: ImGuiNavInput, mode: ImGuiInputReadMode) -> f32;
+}
+extern "C" {
+    pub fn igGetNavInputAmount2d(
+        pOut: *mut ImVec2,
+        dir_sources: ImGuiNavDirSourceFlags,
+        mode: ImGuiInputReadMode,
+        slow_factor: f32,
+        fast_factor: f32,
+    );
+}
+extern "C" {
+    pub fn igCalcTypematicRepeatAmount(
+        t0: f32,
+        t1: f32,
+        repeat_delay: f32,
+        repeat_rate: f32,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igActivateItem(id: ImGuiID);
+}
+extern "C" {
+    pub fn igSetNavID(id: ImGuiID, nav_layer: ::std::os::raw::c_int, focus_scope_id: ImGuiID);
+}
+extern "C" {
+    pub fn igSetNavIDWithRectRel(
+        id: ImGuiID,
+        nav_layer: ::std::os::raw::c_int,
+        focus_scope_id: ImGuiID,
+        rect_rel: ImRect,
+    );
+}
+extern "C" {
+    pub fn igPushFocusScope(id: ImGuiID);
+}
+extern "C" {
+    pub fn igPopFocusScope();
+}
+extern "C" {
+    pub fn igGetFocusScopeID() -> ImGuiID;
+}
+extern "C" {
+    pub fn igIsActiveIdUsingNavDir(dir: ImGuiDir) -> bool;
+}
+extern "C" {
+    pub fn igIsActiveIdUsingNavInput(input: ImGuiNavInput) -> bool;
+}
+extern "C" {
+    pub fn igIsActiveIdUsingKey(key: ImGuiKey) -> bool;
+}
+extern "C" {
+    pub fn igIsMouseDragPastThreshold(button: ImGuiMouseButton, lock_threshold: f32) -> bool;
+}
+extern "C" {
+    pub fn igIsKeyPressedMap(key: ImGuiKey, repeat: bool) -> bool;
+}
+extern "C" {
+    pub fn igIsNavInputDown(n: ImGuiNavInput) -> bool;
+}
+extern "C" {
+    pub fn igIsNavInputTest(n: ImGuiNavInput, rm: ImGuiInputReadMode) -> bool;
+}
+extern "C" {
+    pub fn igGetMergedKeyModFlags() -> ImGuiKeyModFlags;
+}
+extern "C" {
+    pub fn igDockContextInitialize(ctx: *mut ImGuiContext);
+}
+extern "C" {
+    pub fn igDockContextShutdown(ctx: *mut ImGuiContext);
+}
+extern "C" {
+    pub fn igDockContextClearNodes(
+        ctx: *mut ImGuiContext,
+        root_id: ImGuiID,
+        clear_settings_refs: bool,
+    );
+}
+extern "C" {
+    pub fn igDockContextRebuildNodes(ctx: *mut ImGuiContext);
+}
+extern "C" {
+    pub fn igDockContextUpdateUndocking(ctx: *mut ImGuiContext);
+}
+extern "C" {
+    pub fn igDockContextUpdateDocking(ctx: *mut ImGuiContext);
+}
+extern "C" {
+    pub fn igDockContextGenNodeID(ctx: *mut ImGuiContext) -> ImGuiID;
+}
+extern "C" {
+    pub fn igDockContextQueueDock(
+        ctx: *mut ImGuiContext,
+        target: *mut ImGuiWindow,
+        target_node: *mut ImGuiDockNode,
+        payload: *mut ImGuiWindow,
+        split_dir: ImGuiDir,
+        split_ratio: f32,
+        split_outer: bool,
+    );
+}
+extern "C" {
+    pub fn igDockContextQueueUndockWindow(ctx: *mut ImGuiContext, window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igDockContextQueueUndockNode(ctx: *mut ImGuiContext, node: *mut ImGuiDockNode);
+}
+extern "C" {
+    pub fn igDockContextCalcDropPosForDocking(
+        target: *mut ImGuiWindow,
+        target_node: *mut ImGuiDockNode,
+        payload: *mut ImGuiWindow,
+        split_dir: ImGuiDir,
+        split_outer: bool,
+        out_pos: *mut ImVec2,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igDockNodeGetRootNode(node: *mut ImGuiDockNode) -> *mut ImGuiDockNode;
+}
+extern "C" {
+    pub fn igDockNodeGetDepth(node: *const ImGuiDockNode) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igGetWindowDockNode() -> *mut ImGuiDockNode;
+}
+extern "C" {
+    pub fn igGetWindowAlwaysWantOwnTabBar(window: *mut ImGuiWindow) -> bool;
+}
+extern "C" {
+    pub fn igBeginDocked(window: *mut ImGuiWindow, p_open: *mut bool);
+}
+extern "C" {
+    pub fn igBeginDockableDragDropSource(window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igBeginDockableDragDropTarget(window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igSetWindowDock(window: *mut ImGuiWindow, dock_id: ImGuiID, cond: ImGuiCond);
+}
+extern "C" {
+    pub fn igDockBuilderDockWindow(window_name: *const ::std::os::raw::c_char, node_id: ImGuiID);
+}
+extern "C" {
+    pub fn igDockBuilderGetNode(node_id: ImGuiID) -> *mut ImGuiDockNode;
+}
+extern "C" {
+    pub fn igDockBuilderGetCentralNode(node_id: ImGuiID) -> *mut ImGuiDockNode;
+}
+extern "C" {
+    pub fn igDockBuilderAddNode(node_id: ImGuiID, flags: ImGuiDockNodeFlags) -> ImGuiID;
+}
+extern "C" {
+    pub fn igDockBuilderRemoveNode(node_id: ImGuiID);
+}
+extern "C" {
+    pub fn igDockBuilderRemoveNodeDockedWindows(node_id: ImGuiID, clear_settings_refs: bool);
+}
+extern "C" {
+    pub fn igDockBuilderRemoveNodeChildNodes(node_id: ImGuiID);
+}
+extern "C" {
+    pub fn igDockBuilderSetNodePos(node_id: ImGuiID, pos: ImVec2);
+}
+extern "C" {
+    pub fn igDockBuilderSetNodeSize(node_id: ImGuiID, size: ImVec2);
+}
+extern "C" {
+    pub fn igDockBuilderSplitNode(
+        node_id: ImGuiID,
+        split_dir: ImGuiDir,
+        size_ratio_for_node_at_dir: f32,
+        out_id_at_dir: *mut ImGuiID,
+        out_id_at_opposite_dir: *mut ImGuiID,
+    ) -> ImGuiID;
+}
+extern "C" {
+    pub fn igDockBuilderCopyDockSpace(
+        src_dockspace_id: ImGuiID,
+        dst_dockspace_id: ImGuiID,
+        in_window_remap_pairs: *mut ImVector_const_charPtr,
+    );
+}
+extern "C" {
+    pub fn igDockBuilderCopyNode(
+        src_node_id: ImGuiID,
+        dst_node_id: ImGuiID,
+        out_node_remap_pairs: *mut ImVector_ImGuiID,
+    );
+}
+extern "C" {
+    pub fn igDockBuilderCopyWindowSettings(
+        src_name: *const ::std::os::raw::c_char,
+        dst_name: *const ::std::os::raw::c_char,
+    );
+}
+extern "C" {
+    pub fn igDockBuilderFinish(node_id: ImGuiID);
+}
+extern "C" {
+    pub fn igBeginDragDropTargetCustom(bb: ImRect, id: ImGuiID) -> bool;
+}
+extern "C" {
+    pub fn igClearDragDrop();
+}
+extern "C" {
+    pub fn igIsDragDropPayloadBeingAccepted() -> bool;
+}
+extern "C" {
+    pub fn igSetWindowClipRectBeforeSetChannel(window: *mut ImGuiWindow, clip_rect: ImRect);
+}
+extern "C" {
+    pub fn igBeginColumns(
+        str_id: *const ::std::os::raw::c_char,
+        count: ::std::os::raw::c_int,
+        flags: ImGuiColumnsFlags,
+    );
+}
+extern "C" {
+    pub fn igEndColumns();
+}
+extern "C" {
+    pub fn igPushColumnClipRect(column_index: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn igPushColumnsBackground();
+}
+extern "C" {
+    pub fn igPopColumnsBackground();
+}
+extern "C" {
+    pub fn igGetColumnsID(
+        str_id: *const ::std::os::raw::c_char,
+        count: ::std::os::raw::c_int,
+    ) -> ImGuiID;
+}
+extern "C" {
+    pub fn igFindOrCreateColumns(window: *mut ImGuiWindow, id: ImGuiID) -> *mut ImGuiColumns;
+}
+extern "C" {
+    pub fn igGetColumnOffsetFromNorm(columns: *const ImGuiColumns, offset_norm: f32) -> f32;
+}
+extern "C" {
+    pub fn igGetColumnNormFromOffset(columns: *const ImGuiColumns, offset: f32) -> f32;
+}
+extern "C" {
+    pub fn igBeginTabBarEx(
+        tab_bar: *mut ImGuiTabBar,
+        bb: ImRect,
+        flags: ImGuiTabBarFlags,
+        dock_node: *mut ImGuiDockNode,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igTabBarFindTabByID(tab_bar: *mut ImGuiTabBar, tab_id: ImGuiID) -> *mut ImGuiTabItem;
+}
+extern "C" {
+    pub fn igTabBarFindMostRecentlySelectedTabForActiveWindow(
+        tab_bar: *mut ImGuiTabBar,
+    ) -> *mut ImGuiTabItem;
+}
+extern "C" {
+    pub fn igTabBarAddTab(
+        tab_bar: *mut ImGuiTabBar,
+        tab_flags: ImGuiTabItemFlags,
+        window: *mut ImGuiWindow,
+    );
+}
+extern "C" {
+    pub fn igTabBarRemoveTab(tab_bar: *mut ImGuiTabBar, tab_id: ImGuiID);
+}
+extern "C" {
+    pub fn igTabBarCloseTab(tab_bar: *mut ImGuiTabBar, tab: *mut ImGuiTabItem);
+}
+extern "C" {
+    pub fn igTabBarQueueReorder(
+        tab_bar: *mut ImGuiTabBar,
+        tab: *const ImGuiTabItem,
+        dir: ::std::os::raw::c_int,
+    );
+}
+extern "C" {
+    pub fn igTabBarProcessReorder(tab_bar: *mut ImGuiTabBar) -> bool;
+}
+extern "C" {
+    pub fn igTabItemEx(
+        tab_bar: *mut ImGuiTabBar,
+        label: *const ::std::os::raw::c_char,
+        p_open: *mut bool,
+        flags: ImGuiTabItemFlags,
+        docked_window: *mut ImGuiWindow,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igTabItemCalcSize(
+        pOut: *mut ImVec2,
+        label: *const ::std::os::raw::c_char,
+        has_close_button: bool,
+    );
+}
+extern "C" {
+    pub fn igTabItemBackground(
+        draw_list: *mut ImDrawList,
+        bb: ImRect,
+        flags: ImGuiTabItemFlags,
+        col: ImU32,
+    );
+}
+extern "C" {
+    pub fn igTabItemLabelAndCloseButton(
+        draw_list: *mut ImDrawList,
+        bb: ImRect,
+        flags: ImGuiTabItemFlags,
+        frame_padding: ImVec2,
+        label: *const ::std::os::raw::c_char,
+        tab_id: ImGuiID,
+        close_button_id: ImGuiID,
+        is_contents_visible: bool,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igRenderText(
+        pos: ImVec2,
+        text: *const ::std::os::raw::c_char,
+        text_end: *const ::std::os::raw::c_char,
+        hide_text_after_hash: bool,
+    );
+}
+extern "C" {
+    pub fn igRenderTextWrapped(
+        pos: ImVec2,
+        text: *const ::std::os::raw::c_char,
+        text_end: *const ::std::os::raw::c_char,
+        wrap_width: f32,
+    );
+}
+extern "C" {
+    pub fn igRenderTextClipped(
+        pos_min: ImVec2,
+        pos_max: ImVec2,
+        text: *const ::std::os::raw::c_char,
+        text_end: *const ::std::os::raw::c_char,
+        text_size_if_known: *const ImVec2,
+        align: ImVec2,
+        clip_rect: *const ImRect,
+    );
+}
+extern "C" {
+    pub fn igRenderTextClippedEx(
+        draw_list: *mut ImDrawList,
+        pos_min: ImVec2,
+        pos_max: ImVec2,
+        text: *const ::std::os::raw::c_char,
+        text_end: *const ::std::os::raw::c_char,
+        text_size_if_known: *const ImVec2,
+        align: ImVec2,
+        clip_rect: *const ImRect,
+    );
+}
+extern "C" {
+    pub fn igRenderTextEllipsis(
+        draw_list: *mut ImDrawList,
+        pos_min: ImVec2,
+        pos_max: ImVec2,
+        clip_max_x: f32,
+        ellipsis_max_x: f32,
+        text: *const ::std::os::raw::c_char,
+        text_end: *const ::std::os::raw::c_char,
+        text_size_if_known: *const ImVec2,
+    );
+}
+extern "C" {
+    pub fn igRenderFrame(
+        p_min: ImVec2,
+        p_max: ImVec2,
+        fill_col: ImU32,
+        border: bool,
+        rounding: f32,
+    );
+}
+extern "C" {
+    pub fn igRenderFrameBorder(p_min: ImVec2, p_max: ImVec2, rounding: f32);
+}
+extern "C" {
+    pub fn igRenderColorRectWithAlphaCheckerboard(
+        draw_list: *mut ImDrawList,
+        p_min: ImVec2,
+        p_max: ImVec2,
+        fill_col: ImU32,
+        grid_step: f32,
+        grid_off: ImVec2,
+        rounding: f32,
+        rounding_corners_flags: ::std::os::raw::c_int,
+    );
+}
+extern "C" {
+    pub fn igRenderNavHighlight(bb: ImRect, id: ImGuiID, flags: ImGuiNavHighlightFlags);
+}
+extern "C" {
+    pub fn igFindRenderedTextEnd(
+        text: *const ::std::os::raw::c_char,
+        text_end: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn igLogRenderedText(
+        ref_pos: *const ImVec2,
+        text: *const ::std::os::raw::c_char,
+        text_end: *const ::std::os::raw::c_char,
+    );
+}
+extern "C" {
+    pub fn igRenderArrow(
+        draw_list: *mut ImDrawList,
+        pos: ImVec2,
+        col: ImU32,
+        dir: ImGuiDir,
+        scale: f32,
+    );
+}
+extern "C" {
+    pub fn igRenderBullet(draw_list: *mut ImDrawList, pos: ImVec2, col: ImU32);
+}
+extern "C" {
+    pub fn igRenderCheckMark(draw_list: *mut ImDrawList, pos: ImVec2, col: ImU32, sz: f32);
+}
+extern "C" {
+    pub fn igRenderMouseCursor(
+        draw_list: *mut ImDrawList,
+        pos: ImVec2,
+        scale: f32,
+        mouse_cursor: ImGuiMouseCursor,
+        col_fill: ImU32,
+        col_border: ImU32,
+        col_shadow: ImU32,
+    );
+}
+extern "C" {
+    pub fn igRenderArrowPointingAt(
+        draw_list: *mut ImDrawList,
+        pos: ImVec2,
+        half_sz: ImVec2,
+        direction: ImGuiDir,
+        col: ImU32,
+    );
+}
+extern "C" {
+    pub fn igRenderArrowDockMenu(draw_list: *mut ImDrawList, p_min: ImVec2, sz: f32, col: ImU32);
+}
+extern "C" {
+    pub fn igRenderRectFilledRangeH(
+        draw_list: *mut ImDrawList,
+        rect: ImRect,
+        col: ImU32,
+        x_start_norm: f32,
+        x_end_norm: f32,
+        rounding: f32,
+    );
+}
+extern "C" {
+    pub fn igRenderRectFilledWithHole(
+        draw_list: *mut ImDrawList,
+        outer: ImRect,
+        inner: ImRect,
+        col: ImU32,
+        rounding: f32,
+    );
+}
+extern "C" {
+    pub fn igTextEx(
+        text: *const ::std::os::raw::c_char,
+        text_end: *const ::std::os::raw::c_char,
+        flags: ImGuiTextFlags,
+    );
+}
+extern "C" {
+    pub fn igButtonEx(
+        label: *const ::std::os::raw::c_char,
+        size_arg: ImVec2,
+        flags: ImGuiButtonFlags,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igCloseButton(id: ImGuiID, pos: ImVec2) -> bool;
+}
+extern "C" {
+    pub fn igCollapseButton(id: ImGuiID, pos: ImVec2, dock_node: *mut ImGuiDockNode) -> bool;
+}
+extern "C" {
+    pub fn igArrowButtonEx(
+        str_id: *const ::std::os::raw::c_char,
+        dir: ImGuiDir,
+        size_arg: ImVec2,
+        flags: ImGuiButtonFlags,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igScrollbar(axis: ImGuiAxis);
+}
+extern "C" {
+    pub fn igScrollbarEx(
+        bb: ImRect,
+        id: ImGuiID,
+        axis: ImGuiAxis,
+        p_scroll_v: *mut f32,
+        avail_v: f32,
+        contents_v: f32,
+        rounding_corners: ImDrawCornerFlags,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igImageButtonEx(
+        id: ImGuiID,
+        texture_id: ImTextureID,
+        size: ImVec2,
+        uv0: ImVec2,
+        uv1: ImVec2,
+        padding: ImVec2,
+        bg_col: ImVec4,
+        tint_col: ImVec4,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igGetWindowScrollbarRect(pOut: *mut ImRect, window: *mut ImGuiWindow, axis: ImGuiAxis);
+}
+extern "C" {
+    pub fn igGetWindowScrollbarID(window: *mut ImGuiWindow, axis: ImGuiAxis) -> ImGuiID;
+}
+extern "C" {
+    pub fn igGetWindowResizeID(window: *mut ImGuiWindow, n: ::std::os::raw::c_int) -> ImGuiID;
+}
+extern "C" {
+    pub fn igSeparatorEx(flags: ImGuiSeparatorFlags);
+}
+extern "C" {
+    pub fn igButtonBehavior(
+        bb: ImRect,
+        id: ImGuiID,
+        out_hovered: *mut bool,
+        out_held: *mut bool,
+        flags: ImGuiButtonFlags,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igDragBehavior(
+        id: ImGuiID,
+        data_type: ImGuiDataType,
+        p_v: *mut ::std::os::raw::c_void,
+        v_speed: f32,
+        p_min: *const ::std::os::raw::c_void,
+        p_max: *const ::std::os::raw::c_void,
+        format: *const ::std::os::raw::c_char,
+        flags: ImGuiSliderFlags,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igSliderBehavior(
+        bb: ImRect,
+        id: ImGuiID,
+        data_type: ImGuiDataType,
+        p_v: *mut ::std::os::raw::c_void,
+        p_min: *const ::std::os::raw::c_void,
+        p_max: *const ::std::os::raw::c_void,
+        format: *const ::std::os::raw::c_char,
+        flags: ImGuiSliderFlags,
+        out_grab_bb: *mut ImRect,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igSplitterBehavior(
+        bb: ImRect,
+        id: ImGuiID,
+        axis: ImGuiAxis,
+        size1: *mut f32,
+        size2: *mut f32,
+        min_size1: f32,
+        min_size2: f32,
+        hover_extend: f32,
+        hover_visibility_delay: f32,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igTreeNodeBehavior(
+        id: ImGuiID,
+        flags: ImGuiTreeNodeFlags,
+        label: *const ::std::os::raw::c_char,
+        label_end: *const ::std::os::raw::c_char,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igTreeNodeBehaviorIsOpen(id: ImGuiID, flags: ImGuiTreeNodeFlags) -> bool;
+}
+extern "C" {
+    pub fn igTreePushOverrideID(id: ImGuiID);
+}
+extern "C" {
+    pub fn igDataTypeGetInfo(data_type: ImGuiDataType) -> *const ImGuiDataTypeInfo;
+}
+extern "C" {
+    pub fn igDataTypeFormatString(
+        buf: *mut ::std::os::raw::c_char,
+        buf_size: ::std::os::raw::c_int,
+        data_type: ImGuiDataType,
+        p_data: *const ::std::os::raw::c_void,
+        format: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igDataTypeApplyOp(
+        data_type: ImGuiDataType,
+        op: ::std::os::raw::c_int,
+        output: *mut ::std::os::raw::c_void,
+        arg_1: *const ::std::os::raw::c_void,
+        arg_2: *const ::std::os::raw::c_void,
+    );
+}
+extern "C" {
+    pub fn igDataTypeApplyOpFromText(
+        buf: *const ::std::os::raw::c_char,
+        initial_value_buf: *const ::std::os::raw::c_char,
+        data_type: ImGuiDataType,
+        p_data: *mut ::std::os::raw::c_void,
+        format: *const ::std::os::raw::c_char,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igDataTypeCompare(
+        data_type: ImGuiDataType,
+        arg_1: *const ::std::os::raw::c_void,
+        arg_2: *const ::std::os::raw::c_void,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igDataTypeClamp(
+        data_type: ImGuiDataType,
+        p_data: *mut ::std::os::raw::c_void,
+        p_min: *const ::std::os::raw::c_void,
+        p_max: *const ::std::os::raw::c_void,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igInputTextEx(
+        label: *const ::std::os::raw::c_char,
+        hint: *const ::std::os::raw::c_char,
+        buf: *mut ::std::os::raw::c_char,
+        buf_size: ::std::os::raw::c_int,
+        size_arg: ImVec2,
+        flags: ImGuiInputTextFlags,
+        callback: ImGuiInputTextCallback,
+        user_data: *mut ::std::os::raw::c_void,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igTempInputText(
+        bb: ImRect,
+        id: ImGuiID,
+        label: *const ::std::os::raw::c_char,
+        buf: *mut ::std::os::raw::c_char,
+        buf_size: ::std::os::raw::c_int,
+        flags: ImGuiInputTextFlags,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igTempInputScalar(
+        bb: ImRect,
+        id: ImGuiID,
+        label: *const ::std::os::raw::c_char,
+        data_type: ImGuiDataType,
+        p_data: *mut ::std::os::raw::c_void,
+        format: *const ::std::os::raw::c_char,
+        p_clamp_min: *const ::std::os::raw::c_void,
+        p_clamp_max: *const ::std::os::raw::c_void,
+    ) -> bool;
+}
+extern "C" {
+    pub fn igTempInputIsActive(id: ImGuiID) -> bool;
+}
+extern "C" {
+    pub fn igGetInputTextState(id: ImGuiID) -> *mut ImGuiInputTextState;
+}
+extern "C" {
+    pub fn igColorTooltip(
+        text: *const ::std::os::raw::c_char,
+        col: *const f32,
+        flags: ImGuiColorEditFlags,
+    );
+}
+extern "C" {
+    pub fn igColorEditOptionsPopup(col: *const f32, flags: ImGuiColorEditFlags);
+}
+extern "C" {
+    pub fn igColorPickerOptionsPopup(ref_col: *const f32, flags: ImGuiColorEditFlags);
+}
+extern "C" {
+    pub fn igPlotEx(
+        plot_type: ImGuiPlotType,
+        label: *const ::std::os::raw::c_char,
+        values_getter: ::std::option::Option<
+            unsafe extern "C" fn(
+                data: *mut ::std::os::raw::c_void,
+                idx: ::std::os::raw::c_int,
+            ) -> f32,
+        >,
+        data: *mut ::std::os::raw::c_void,
+        values_count: ::std::os::raw::c_int,
+        values_offset: ::std::os::raw::c_int,
+        overlay_text: *const ::std::os::raw::c_char,
+        scale_min: f32,
+        scale_max: f32,
+        frame_size: ImVec2,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn igShadeVertsLinearColorGradientKeepAlpha(
+        draw_list: *mut ImDrawList,
+        vert_start_idx: ::std::os::raw::c_int,
+        vert_end_idx: ::std::os::raw::c_int,
+        gradient_p0: ImVec2,
+        gradient_p1: ImVec2,
+        col0: ImU32,
+        col1: ImU32,
+    );
+}
+extern "C" {
+    pub fn igShadeVertsLinearUV(
+        draw_list: *mut ImDrawList,
+        vert_start_idx: ::std::os::raw::c_int,
+        vert_end_idx: ::std::os::raw::c_int,
+        a: ImVec2,
+        b: ImVec2,
+        uv_a: ImVec2,
+        uv_b: ImVec2,
+        clamp: bool,
+    );
+}
+extern "C" {
+    pub fn igGcCompactTransientWindowBuffers(window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igGcAwakeTransientWindowBuffers(window: *mut ImGuiWindow);
+}
+extern "C" {
+    pub fn igDebugDrawItemRect(col: ImU32);
+}
+extern "C" {
+    pub fn igDebugStartItemPicker();
+}
+extern "C" {
+    pub fn igImFontAtlasBuildWithStbTruetype(atlas: *mut ImFontAtlas) -> bool;
+}
+extern "C" {
+    pub fn igImFontAtlasBuildInit(atlas: *mut ImFontAtlas);
+}
+extern "C" {
+    pub fn igImFontAtlasBuildSetupFont(
+        atlas: *mut ImFontAtlas,
+        font: *mut ImFont,
+        font_config: *mut ImFontConfig,
+        ascent: f32,
+        descent: f32,
+    );
+}
+extern "C" {
+    pub fn igImFontAtlasBuildPackCustomRects(
+        atlas: *mut ImFontAtlas,
+        stbrp_context_opaque: *mut ::std::os::raw::c_void,
+    );
+}
+extern "C" {
+    pub fn igImFontAtlasBuildFinish(atlas: *mut ImFontAtlas);
+}
+extern "C" {
+    pub fn igImFontAtlasBuildRender1bppRectFromString(
+        atlas: *mut ImFontAtlas,
+        atlas_x: ::std::os::raw::c_int,
+        atlas_y: ::std::os::raw::c_int,
+        w: ::std::os::raw::c_int,
+        h: ::std::os::raw::c_int,
+        in_str: *const ::std::os::raw::c_char,
+        in_marker_char: ::std::os::raw::c_char,
+        in_marker_pixel_value: ::std::os::raw::c_uchar,
+    );
+}
+extern "C" {
+    pub fn igImFontAtlasBuildMultiplyCalcLookupTable(
+        out_table: *mut ::std::os::raw::c_uchar,
+        in_multiply_factor: f32,
+    );
+}
+extern "C" {
+    pub fn igImFontAtlasBuildMultiplyRectAlpha8(
+        table: *const ::std::os::raw::c_uchar,
+        pixels: *mut ::std::os::raw::c_uchar,
+        x: ::std::os::raw::c_int,
+        y: ::std::os::raw::c_int,
+        w: ::std::os::raw::c_int,
+        h: ::std::os::raw::c_int,
+        stride: ::std::os::raw::c_int,
+    );
 }
 extern "C" {
     pub fn igLogText(fmt: *const ::std::os::raw::c_char, ...);
