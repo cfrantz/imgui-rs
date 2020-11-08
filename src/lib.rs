@@ -366,6 +366,20 @@ impl<'ui> Ui<'ui> {
 }
 
 
+/*
+bitflags! {
+    #[repr(transparent)]
+    pub struct DockNodeFlags: u32 {
+        const NONE = sys::ImGuiDockNodeFlags_None;
+        const KEEP_ALIVE_ONLY = sys::ImGuiDockNodeFlags_KeepAliveOnly;
+        const NO_DOCKING_IN_CENTRAL_NODE = sys::ImGuiDockNodeFlags_NoDockingInCentralNode;
+        const PASS_THRU_CENTRAL_NODE = sys::ImGuiDockNodeFlags_PassthruCentralNode;
+        const NO_SPLIT = sys::ImGuiDockNodeFlags_NoSplit;
+        const NO_RESIZE = sys::ImGuiDockNodeFlags_NoResize;
+        const AUTO_HIDE_TAB_BAR = sys::ImGuiDockNodeFlags_AutoHideTabBar;
+    }
+}
+*/
 
 // TODO(cfrantz): Finish the docking API
 // Docking
@@ -404,6 +418,47 @@ impl<'ui> Ui<'ui> {
             sys::igIsWindowDocked()
         }
     }
+
+    pub fn dock_builder_has_node(&self, id: Id) -> bool {
+        unsafe {
+            sys::igDockBuilderGetNode(id.as_imgui_id()) != std::ptr::null_mut()
+        }
+    }
+
+    pub fn dock_builder_remove_node(&self, id: Id) {
+        unsafe {
+            sys::igDockBuilderRemoveNode(id.as_imgui_id());
+        }
+    }
+
+    pub fn dock_builder_add_node(&self, id: Id, flags: i32) {
+        unsafe {
+            sys::igDockBuilderAddNode(id.as_imgui_id(), flags);
+        }
+    }
+
+    pub fn dock_builder_split_node(&self, id: Id, split_dir: Direction, split_ratio: f32) -> (Id<'static>, Id<'static>) {
+        unsafe {
+            let mut opposite: sys::ImGuiID = 0;
+            let id1 = sys::igDockBuilderSplitNode(id.as_imgui_id(), split_dir as i32, split_ratio,
+                std::ptr::null_mut(),
+                &mut opposite as *mut u32);
+            (Id::ImGuiID(id1), Id::ImGuiID(opposite))
+        }
+    }
+
+    pub fn dock_builder_dock_window<'p>(&self, window_name: &'p ImStr, id: Id) {
+        unsafe {
+            sys::igDockBuilderDockWindow(window_name.as_ptr(), id.as_imgui_id());
+        }
+    }
+
+    pub fn dock_builder_finish(&self, id: Id) {
+        unsafe {
+            sys::igDockBuilderFinish(id.as_imgui_id());
+        }
+    }
+
 }
 
 
