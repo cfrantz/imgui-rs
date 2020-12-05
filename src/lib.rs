@@ -366,20 +366,34 @@ impl<'ui> Ui<'ui> {
 }
 
 
-/*
-bitflags! {
-    #[repr(transparent)]
-    pub struct DockNodeFlags: u32 {
-        const NONE = sys::ImGuiDockNodeFlags_None;
-        const KEEP_ALIVE_ONLY = sys::ImGuiDockNodeFlags_KeepAliveOnly;
-        const NO_DOCKING_IN_CENTRAL_NODE = sys::ImGuiDockNodeFlags_NoDockingInCentralNode;
-        const PASS_THRU_CENTRAL_NODE = sys::ImGuiDockNodeFlags_PassthruCentralNode;
-        const NO_SPLIT = sys::ImGuiDockNodeFlags_NoSplit;
-        const NO_RESIZE = sys::ImGuiDockNodeFlags_NoResize;
-        const AUTO_HIDE_TAB_BAR = sys::ImGuiDockNodeFlags_AutoHideTabBar;
-    }
+
+
+//#[repr(transparent)]
+pub struct DockNodeFlags;
+impl DockNodeFlags {
+    pub const NONE: i32 = sys::ImGuiDockNodeFlags_None as i32;
+    pub const KEEP_ALIVE_ONLY: i32 = sys::ImGuiDockNodeFlags_KeepAliveOnly as i32;
+    pub const NO_DOCKING_IN_CENTRAL_NODE: i32 = sys::ImGuiDockNodeFlags_NoDockingInCentralNode as i32;
+    pub const PASS_THRU_CENTRAL_NODE: i32 = sys::ImGuiDockNodeFlags_PassthruCentralNode as i32;
+    pub const NO_SPLIT: i32 = sys::ImGuiDockNodeFlags_NoSplit as i32;
+    pub const NO_RESIZE: i32 = sys::ImGuiDockNodeFlags_NoResize as i32;
+    pub const AUTO_HIDE_TAB_BAR: i32 = sys::ImGuiDockNodeFlags_AutoHideTabBar as i32;
+
+    pub const DOCK_SPACE: i32 = sys::ImGuiDockNodeFlags_DockSpace;
+    pub const CENTRAL_NODE: i32 = sys::ImGuiDockNodeFlags_CentralNode;
+    pub const NO_TAB_BAR: i32 = sys::ImGuiDockNodeFlags_NoTabBar;
+    pub const HIDDEN_TAB_BAR: i32 = sys::ImGuiDockNodeFlags_HiddenTabBar;
+    pub const NO_WINDOW_MENU_BUTTON: i32 = sys::ImGuiDockNodeFlags_NoWindowMenuButton;
+    pub const NO_CLOSE_BUTTON: i32 = sys::ImGuiDockNodeFlags_NoCloseButton;
+    pub const NO_DOCKING: i32 = sys::ImGuiDockNodeFlags_NoDocking;
+    pub const NO_DOCKING_SPLIT_ME: i32 = sys::ImGuiDockNodeFlags_NoDockingSplitMe;
+    pub const NO_DOCKING_SPLIT_OTHER: i32 = sys::ImGuiDockNodeFlags_NoDockingSplitOther;
+    pub const NO_DOCKING_OVER_ME: i32 = sys::ImGuiDockNodeFlags_NoDockingOverMe;
+    pub const NO_DOCKING_OVER_OTHER: i32 = sys::ImGuiDockNodeFlags_NoDockingOverOther;
+    pub const NO_RESIZE_X: i32 = sys::ImGuiDockNodeFlags_NoResizeX;
+    pub const NO_RESIZE_Y: i32 = sys::ImGuiDockNodeFlags_NoResizeY;
 }
-*/
+
 
 // TODO(cfrantz): Finish the docking API
 // Docking
@@ -434,6 +448,12 @@ impl<'ui> Ui<'ui> {
     pub fn dock_builder_add_node(&self, id: Id, flags: i32) {
         unsafe {
             sys::igDockBuilderAddNode(id.as_imgui_id(), flags);
+        }
+    }
+
+    pub fn dock_builder_set_node_size(&self, id: Id, size: [f32; 2]) {
+        unsafe {
+            sys::igDockBuilderSetNodeSize(id.as_imgui_id(), size.into());
         }
     }
 
