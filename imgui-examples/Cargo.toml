@@ -1,18 +1,18 @@
 [package]
-name = "imgui-examples"
+name = "examples"
 version = "0.0.0"
 edition = "2018"
-authors = ["Joonas Javanainen <joonas.javanainen@gmail.com>", "imgui-rs contributors"]
+authors = ["The imgui-rs Developers"]
 description = "imgui crate examples using Glium backend"
-homepage = "https://github.com/Gekkio/imgui-rs"
-repository = "https://github.com/Gekkio/imgui-rs"
+homepage = "https://github.com/imgui-rs/imgui-rs"
+repository = "https://github.com/imgui-rs/imgui-rs"
 license = "MIT/Apache-2.0"
 publish = false
 
 [dev-dependencies]
 clipboard = "0.5"
-glium = { version = "0.27", default-features = true }
+glium = { version = "0.29", default-features = true }
 image = "0.23"
-imgui = { path = "../" }
+imgui = { path = "../imgui" }
 imgui-glium-renderer = { path = "../imgui-glium-renderer" }
 imgui-winit-support = { path = "../imgui-winit-support" }

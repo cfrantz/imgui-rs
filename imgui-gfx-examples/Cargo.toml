@@ -2,27 +2,28 @@
 name = "imgui-gfx-examples"
 version = "0.0.0"
 edition = "2018"
-authors = ["Joonas Javanainen <joonas.javanainen@gmail.com>", "imgui-rs contributors"]
+authors = ["The imgui-rs Developers"]
 description = "imgui crate examples"
-homepage = "https://github.com/Gekkio/imgui-rs"
-repository = "https://github.com/Gekkio/imgui-rs"
+homepage = "https://github.com/imgui-rs/imgui-rs"
+repository = "https://github.com/imgui-rs/imgui-rs"
 license = "MIT/Apache-2.0"
 publish = false
 
 [features]
 opengl = ["imgui-gfx-renderer/opengl"]
-directx = ["imgui-gfx-renderer/directx"]
+# FIXME
+# directx = ["imgui-gfx-renderer/directx"]
 default = ["opengl"]
 
 [dev-dependencies]
 gfx = "0.18"
 gfx_device_gl = "0.16"
-gfx_window_glutin = "0.31"
-glutin = "0.21"
+glutin = "0.26"
 image = "0.23"
-imgui = { path = "../" }
+imgui = { path = "../imgui" }
 imgui-gfx-renderer = { path = "../imgui-gfx-renderer" }
-imgui-winit-support = { path = "../imgui-winit-support", default-features = false, features = ["winit-19"] }
+imgui-winit-support = { path = "../imgui-winit-support" }
+old_school_gfx_glutin_ext = "0.26"
 
 [target.'cfg(windows)'.dev-dependencies]
 gfx_device_dx11 = "0.8"

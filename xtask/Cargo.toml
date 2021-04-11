@@ -1,0 +1,13 @@
+# See https://github.com/matklad/cargo-xtask for more on this pattern.
+[package]
+name = "xtask"
+version = "0.1.0"
+authors = ["Thom Chiovoloni <chiovolonit@gmail.com>"]
+edition = "2018"
+publish = false
+
+[dependencies]
+anyhow = "1"
+smoljson = "0.1"
+xshell = "0.1"
+xflags = "0.1"

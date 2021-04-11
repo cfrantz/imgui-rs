@@ -28,7 +28,9 @@ struct State {
     buf: ImString,
     item: usize,
     item2: usize,
+    item3: i32,
     text: ImString,
+    text_with_hint: ImString,
     text_multiline: ImString,
     i0: i32,
     f0: f32,
@@ -39,6 +41,7 @@ struct State {
     col1: [f32; 3],
     col2: [f32; 4],
     selected_fish: Option<usize>,
+    selected_fish2: Option<usize>,
     auto_resize_state: AutoResizeState,
     file_menu: FileMenuState,
     radio_button: i32,
@@ -47,6 +50,7 @@ struct State {
     dont_ask_me_next_time: bool,
     stacked_modals_item: usize,
     stacked_modals_color: [f32; 4],
+    app_log: Vec<String>,
 
     tabs: TabState,
 }
@@ -57,6 +61,7 @@ impl Default for State {
         buf.push_str("日本語");
         let mut text = ImString::with_capacity(128);
         text.push_str("Hello, world!");
+        let text_with_hint = ImString::with_capacity(128);
         let mut text_multiline = ImString::with_capacity(128);
         text_multiline.push_str("Hello, world!\nMultiline");
         State {
@@ -82,11 +87,13 @@ impl Default for State {
             no_menu: false,
             no_close: false,
             wrap_width: 200.0,
-            buf: buf,
+            buf,
             item: 0,
             item2: 0,
-            text: text,
-            text_multiline: text_multiline,
+            item3: 0,
+            text,
+            text_with_hint,
+            text_multiline,
             i0: 123,
             f0: 0.001,
             vec2f: [0.10, 0.20],
@@ -96,6 +103,7 @@ impl Default for State {
             col1: [1.0, 0.0, 0.2],
             col2: [0.4, 0.7, 0.0, 0.5],
             selected_fish: None,
+            selected_fish2: None,
             auto_resize_state: Default::default(),
             file_menu: Default::default(),
             radio_button: 0,
@@ -104,6 +112,7 @@ impl Default for State {
             dont_ask_me_next_time: false,
             stacked_modals_item: 0,
             stacked_modals_color: [0.4, 0.7, 0.0, 0.5],
+            app_log: Vec::new(),
             tabs: TabState::default(),
         }
     }
@@ -308,6 +317,10 @@ fn show_test_window(ui: &Ui, state: &mut State, opened: &mut bool) {
         );
     }
 
+    if state.show_app_log {
+        show_app_log(ui, &mut state.app_log);
+    }
+
     let mut window = Window::new(im_str!("ImGui Demo"))
         .title_bar(!state.no_titlebar)
         .resizable(!state.no_resize)
@@ -323,11 +336,11 @@ fn show_test_window(ui: &Ui, state: &mut State, opened: &mut bool) {
         ui.push_item_width(-140.0);
         ui.text(format!("dear imgui says hello. ({})", imgui::dear_imgui_version()));
         if let Some(menu_bar) = ui.begin_menu_bar() {
-            if let Some(menu) = ui.begin_menu(im_str!("Menu"), true) {
+            if let Some(menu) = ui.begin_menu(im_str!("Menu")) {
                 show_example_menu_file(ui, &mut state.file_menu);
-                menu.end(ui);
+                menu.end();
             }
-            if let Some(menu) = ui.begin_menu(im_str!("Examples"), true) {
+            if let Some(menu) = ui.begin_menu(im_str!("Examples")) {
                 MenuItem::new(im_str!("Main menu bar"))
                     .build_with_ref(ui, &mut state.show_app_main_menu_bar);
                 MenuItem::new(im_str!("Console"))
@@ -350,18 +363,18 @@ fn show_test_window(ui: &Ui, state: &mut State, opened: &mut bool) {
                     .build_with_ref(ui, &mut state.show_app_manipulating_window_title);
                 MenuItem::new(im_str!("Custom rendering"))
                     .build_with_ref(ui, &mut state.show_app_custom_rendering);
-                menu.end(ui);
+                menu.end();
             }
-            if let Some(menu) = ui.begin_menu(im_str!("Help"), true) {
+            if let Some(menu) = ui.begin_menu(im_str!("Help")) {
                 MenuItem::new(im_str!("Metrics"))
                     .build_with_ref(ui, &mut state.show_app_metrics);
                 MenuItem::new(im_str!("Style Editor"))
                     .build_with_ref(ui, &mut state.show_app_style_editor);
                 MenuItem::new(im_str!("About ImGui"))
                     .build_with_ref(ui, &mut state.show_app_about);
-                menu.end(ui);
+                menu.end();
             }
-            menu_bar.end(ui);
+            menu_bar.end();
         }
         ui.spacing();
         if CollapsingHeader::new(im_str!("Help")).build(&ui) {
@@ -375,14 +388,14 @@ fn show_test_window(ui: &Ui, state: &mut State, opened: &mut bool) {
 
         if CollapsingHeader::new(im_str!("Window options")).build(&ui) {
             ui.checkbox(im_str!("No titlebar"), &mut state.no_titlebar);
-            ui.same_line(150.0);
+            ui.same_line_with_pos(150.0);
             ui.checkbox(im_str!("No scrollbar"), &mut state.no_scrollbar);
-            ui.same_line(300.0);
+            ui.same_line_with_pos(300.0);
             ui.checkbox(im_str!("No menu"), &mut state.no_menu);
             ui.checkbox(im_str!("No move"), &mut state.no_move);
-            ui.same_line(150.0);
+            ui.same_line_with_pos(150.0);
             ui.checkbox(im_str!("No resize"), &mut state.no_resize);
-            ui.same_line(300.0);
+            ui.same_line_with_pos(300.0);
             ui.checkbox(im_str!("No collapse"), &mut state.no_collapse);
             ui.checkbox(im_str!("No close"), &mut state.no_close);
 
@@ -395,7 +408,7 @@ fn show_test_window(ui: &Ui, state: &mut State, opened: &mut bool) {
                 for i in 0..5 {
                     TreeNode::new(&im_str!("Child {}", i)).build(&ui, || {
                         ui.text(im_str!("blah blah"));
-                        ui.same_line(0.0);
+                        ui.same_line();
                         if ui.small_button(im_str!("print")) {
                             println!("Child {} pressed", i);
                         }
@@ -460,9 +473,9 @@ fn show_test_window(ui: &Ui, state: &mut State, opened: &mut bool) {
             });
 
             ui.radio_button(im_str!("radio a"), &mut state.radio_button, 0);
-            ui.same_line(0.0);
+            ui.same_line();
             ui.radio_button(im_str!("radio b"), &mut state.radio_button, 1);
-            ui.same_line(0.0);
+            ui.same_line();
             ui.radio_button(im_str!("radio c"), &mut state.radio_button, 2);
 
             ui.separator();
@@ -490,7 +503,41 @@ fn show_test_window(ui: &Ui, state: &mut State, opened: &mut bool) {
                 im_str!("KKKK"),
             ];
             ComboBox::new(im_str!("combo scroll")).build_simple_string(ui, &mut state.item2, &items);
+
+            ui.list_box(im_str!("list"), &mut state.item3, &items, 8);
+
+
+            let names = [
+                im_str!("Bream"),
+                im_str!("Haddock"),
+                im_str!("Mackerel"),
+                im_str!("Pollock"),
+                im_str!("Tilefish"),
+            ];
+
+            ListBox::new(im_str!("selectables list")).build(ui, || {
+                for (index, name) in names.iter().enumerate() {
+                    let selected = matches!(state.selected_fish2, Some(i) if i == index );
+                    if Selectable::new(name).selected(selected).build(ui) {
+                        state.selected_fish2 = Some(index);
+                    }
+                }
+            });
+
+            let last_size = ui.item_rect_size();
+            ListBox::new(im_str!("selectable list 2")).size([0.0, last_size[1] * 0.66]).build(ui, || {
+                for (index, name) in names.iter().enumerate() {
+                    let selected = matches!(state.selected_fish2, Some(i) if i == index );
+                    if Selectable::new(name).selected(selected).build(ui) {
+                        state.selected_fish2 = Some(index);
+                    }
+                }
+            });
+
             ui.input_text(im_str!("input text"), &mut state.text)
+                .build();
+            ui.input_text(im_str!("input text with hint"), &mut state.text_with_hint)
+                .hint(im_str!("enter text here"))
                 .build();
             ui.input_int(im_str!("input int"), &mut state.i0).build();
             Drag::new(im_str!("drag int")).build(ui, &mut state.i0);
@@ -521,7 +568,7 @@ fn show_test_window(ui: &Ui, state: &mut State, opened: &mut bool) {
             TreeNode::new(im_str!("Color/Picker Widgets")).build(&ui, || {
                 let s = &mut state.color_edit;
                 ui.checkbox(im_str!("With HDR"), &mut s.hdr);
-                ui.same_line(0.0);
+                ui.same_line();
                 show_help_marker(
                     ui,
                     "Currently all this does is to lift the 0..1 \
@@ -534,7 +581,7 @@ fn show_test_window(ui: &Ui, state: &mut State, opened: &mut bool) {
                     &mut s.alpha_half_preview,
                 );
                 ui.checkbox(im_str!("With Options Menu"), &mut s.options_menu);
-                ui.same_line(0.0);
+                ui.same_line();
                 show_help_marker(
                     ui,
                     "Right-click on the individual color widget to \
@@ -552,7 +599,7 @@ fn show_test_window(ui: &Ui, state: &mut State, opened: &mut bool) {
                 };
 
                 ui.text(im_str!("Color widget:"));
-                ui.same_line(0.0);
+                ui.same_line();
                 show_help_marker(
                     ui,
                     "Click on the colored square to open a color picker.
@@ -576,7 +623,7 @@ CTRL+click on individual component to input value.\n",
                     .build(ui);
 
                 ui.text(im_str!("Color button with Picker:"));
-                ui.same_line(0.0);
+                ui.same_line();
                 show_help_marker(
                     ui,
                     "With the inputs(false) function you can hide all \
@@ -595,10 +642,10 @@ CTRL+click on individual component to input value.\n",
                 ui.checkbox(im_str!("With Alpha Bar"), &mut s.alpha_bar);
                 ui.checkbox(im_str!("With Side Preview"), &mut s.side_preview);
                 if s.side_preview {
-                    ui.same_line(0.0);
+                    ui.same_line();
                     ui.checkbox(im_str!("With Ref Color"), &mut s.ref_color);
                     if s.ref_color {
-                        ui.same_line(0.0);
+                        ui.same_line();
                         ColorEdit::new(im_str!("##RefColor"), &mut s.ref_color_v)
                             .flags(misc_flags)
                             .inputs(false)
@@ -656,13 +703,13 @@ CTRL+click on individual component to input value.\n",
                     }
                     let style = ui.push_style_var(StyleVar::FramePadding([0.0, 0.0]));
                     ui.checkbox(im_str!("Artichoke"), &mut s.artichoke_tab);
-                    ui.same_line(0.0);
+                    ui.same_line();
                     ui.checkbox(im_str!("Beetroot"), &mut s.beetroot_tab);
-                    ui.same_line(0.0);
+                    ui.same_line();
                     ui.checkbox(im_str!("Celery"), &mut s.celery_tab);
-                    ui.same_line(0.0);
+                    ui.same_line();
                     ui.checkbox(im_str!("Daikon"), &mut s.daikon_tab);
-                    style.pop(ui);
+                    style.pop();
 
                     let flags = {
                         let mut f = TabBarFlags::empty();
@@ -710,7 +757,7 @@ CTRL+click on individual component to input value.\n",
                 if ui.small_button(im_str!("Select..")) {
                     ui.open_popup(im_str!("select"));
                 }
-                ui.same_line(0.0);
+                ui.same_line();
                 ui.text(match state.selected_fish {
                     Some(index) => names[index],
                     None => im_str!("<None>"),
@@ -732,29 +779,29 @@ CTRL+click on individual component to input value.\n",
                      them by clicking outside the window."
                 ));
 
-                if ui.button(im_str!("Delete.."), [0.0, 0.0]) {
+                if ui.button(im_str!("Delete..")) {
                     ui.open_popup(im_str!("Delete?"));
                 }
-                ui.popup_modal(im_str!("Delete?")).always_auto_resize(true).build(|| {
+                PopupModal::new(im_str!("Delete?")).always_auto_resize(true).build(ui, || {
                     ui.text("All those beautiful files will be deleted.\nThis operation cannot be undone!\n\n");
                     ui.separator();
                     let style = ui.push_style_var(StyleVar::FramePadding([0.0, 0.0]));
                     ui.checkbox(im_str!("Don't ask me next time"), &mut state.dont_ask_me_next_time);
 
-                    if ui.button(im_str!("OK"), [120.0, 0.0]) {
+                    if ui.button_with_size(im_str!("OK"), [120.0, 0.0]) {
                         ui.close_current_popup();
                     }
-                    ui.same_line(0.0);
-                    if ui.button(im_str!("Cancel"), [120.0, 0.0]) {
+                    ui.same_line();
+                    if ui.button_with_size(im_str!("Cancel"), [120.0, 0.0]) {
                         ui.close_current_popup();
                     }
-                    style.pop(ui);
+                    style.pop();
                 });
 
-                if ui.button(im_str!("Stacked modals.."), [0.0, 0.0]) {
+                if ui.button(im_str!("Stacked modals..")) {
                     ui.open_popup(im_str!("Stacked 1"));
                 }
-                ui.popup_modal(im_str!("Stacked 1")).build(|| {
+                PopupModal::new(im_str!("Stacked 1")).build(ui, || {
                     ui.text(
                        "Hello from Stacked The First\n\
                         Using style[StyleColor::ModalWindowDarkening] for darkening."
@@ -765,32 +812,32 @@ CTRL+click on individual component to input value.\n",
 
                     ColorEdit::new(im_str!("color"), &mut state.stacked_modals_color).build(ui);
 
-                    if ui.button(im_str!("Add another modal.."), [0.0, 0.0]) {
+                    if ui.button(im_str!("Add another modal..")) {
                         ui.open_popup(im_str!("Stacked 2"))   ;
                     }
-                    ui.popup_modal(im_str!("Stacked 2")).build(|| {
+                    PopupModal::new(im_str!("Stacked 2")).build(ui, || {
                         ui.text("Hello from Stacked The Second");
-                        if ui.button(im_str!("Close"), [0.0, 0.0]) {
+                        if ui.button(im_str!("Close")) {
                             ui.close_current_popup();
                         }
                     });
 
-                    if ui.button(im_str!("Close"), [0.0, 0.0]) {
+                    if ui.button(im_str!("Close")) {
                         ui.close_current_popup();
                     }
                 });
             });
         }
-    })
+    });
 }
 
 fn show_example_app_main_menu_bar<'a>(ui: &Ui<'a>, state: &mut State) {
     if let Some(menu_bar) = ui.begin_main_menu_bar() {
-        if let Some(menu) = ui.begin_menu(im_str!("File"), true) {
+        if let Some(menu) = ui.begin_menu(im_str!("File")) {
             show_example_menu_file(ui, &mut state.file_menu);
-            menu.end(ui);
+            menu.end();
         }
-        if let Some(menu) = ui.begin_menu(im_str!("Edit"), true) {
+        if let Some(menu) = ui.begin_menu(im_str!("Edit")) {
             MenuItem::new(im_str!("Undo"))
                 .shortcut(im_str!("CTRL+Z"))
                 .build(ui);
@@ -808,9 +855,9 @@ fn show_example_app_main_menu_bar<'a>(ui: &Ui<'a>, state: &mut State) {
             MenuItem::new(im_str!("Paste"))
                 .shortcut(im_str!("CTRL+V"))
                 .build(ui);
-            menu.end(ui);
+            menu.end();
         }
-        menu_bar.end(ui);
+        menu_bar.end();
     }
 }
 
@@ -822,27 +869,27 @@ fn show_example_menu_file<'a>(ui: &Ui<'a>, state: &mut FileMenuState) {
     MenuItem::new(im_str!("Open"))
         .shortcut(im_str!("Ctrl+O"))
         .build(ui);
-    if let Some(menu) = ui.begin_menu(im_str!("Open Recent"), true) {
+    if let Some(menu) = ui.begin_menu(im_str!("Open Recent")) {
         MenuItem::new(im_str!("fish_hat.c")).build(ui);
         MenuItem::new(im_str!("fish_hat.inl")).build(ui);
         MenuItem::new(im_str!("fish_hat.h")).build(ui);
-        if let Some(menu) = ui.begin_menu(im_str!("More.."), true) {
+        if let Some(menu) = ui.begin_menu(im_str!("More..")) {
             MenuItem::new(im_str!("Hello")).build(ui);
             MenuItem::new(im_str!("Sailor")).build(ui);
-            if let Some(menu) = ui.begin_menu(im_str!("Recurse.."), true) {
+            if let Some(menu) = ui.begin_menu(im_str!("Recurse..")) {
                 show_example_menu_file(ui, state);
-                menu.end(ui);
+                menu.end();
             }
-            menu.end(ui);
+            menu.end();
         }
-        menu.end(ui);
+        menu.end();
     }
     MenuItem::new(im_str!("Save"))
         .shortcut(im_str!("Ctrl+S"))
         .build(ui);
     MenuItem::new(im_str!("Save As..")).build(ui);
     ui.separator();
-    if let Some(menu) = ui.begin_menu(im_str!("Options"), true) {
+    if let Some(menu) = ui.begin_menu(im_str!("Options")) {
         MenuItem::new(im_str!("Enabled")).build_with_ref(ui, &mut state.enabled);
         ChildWindow::new("child")
             .size([0.0, 60.0])
@@ -862,17 +909,17 @@ fn show_example_menu_file<'a>(ui: &Ui<'a>, state: &mut FileMenuState) {
         let items = [im_str!("Yes"), im_str!("No"), im_str!("Maybe")];
         ComboBox::new(im_str!("Combo")).build_simple_string(ui, &mut state.n, &items);
         ui.checkbox(im_str!("Check"), &mut state.b);
-        menu.end(ui);
+        menu.end();
     }
-    if let Some(menu) = ui.begin_menu(im_str!("Colors"), true) {
+    if let Some(menu) = ui.begin_menu(im_str!("Colors")) {
         for &col in StyleColor::VARIANTS.iter() {
             MenuItem::new(&im_str!("{:?}", col)).build(ui);
         }
-        menu.end(ui);
+        menu.end();
     }
-    if let Some(_) = ui.begin_menu(im_str!("Disabled"), false) {
-        unreachable!();
-    }
+    assert!(ui
+        .begin_menu_with_enabled(im_str!("Disabled"), false)
+        .is_none());
     MenuItem::new(im_str!("Checked")).selected(true).build(ui);
     MenuItem::new(im_str!("Quit"))
         .shortcut(im_str!("Alt+F4"))
@@ -895,7 +942,7 @@ output your content because that would create a feedback loop.",
             for i in 0..state.lines {
                 ui.text(format!("{:2$}This is line {}", "", i, i as usize * 4));
             }
-        })
+        });
 }
 
 fn show_example_app_fixed_overlay(ui: &Ui, opened: &mut bool) {
@@ -921,7 +968,7 @@ fn show_example_app_fixed_overlay(ui: &Ui, opened: &mut bool) {
                 mouse_pos[0], mouse_pos[1]
             ));
         });
-    style.pop(ui);
+    style.pop();
 }
 
 fn show_example_app_manipulating_window_title(ui: &Ui) {
@@ -1087,12 +1134,12 @@ fn show_example_app_custom_rendering(ui: &Ui, state: &mut CustomRenderingState, 
             ui.separator();
 
             ui.text(im_str!("Canvas example"));
-            if ui.button(im_str!("Clear"), [0.0, 0.0]) {
+            if ui.button(im_str!("Clear")) {
                 state.points.clear();
             }
             if state.points.len() >= 2 {
-                ui.same_line(0.0);
-                if ui.button(im_str!("Undo"), [0.0, 0.0]) {
+                ui.same_line();
+                if ui.button(im_str!("Undo")) {
                     state.points.pop();
                     state.points.pop();
                 }
@@ -1197,5 +1244,58 @@ fn show_example_app_custom_rendering(ui: &Ui, state: &mut CustomRenderingState, 
             if adding_preview {
                 state.points.pop();
             }
+        });
+}
+
+fn show_app_log(ui: &Ui, app_log: &mut Vec<String>) {
+    Window::new(im_str!("Example: Log"))
+        .size([500.0, 400.0], Condition::FirstUseEver)
+        .build(ui, || {
+            if ui.small_button(im_str!("[Debug] Add 5 entries")) {
+                let categories = ["info", "warn", "error"];
+                let words = [
+                    "Bumfuzzled",
+                    "Cattywampus",
+                    "Snickersnee",
+                    "Abibliophobia",
+                    "Absquatulate",
+                    "Nincompoop",
+                    "Pauciloquent",
+                ];
+                for _ in 0..5 {
+                    let category = categories[app_log.len() % categories.len()];
+                    let word = words[app_log.len() % words.len()];
+                    let frame = ui.frame_count();
+                    let time = ui.time();
+                    let text = format!(
+                        "{:05} {} Hello, current time is {:.1}, here's a word: {}",
+                        frame, category, time, word
+                    );
+                    app_log.push(text);
+                }
+            }
+            if ui.button(im_str!("Clear")) {
+                app_log.clear();
+            }
+            ui.same_line();
+            if ui.button(im_str!("Copy")) {
+                ui.set_clipboard_text(&ImString::from(app_log.join("\n")));
+            }
+            ui.separator();
+            ChildWindow::new("logwindow")
+                .flags(WindowFlags::HORIZONTAL_SCROLLBAR)
+                .build(ui, || {
+                    if !app_log.is_empty() {
+                        let mut clipper = ListClipper::new(app_log.len() as i32).begin(ui);
+                        while clipper.step() {
+                            for line in clipper.display_start()..clipper.display_end() {
+                                ui.text(&app_log[line as usize]);
+                            }
+                        }
+                    }
+                    if ui.scroll_y() >= ui.scroll_max_y() {
+                        ui.set_scroll_here_y();
+                    }
+                });
         });
 }
