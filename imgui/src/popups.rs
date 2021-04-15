@@ -214,4 +214,14 @@ impl<'ui> Ui<'ui> {
     pub fn close_current_popup(&self) {
         unsafe { sys::igCloseCurrentPopup() };
     }
+
+
+    /// Create a popup context item
+    /// TODO: what should this API really look like.
+    pub fn popup_context_item<'p>(&self, str_id: &'p ImStr) -> bool {
+        unsafe { sys::igBeginPopupContextItem(str_id.as_ptr(), 1) }
+    }
+    pub fn end_popup(&self) {
+            unsafe { sys::igEndPopup() };
+    }
 }
